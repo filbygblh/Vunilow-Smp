@@ -3,204 +3,258 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VunilowSmp | Java &amp; Bedrock Shop Survival</title>
-<meta name="description" content="VunilowSmp is a Java and Bedrock shop survival SMP with voice chat. Join at Vunilowsmp.net">
+<title>Vunilow Smp | Java &amp; Bedrock Shop Survival</title>
+<meta name="description" content="Vunilow Smp is a Java and Bedrock shop survival SMP with proximity voice chat. Join at Vunilowsmp.net">
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --void:#0e0620; --deep:#1a0b3a; --panel:#241049; --violet:#9400ff; --magenta:#e100ff;
-  --lilac:#d6b6ff; --text:#f3eaff; --muted:#a894c9; --line:#3d1f78;
+  --void:#0a0416; --deep:#160932; --panel:#210f45; --violet:#9400ff; --magenta:#e100ff;
+  --lilac:#d6b6ff; --text:#f5edff; --muted:#a995cc; --line:#3a1d76;
   --px:'Pixelify Sans',ui-monospace,monospace; --body:'DM Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
 }
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth}
-body{background:var(--void);color:var(--text);font:400 1.05rem/1.6 var(--body);
-  background-image:radial-gradient(60rem 30rem at 50% -8rem,#3b0f80 0,transparent 70%)}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{background:var(--void);color:var(--text);font:400 1.05rem/1.65 var(--body);overflow-x:hidden}
 a{color:var(--lilac)}
 :focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
-.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
-h1,h2,h3{font-family:var(--px);font-weight:700;line-height:1.1}
-h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:1rem}
+.wrap{max-width:71rem;margin:0 auto;padding:0 1.25rem;position:relative}
+h1,h2,h3{font-family:var(--px);font-weight:700;line-height:1.05}
+h2{font-size:clamp(2.1rem,5vw,3.1rem);margin-bottom:.7rem}
+.n{font-family:var(--body);font-weight:inherit;font-variant-numeric:lining-nums tabular-nums;letter-spacing:.02em}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header,section,footer,.bar{position:relative;z-index:1}
+.glow{position:absolute;inset:0 0 auto;height:46rem;z-index:0;pointer-events:none;
+  background:radial-gradient(46rem 26rem at 72% 32%,#5a12b8bb,transparent 70%),radial-gradient(30rem 20rem at 12% 8%,#e100ff30,transparent 70%)}
 
 /* nav */
-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
-nav .brand{display:flex;align-items:center;gap:.6rem;font:700 1.3rem var(--px);color:var(--text);text-decoration:none}
-nav .brand img{width:28px;height:auto;image-rendering:pixelated}
-nav ul{display:flex;gap:1.4rem;list-style:none;padding:0}
-nav ul a{color:var(--muted);text-decoration:none;font-weight:500}
-nav ul a:hover{color:var(--text)}
+.bar{position:sticky;top:0;z-index:10;background:#0a0416d9;backdrop-filter:blur(12px);border-bottom:2px solid #ffffff10}
+nav{display:flex;align-items:center;justify-content:space-between;height:4rem}
+.brand{display:flex;align-items:center;gap:.6rem;font:700 1.3rem var(--px);color:var(--text);text-decoration:none}
+.brand img{width:26px;image-rendering:pixelated;transition:transform .4s var(--ease)}
+.brand:hover img{transform:rotate(-8deg) scale(1.15)}
+nav ul{display:flex;gap:.3rem;list-style:none;padding:0;align-items:center}
+nav ul a{color:var(--muted);text-decoration:none;font-weight:500;padding:.45rem .8rem;transition:color .2s,background .2s}
+nav ul a:hover{color:#fff;background:#ffffff12}
+nav ul li:nth-child(3){margin-right:.6rem}
+a.yt,a.tw{color:#fff!important;font-family:var(--px);font-weight:700;border:2px solid transparent;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s!important}
+a.yt{background:#e5162b!important;border-color:#e5162b}
+a.tw{background:#ff4fa8!important;border-color:#ff4fa8}
+a.yt:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 #7a0a15}
+a.tw:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 #8a1f5a}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;padding:3.5rem 0 4.5rem}
-.hero h1{font-size:clamp(2.8rem,8vw,5.6rem);letter-spacing:-.01em}
-.hero p.lede{max-width:34rem;margin:1.2rem 0 2rem;color:var(--lilac);font-size:1.15rem}
-.hero img{width:clamp(9rem,22vw,17rem);height:auto;image-rendering:pixelated;filter:drop-shadow(0 0 40px #9400ff88);
-  animation:float 5s steps(10) infinite alternate}
-@keyframes float{to{transform:translateY(-14px)}}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:4.5rem 0 6rem;min-height:40rem}
+.hero h1{font-size:clamp(3.4rem,9.5vw,6.8rem);letter-spacing:-.01em;display:flex;flex-wrap:wrap;gap:0 1.3rem}
+.hero h1 .w{display:inline-flex}
+.hero h1 .c{display:inline-block;opacity:0;transform:translateY(40%) scale(.8);animation:drop .7s var(--ease) forwards;animation-delay:calc(var(--i)*55ms + 150ms);
+  background:linear-gradient(180deg,#fff 30%,var(--lilac));-webkit-background-clip:text;background-clip:text;color:transparent}
+@keyframes drop{to{opacity:1;transform:none}}
+.lede{max-width:33rem;margin:1.3rem 0 1.5rem;color:var(--lilac);font-size:1.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.chips span{font:500 .95rem var(--px);background:var(--panel);border:2px solid var(--line);padding:.2rem .75rem;transition:border-color .25s,transform .25s var(--ease)}
+.chips span:hover{border-color:var(--magenta);transform:translateY(-3px)}
 
-/* connect box */
-.connect{max-width:34rem;background:var(--panel);border:3px solid var(--violet);
-  box-shadow:6px 6px 0 var(--magenta);padding:1rem}
-.tabs{display:flex;gap:.5rem;margin-bottom:.8rem}
-.tabs button{flex:1;font:700 1rem var(--px);padding:.5rem;background:var(--deep);color:var(--muted);
-  border:2px solid var(--line);cursor:pointer}
-.tabs button[aria-selected=true]{background:var(--violet);color:#fff;border-color:var(--violet)}
-.addr{display:flex;gap:.6rem;align-items:stretch}
-.addr code{flex:1;font:500 1.15rem var(--px);background:var(--void);border:2px solid var(--line);padding:.6rem .8rem;
-  overflow-wrap:anywhere}
-.addr button{font:700 1rem var(--px);background:var(--magenta);color:#1a0033;border:0;padding:0 1.1rem;cursor:pointer;
-  box-shadow:inset -3px -3px 0 #9d00b3}
-.addr button:active{transform:translate(2px,2px)}
-.status{margin-top:.8rem;font-size:.95rem;color:var(--muted);display:flex;align-items:center;gap:.5rem}
-.dot{width:.7rem;height:.7rem;background:var(--muted);display:inline-block}
-.dot.on{background:#3dff8a;box-shadow:0 0 8px #3dff8a}
-.dot.off{background:#ff4d6d}
+.stage{position:relative;display:grid;place-items:center;min-height:23rem;perspective:900px}
+.stage::before{content:"";position:absolute;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#9400ffb0,#9400ff00 65%);animation:pulse 4.5s ease-in-out infinite}
+.ring{position:absolute;border:3px dashed #9400ff66;border-radius:50%;width:94%;aspect-ratio:1;animation:spin 40s linear infinite}
+.ring.b{width:72%;border-color:#e100ff55;animation-duration:26s;animation-direction:reverse}
+.tilt{transition:transform .25s ease-out;transform-style:preserve-3d}
+.logo{display:block;width:min(15rem,52vw);height:auto;image-rendering:pixelated;will-change:transform;animation:bob 5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translate3d(0,0,0) rotate(-1.5deg)}50%{transform:translate3d(0,-16px,0) rotate(1.5deg)}}
+@keyframes pulse{0%,100%{opacity:.65;transform:scale(.95)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-section{padding:3.5rem 0;border-top:2px solid var(--line)}
-.lead{color:var(--muted);max-width:40rem;margin-bottom:2rem}
+/* connect */
+.connect{max-width:35rem;background:var(--panel);border:3px solid var(--violet);box-shadow:7px 7px 0 var(--magenta);padding:1rem;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.connect:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 var(--magenta)}
+.row{display:grid;grid-template-columns:5.6rem 1fr auto;gap:.6rem;align-items:stretch}
+.row+.row{margin-top:.7rem}
+.ed{display:grid;place-items:center;font:700 1.05rem var(--px);background:var(--violet);color:#fff;border:2px solid var(--violet)}
+.row code{font:500 1.2rem var(--px);background:var(--void);border:2px solid var(--line);padding:.6rem .8rem;overflow-wrap:anywhere;display:flex;align-items:center}
+.row button{font:700 1.05rem var(--px);min-width:5.6rem;background:var(--magenta);color:#1a0033;border:0;padding:0 1.1rem;cursor:pointer;box-shadow:inset -3px -3px 0 #9d00b3;transition:transform .12s,background .2s}
+.row button:hover{background:#f04dff}
+.row button:active{transform:translate(2px,2px)}
+.row button.ok{background:#3dff8a;box-shadow:inset -3px -3px 0 #16b85a}
+.port{margin-top:.8rem;color:var(--lilac);font-size:.98rem}
+.port b{font-family:var(--px);color:#fff}
 
-/* features */
-.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.2rem}
-.feat div{background:var(--deep);border-left:6px solid var(--violet);padding:1.1rem 1.2rem}
-.feat h3{font-size:1.35rem;margin-bottom:.4rem}
-.feat p{color:var(--muted);font-size:1rem}
+section{padding:5rem 0;border-top:2px solid #ffffff10;background:#0a0416cc}
+.lead{color:var(--muted);max-width:40rem;margin-bottom:2.4rem}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:1.1rem}
+.card{background:var(--deep);border:2px solid var(--line);padding:1.5rem;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .3s;position:relative;overflow:hidden}
+.card:hover{transform:translate(-4px,-4px);box-shadow:6px 6px 0 var(--violet);border-color:var(--violet)}
+.card h3{font-size:1.55rem;margin-bottom:.4rem}
+.card p{color:var(--muted);font-size:1rem;max-width:26rem}
+.s4{grid-column:span 4}.s2{grid-column:span 2}
+.side{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center}
+.ico{width:3.4rem;height:3.4rem;margin-bottom:1rem;transition:transform .5s var(--ease)}
+.ico.lg{width:6.5rem;height:6.5rem;margin:0 .5rem 0 0}
+.ico svg,.ico img{display:block;width:100%;height:100%;shape-rendering:crispEdges}
+.ico img{object-fit:contain;image-rendering:pixelated}
+.card:hover .ico{transform:rotate(-6deg) scale(1.1)}
+.card:hover .coin{transform:none}
+.vc svg{display:none}.vc.nologo svg{display:block}
+.ver{display:flex;flex-direction:column;justify-content:space-between}
+.big{font:700 clamp(3.6rem,8vw,5.4rem)/1 var(--px);background:linear-gradient(180deg,#fff,var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent}
+.big .n{font-family:var(--px)}
+.blk{width:2.4rem;height:2.4rem;margin-bottom:1rem;background:var(--c);box-shadow:inset 5px 5px 0 #ffffff55,inset -5px -5px 0 #00000055;transition:transform .5s var(--ease)}
+.card:hover .blk{transform:rotate(12deg) scale(1.12)}
 
 /* rules */
-.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1.5rem}
-.book{background:#12071f;border:3px solid #000;outline:3px solid var(--line);padding:1.3rem 1.4rem}
-.book h3{color:var(--magenta);font-size:1.5rem;margin-bottom:.8rem}
-.book ul{list-style:none;padding:0;display:grid;gap:.35rem}
-.book li{padding-left:1.4rem;position:relative;font-size:.98rem}
-.book li::before{content:"";position:absolute;left:0;top:.5em;border:.4rem solid transparent;border-left:.6rem solid var(--violet);border-right:0}
-.book small{color:var(--muted)}
+.rt{display:flex;gap:.6rem;margin-bottom:1.2rem}
+.rt button{font:700 1.15rem var(--px);padding:.65rem 1.4rem;background:var(--deep);color:var(--muted);border:2px solid var(--line);cursor:pointer;transition:all .25s var(--ease)}
+.rt button:hover{color:#fff}
+.rt button[aria-selected=true]{background:var(--violet);color:#fff;border-color:var(--violet);box-shadow:4px 4px 0 var(--magenta)}
+.book{background:#12071f;border:3px solid #000;outline:3px solid var(--line);padding:1.5rem 1.6rem;animation:swap .45s var(--ease)}
+@keyframes swap{from{opacity:0;transform:translateY(12px)}}
+.book[hidden]{display:none}
+.book ul{list-style:none;padding:0;columns:2 19rem;column-gap:2rem}
+.book li{padding:.3rem .5rem .3rem 1.6rem;position:relative;break-inside:avoid;transition:background .2s,padding-left .25s var(--ease)}
+.book li:hover{background:#9400ff22;padding-left:1.9rem}
+.book li::before{content:"";position:absolute;left:.3rem;top:.95em;border:.35rem solid transparent;border-left:.55rem solid var(--violet);border-right:0}
+.book small{color:var(--muted)}.book code{color:var(--lilac)}
 .book .note{margin-top:1rem;color:var(--muted);font-size:.95rem}
 
 /* join */
-.join{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1.5rem}
-.join ol{padding-left:1.2rem;display:grid;gap:.5rem}
-.join h3{font-size:1.4rem;margin-bottom:.7rem}
-.join kbd{font:500 .95rem var(--px);background:var(--void);border:2px solid var(--line);padding:.05rem .4rem}
-.btn{display:inline-block;margin-top:1.5rem;font:700 1.1rem var(--px);background:var(--violet);color:#fff;text-decoration:none;
-  padding:.7rem 1.4rem;box-shadow:5px 5px 0 var(--magenta)}
-.btn:hover{background:#a52dff}
+.join{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));gap:1.2rem}
+.join ol{padding-left:1.2rem;display:grid;gap:.7rem}
+.join ol li::marker{color:var(--magenta);font-family:var(--px)}
+kbd{font:500 .95rem var(--px);background:var(--void);border:2px solid var(--line);padding:.05rem .45rem;overflow-wrap:anywhere}
 
-footer{border-top:2px solid var(--line);padding:2rem 0;color:var(--muted);font-size:.9rem}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+/* footer */
+footer{border-top:2px solid #ffffff10;padding:2.5rem 0 2rem;color:var(--muted);font-size:.92rem;background:#0a0416}
+footer .top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem}
+footer .top .brand{font-size:1.2rem}
+.social{display:flex;gap:.7rem;flex-wrap:wrap}
+.social a{font:700 1rem;text-decoration:none;padding:.45rem 1rem}
+footer .legal{border-top:2px solid #ffffff10;padding-top:1.3rem;display:grid;gap:.4rem;max-width:52rem}
+footer .legal p{font-size:.88rem;line-height:1.55}
 
-@media(max-width:44rem){
-  .hero{grid-template-columns:1fr;text-align:left}
-  .hero img{order:-1;width:7rem}
-  nav ul{gap:1rem;font-size:.95rem}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms)}
+.js .rv.in{opacity:1;transform:none}
+.js .card.rv.in{transition:opacity .7s var(--ease) var(--d,0ms),transform .35s var(--ease),box-shadow .35s var(--ease),border-color .3s}
+
+@media(max-width:30rem){.row{grid-template-columns:1fr auto}.ed{grid-column:1/-1;padding:.2rem}}
+@media(max-width:52rem){
+  .hero{grid-template-columns:1fr;padding:2rem 0 4rem;min-height:0}
+  .stage{order:-1;min-height:14rem}.logo{width:9rem}
+  .s4,.s2{grid-column:span 6}
+  .side{grid-template-columns:1fr}.side .ico{order:-1;margin:0 0 1rem}
+  nav ul a{padding:.4rem .7rem;font-size:.95rem}
 }
-@media(prefers-reduced-motion:reduce){.hero img{animation:none}html{scroll-behavior:auto}}
+@media(max-width:40rem){nav ul .sec{display:none}nav ul{gap:.5rem}nav ul li:nth-child(3){margin:0}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .hero h1 .c,.js .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
+<canvas id="fx" aria-hidden="true"></canvas>
+<div class="glow" aria-hidden="true"></div>
+
+<div class="bar"><div class="wrap">
   <nav>
-    <a class="brand" href="#top"><img src="logo.png" alt="">VunilowSmp</a>
+    <a class="brand" href="#top"><img src="logo.png" alt="">Vunilow Smp</a>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#rules">Rules</a></li>
-      <li><a href="#join">How to join</a></li>
+      <li class="sec"><a href="#about">About</a></li>
+      <li class="sec"><a href="#rules">Rules</a></li>
+      <li class="sec"><a href="#join">Join</a></li>
+      <li><a class="yt" href="https://www.youtube.com/@vunilow" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a class="tw" href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener">Twitch</a></li>
     </ul>
   </nav>
+</div></div>
 
+<div class="wrap">
   <header class="hero" id="top">
     <div>
-      <h1>VunilowSmp</h1>
+      <h1 id="title" aria-label="Vunilow Smp">Vunilow Smp</h1>
       <p class="lede">A shop survival SMP for Java and Bedrock. Grind, trade, and talk to nearby players with proximity voice chat.</p>
-
-      <div class="connect" aria-label="Server address">
-        <div class="tabs" role="tablist">
-          <button role="tab" aria-selected="true" data-edition="java">Java</button>
-          <button role="tab" aria-selected="false" data-edition="bedrock">Bedrock</button>
-        </div>
-        <div class="addr">
-          <code id="addr">Vunilowsmp.net</code>
-          <button id="copy" type="button">Copy</button>
-        </div>
-        <div class="status"><span class="dot" id="dot"></span><span id="statusText">Checking server status...</span></div>
+      <div class="chips"><span>Java + Bedrock</span><span>Shop survival</span><span>Voice chat</span><span>26.2 and below</span></div>
+      <div class="connect" aria-label="Server addresses">
+        <div class="row"><span class="ed">Java</span><code>Vunilowsmp.net</code><button type="button" data-copy="Vunilowsmp.net">Copy</button></div>
+        <div class="row"><span class="ed">Bedrock</span><code>VunilowSmp.net:25565</code><button type="button" data-copy="VunilowSmp.net:25565">Copy</button></div>
+        <p class="port">Bedrock port: <b>25565</b></p>
       </div>
     </div>
-    <img src="logo.png" alt="VunilowSmp logo, a purple V">
+    <div class="stage" id="stage">
+      <div class="ring"></div><div class="ring b"></div>
+      <div class="tilt" id="tilt"><img class="logo" src="logo.png" alt="Vunilow Smp logo, a purple V"></div>
+    </div>
   </header>
 </div>
 
 <section id="about">
   <div class="wrap">
-    <h2>About the server</h2>
-    <p class="lead">VunilowSmp is a Donut SMP style survival server. Play on Minecraft 26.2 or any earlier version.</p>
-    <div class="feat">
-      <div><h3>Shop survival</h3><p>Earn money, buy and sell in the shop, and build your way up in a survival world.</p></div>
-      <div><h3>Java + Bedrock</h3><p>Play on either edition. Friends can join together, whatever they play on.</p></div>
-      <div><h3>Voice chat</h3><p>Simple Voice Chat is supported, so you can talk to players close to you in the world.</p></div>
-      <div><h3>Version 26.2 and below</h3><p>Use 26.2 or any older version. No need to update to join.</p></div>
+    <h2 class="rv">About the server</h2>
+    <p class="lead rv" style="--d:80ms">Vunilow Smp is a Donut SMP style survival server built around the shop.</p>
+    <div class="bento">
+      <div class="card s4 side rv">
+        <div><h3>Shop survival</h3><p>Earn money, buy and sell in the shop, and build your way up in a survival world.</p></div>
+        <div class="ico lg coin" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#6b3f00"><rect x="3" y="0" width="6" height="12"/><rect x="0" y="3" width="12" height="6"/><rect x="1" y="1" width="10" height="10"/></g><g fill="#ffc857"><rect x="4" y="1" width="4" height="10"/><rect x="1" y="4" width="10" height="4"/><rect x="2" y="2" width="8" height="8"/></g><g fill="#fff0a8"><rect x="2" y="3" width="1" height="3"/><rect x="3" y="2" width="2" height="1"/></g><g fill="#b8780f"><rect x="9" y="6" width="1" height="3"/><rect x="7" y="9" width="2" height="1"/></g><g fill="#6b3f00"><rect x="5" y="2" width="2" height="1"/><rect x="4" y="3" width="4" height="1"/><rect x="4" y="4" width="2" height="1"/><rect x="4" y="5" width="4" height="1"/><rect x="6" y="6" width="2" height="1"/><rect x="4" y="7" width="4" height="1"/><rect x="5" y="8" width="2" height="1"/></g></svg></div>
+      </div>
+      <div class="card s2 ver rv" style="--d:90ms">
+        <div><h3>Versions</h3><p>Join on any version up to the latest.</p></div>
+        <div class="big" style="margin-top:1rem">26.2</div>
+        <p>and below</p>
+      </div>
+      <div class="card s2 rv" style="--d:60ms"><div class="ico" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect width="12" height="12" fill="#3b2410"/><rect x="1" y="1" width="10" height="10" fill="#8a5a3b"/><rect x="1" y="1" width="10" height="3" fill="#5fb04b"/><g fill="#3f8a34"><rect x="2" y="3" width="1" height="2"/><rect x="5" y="3" width="1" height="1"/><rect x="8" y="3" width="1" height="2"/><rect x="10" y="3" width="1" height="1"/></g><g fill="#6b4329"><rect x="2" y="6" width="2" height="1"/><rect x="7" y="7" width="2" height="1"/><rect x="4" y="9" width="2" height="1"/><rect x="9" y="9" width="1" height="1"/></g><rect x="1" y="1" width="10" height="1" fill="#8ad46f"/></svg></div><h3>Java + Bedrock</h3><p>Play on either edition. Friends can join together, whatever they play on.</p></div>
+      <div class="card s4 side rv" style="--d:140ms">
+        <div><h3>Voice chat</h3><p>Simple Voice Chat is supported, so you can talk to players close to you in the world.</p></div>
+        <div class="ico lg vc" aria-hidden="true"><img src="vc.png" alt="" onerror="this.parentNode.classList.add('nologo');this.remove()"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#d6b6ff"><rect x="0" y="4" width="2" height="4"/><rect x="2" y="3" width="1" height="6"/><rect x="3" y="2" width="1" height="8"/><rect x="4" y="1" width="1" height="10"/></g><g fill="#e100ff"><rect x="6" y="4" width="1" height="4"/><rect x="8" y="2" width="1" height="8"/></g><g fill="#9400ff"><rect x="10" y="0" width="1" height="12"/></g></svg></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="rules">
   <div class="wrap">
-    <h2>Rules</h2>
-    <p class="lead">These match the in-game rule books. Breaking them can get you muted or banned.</p>
-    <div class="rules">
-      <article class="book">
-        <h3>Server rules</h3>
-        <ul>
-          <li>No hack clients</li>
-          <li>No movement mods</li>
-          <li>No inventory mods</li>
-          <li>No minimap</li>
-          <li>No freecam <small>(Fair Play allowed)</small></li>
-          <li>No auto place</li>
-          <li>No easy place</li>
-          <li>No macros or scripts</li>
-          <li>No bug abusing</li>
-          <li>No duping</li>
-          <li>No real money trading</li>
-          <li>No cross-server trading</li>
-          <li>No use of seed</li>
-          <li>No crafting modifications</li>
-          <li>No external gambling</li>
-          <li>Max. 20 AFK accounts per player</li>
-          <li>No ban evasion</li>
-          <li>VPNs are used at your own risk</li>
-          <li>No refunds for hacked accounts. You are responsible for it.</li>
-          <li>Items dropped at spawn are your own risk. No refunds.</li>
-        </ul>
-        <p class="note">Thanks for reading.</p>
-      </article>
-
-      <article class="book">
-        <h3>Chat rules</h3>
-        <ul>
-          <li>No spamming</li>
-          <li>No harassment</li>
-          <li>No advertising <small>(unless about the server)</small></li>
-          <li>No discrimination or hate speech</li>
-          <li>No death threats</li>
-          <li>No doxing <small>(private info)</small></li>
-          <li>No impersonation</li>
-          <li>No ban evasion</li>
-          <li>Do not lie to staff members</li>
-          <li>No mute evading</li>
-          <li>Report all bugs and cheaters on Discord (<code>/discord</code>)</li>
-        </ul>
-        <p class="note">Thanks for reading.</p>
-      </article>
+    <h2 class="rv">Rules</h2>
+    <p class="lead rv" style="--d:80ms">These match the in-game rule books. Breaking them can get you muted or banned.</p>
+    <div class="rt rv" role="tablist" style="--d:120ms">
+      <button role="tab" aria-selected="true" data-p="p1">Server rules</button>
+      <button role="tab" aria-selected="false" data-p="p2">Chat rules</button>
     </div>
+    <article class="book" id="p1">
+      <ul>
+        <li>No hack clients</li><li>No movement mods</li><li>No inventory mods</li><li>No minimap</li>
+        <li>No freecam <small>(Fair Play allowed)</small></li><li>No auto place</li><li>No easy place</li>
+        <li>No macros or scripts</li><li>No bug abusing</li><li>No duping</li><li>No real money trading</li>
+        <li>No cross-server trading</li><li>No use of seed</li><li>No crafting modifications</li>
+        <li>No external gambling</li><li>Max. 20 AFK accounts per player</li><li>No ban evasion</li>
+        <li>VPNs are used at your own risk</li>
+        <li>No refunds for hacked accounts. You are responsible for it.</li>
+        <li>Items dropped at spawn are your own risk. No refunds.</li>
+      </ul>
+      <p class="note">Thanks for reading.</p>
+    </article>
+    <article class="book" id="p2" hidden>
+      <ul>
+        <li>No spamming</li><li>No harassment</li><li>No advertising <small>(unless about the server)</small></li>
+        <li>No discrimination or hate speech</li><li>No death threats</li><li>No doxing <small>(private info)</small></li>
+        <li>No impersonation</li><li>No ban evasion</li><li>Do not lie to staff members</li><li>No mute evading</li>
+        <li>Report all bugs and cheaters on Discord (<code>/discord</code>)</li>
+      </ul>
+      <p class="note">Thanks for reading.</p>
+    </article>
   </div>
 </section>
 
 <section id="join">
   <div class="wrap">
-    <h2>How to join</h2>
+    <h2 class="rv">How to join</h2>
+    <p class="lead rv" style="--d:80ms">Two editions, two addresses. Pick yours.</p>
     <div class="join">
-      <div>
+      <div class="card rv">
         <h3>Java Edition</h3>
         <ol>
           <li>Open Minecraft Java, version 26.2 or below.</li>
@@ -208,56 +262,114 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem
           <li>Enter <kbd>Vunilowsmp.net</kbd> as the address and join.</li>
         </ol>
       </div>
-      <div>
+      <div class="card rv" style="--d:100ms">
         <h3>Bedrock Edition</h3>
         <ol>
           <li>Open Minecraft Bedrock and go to <kbd>Play</kbd>, then <kbd>Servers</kbd>.</li>
           <li>Choose <kbd>Add Server</kbd>.</li>
-          <li>Enter <kbd>Vunilowsmp.net</kbd> as the address and <kbd>25565</kbd> as the port, then join.</li>
+          <li>Enter <kbd>VunilowSmp.net:25565</kbd> as the address and <kbd>25565</kbd> as the port, then join.</li>
         </ol>
       </div>
     </div>
-    <!-- Replace the # below with your Discord invite link -->
-    <a class="btn" href="#" id="discord">Join our Discord</a>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span>VunilowSmp. Not affiliated with Mojang or Microsoft.</span>
-    <span>Vunilowsmp.net</span>
+    <div class="top">
+      <a class="brand" href="#top"><img src="logo.png" alt="">Vunilow Smp</a>
+      <div class="social">
+        <a class="yt" href="https://www.youtube.com/@vunilow" target="_blank" rel="noopener">YouTube</a>
+        <a class="tw" href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener">Twitch</a>
+      </div>
+    </div>
+    <div class="legal">
+      <p>&copy; 2026 Vunilow Smp. All rights reserved.</p>
+      <p>Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft. Minecraft is a trademark of Mojang Synergies AB.</p>
+    </div>
   </div>
 </footer>
 
 <script>
 (function(){
-  var JAVA='Vunilowsmp.net', BEDROCK='Vunilowsmp.net:25565';
-  var addr=document.getElementById('addr'), copy=document.getElementById('copy');
-  var tabs=document.querySelectorAll('.tabs button');
+  document.documentElement.classList.add('js');
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var $=function(id){return document.getElementById(id)};
 
-  tabs.forEach(function(t){
-    t.addEventListener('click',function(){
-      tabs.forEach(function(b){b.setAttribute('aria-selected',b===t)});
-      addr.textContent = t.dataset.edition==='java' ? JAVA : BEDROCK;
-      copy.textContent='Copy';
+  // Title letter drop
+  var t=$('title'),i=0;
+  t.innerHTML=t.textContent.split(' ').map(function(w){
+    return '<span class="w" aria-hidden="true">'+w.split('').map(function(ch){return '<span class="c" style="--i:'+(i++)+'">'+ch+'</span>'}).join('')+'</span>';
+  }).join('');
+
+  // Digits use the body font
+  var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+    var pn=n.parentNode;
+    if(/^(SCRIPT|STYLE)$/.test(pn.nodeName)||pn.closest('.c')||!/[0-9]/.test(n.nodeValue))return NodeFilter.FILTER_REJECT;
+    return NodeFilter.FILTER_ACCEPT}}),nodes=[],nd;
+  while(nd=walker.nextNode())nodes.push(nd);
+  nodes.forEach(function(n){
+    var f=document.createDocumentFragment();
+    n.nodeValue.split(/([0-9][0-9.]*[0-9]|[0-9])/).forEach(function(p,k){
+      if(k%2){var s=document.createElement('span');s.className='n';s.textContent=p;f.appendChild(s)}
+      else if(p)f.appendChild(document.createTextNode(p));
+    });
+    n.parentNode.replaceChild(f,n);
+  });
+
+  // Scroll reveal
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  }else{els.forEach(function(e){e.classList.add('in')})}
+
+  // Copy buttons
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      function done(){b.textContent='Copied';b.classList.add('ok');setTimeout(function(){b.textContent='Copy';b.classList.remove('ok')},1600)}
+      if(navigator.clipboard){navigator.clipboard.writeText(b.dataset.copy).then(done,done)}else{done()}
     });
   });
 
-  copy.addEventListener('click',function(){
-    var text=addr.textContent;
-    function done(){copy.textContent='Copied';setTimeout(function(){copy.textContent='Copy'},1800)}
-    if(navigator.clipboard){navigator.clipboard.writeText(text).then(done,done)}else{done()}
+  // Rules tabs
+  var rt=document.querySelectorAll('.rt button');
+  rt.forEach(function(b){
+    b.addEventListener('click',function(){
+      rt.forEach(function(x){x.setAttribute('aria-selected',x===b);$(x.dataset.p).hidden=x!==b});
+    });
   });
 
-  // Live status (optional, fails quietly)
-  var dot=document.getElementById('dot'), st=document.getElementById('statusText');
-  fetch('https://api.mcsrvstat.us/3/Vunilowsmp.net').then(function(r){return r.json()}).then(function(d){
-    if(d.online){
-      dot.className='dot on';
-      var n=d.players&&typeof d.players.online==='number'?d.players.online:0;
-      st.textContent='Online, '+n+(n===1?' player':' players')+' playing';
-    }else{dot.className='dot off';st.textContent='Server is offline right now'}
-  }).catch(function(){st.textContent='Status unavailable'});
+  if(reduce)return;
+
+  // Logo follows the cursor a little
+  var st=$('stage'),tl=$('tilt');
+  st.addEventListener('mousemove',function(e){
+    var r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    tl.style.transform='rotateY('+(x*22)+'deg) rotateX('+(-y*22)+'deg)';
+  });
+  st.addEventListener('mouseleave',function(){tl.style.transform=''});
+
+  // Floating pixel particles
+  var c=$('fx'),x=c.getContext('2d'),W,H,P=[],N=46,raf;
+  function size(){var d=Math.min(devicePixelRatio||1,2);W=c.width=innerWidth*d;H=c.height=innerHeight*d}
+  function mk(init){
+    var d=Math.min(devicePixelRatio||1,2),s=(3+Math.random()*7|0)*d;
+    return {x:Math.random()*W,y:init?Math.random()*H:H+s,s:s,v:(.15+Math.random()*.45)*d,a:.12+Math.random()*.4,h:Math.random()<.35?'#e100ff':'#9400ff',w:Math.random()*6.28}
+  }
+  function init(){size();P=[];for(var k=0;k<N;k++)P.push(mk(true))}
+  function tick(){
+    x.clearRect(0,0,W,H);
+    for(var k=0;k<P.length;k++){
+      var p=P[k];p.y-=p.v;p.w+=.01;p.x+=Math.sin(p.w)*.3;
+      if(p.y<-p.s){P[k]=mk(false);continue}
+      x.globalAlpha=p.a;x.fillStyle=p.h;x.fillRect(p.x|0,p.y|0,p.s,p.s);
+    }
+    raf=requestAnimationFrame(tick);
+  }
+  init();tick();
+  addEventListener('resize',init);
+  document.addEventListener('visibilitychange',function(){cancelAnimationFrame(raf);if(!document.hidden)tick()});
 })();
 </script>
 </body>
