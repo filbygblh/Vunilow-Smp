@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VunilowSmp | Java &amp; Bedrock Shop Survival</title>
+<meta name="description" content="VunilowSmp is a Java and Bedrock shop survival SMP with voice chat. Join at Vunilowsmp.net">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#0e0620; --deep:#1a0b3a; --panel:#241049; --violet:#9400ff; --magenta:#e100ff;
+  --lilac:#d6b6ff; --text:#f3eaff; --muted:#a894c9; --line:#3d1f78;
+  --px:'Pixelify Sans',ui-monospace,monospace; --body:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--text);font:400 1.05rem/1.6 var(--body);
+  background-image:radial-gradient(60rem 30rem at 50% -8rem,#3b0f80 0,transparent 70%)}
+a{color:var(--lilac)}
+:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:var(--px);font-weight:700;line-height:1.1}
+h2{font-size:clamp(1.8rem,4vw,2.4rem);margin-bottom:1rem}
+
+/* nav */
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+nav .brand{display:flex;align-items:center;gap:.6rem;font:700 1.3rem var(--px);color:var(--text);text-decoration:none}
+nav .brand img{width:28px;height:auto;image-rendering:pixelated}
+nav ul{display:flex;gap:1.4rem;list-style:none;padding:0}
+nav ul a{color:var(--muted);text-decoration:none;font-weight:500}
+nav ul a:hover{color:var(--text)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;padding:3.5rem 0 4.5rem}
+.hero h1{font-size:clamp(2.8rem,8vw,5.6rem);letter-spacing:-.01em}
+.hero p.lede{max-width:34rem;margin:1.2rem 0 2rem;color:var(--lilac);font-size:1.15rem}
+.hero img{width:clamp(9rem,22vw,17rem);height:auto;image-rendering:pixelated;filter:drop-shadow(0 0 40px #9400ff88);
+  animation:float 5s steps(10) infinite alternate}
+@keyframes float{to{transform:translateY(-14px)}}
+
+/* connect box */
+.connect{max-width:34rem;background:var(--panel);border:3px solid var(--violet);
+  box-shadow:6px 6px 0 var(--magenta);padding:1rem}
+.tabs{display:flex;gap:.5rem;margin-bottom:.8rem}
+.tabs button{flex:1;font:700 1rem var(--px);padding:.5rem;background:var(--deep);color:var(--muted);
+  border:2px solid var(--line);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--violet);color:#fff;border-color:var(--violet)}
+.addr{display:flex;gap:.6rem;align-items:stretch}
+.addr code{flex:1;font:500 1.15rem var(--px);background:var(--void);border:2px solid var(--line);padding:.6rem .8rem;
+  overflow-wrap:anywhere}
+.addr button{font:700 1rem var(--px);background:var(--magenta);color:#1a0033;border:0;padding:0 1.1rem;cursor:pointer;
+  box-shadow:inset -3px -3px 0 #9d00b3}
+.addr button:active{transform:translate(2px,2px)}
+.status{margin-top:.8rem;font-size:.95rem;color:var(--muted);display:flex;align-items:center;gap:.5rem}
+.dot{width:.7rem;height:.7rem;background:var(--muted);display:inline-block}
+.dot.on{background:#3dff8a;box-shadow:0 0 8px #3dff8a}
+.dot.off{background:#ff4d6d}
+
+section{padding:3.5rem 0;border-top:2px solid var(--line)}
+.lead{color:var(--muted);max-width:40rem;margin-bottom:2rem}
+
+/* features */
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.2rem}
+.feat div{background:var(--deep);border-left:6px solid var(--violet);padding:1.1rem 1.2rem}
+.feat h3{font-size:1.35rem;margin-bottom:.4rem}
+.feat p{color:var(--muted);font-size:1rem}
+
+/* rules */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1.5rem}
+.book{background:#12071f;border:3px solid #000;outline:3px solid var(--line);padding:1.3rem 1.4rem}
+.book h3{color:var(--magenta);font-size:1.5rem;margin-bottom:.8rem}
+.book ul{list-style:none;padding:0;display:grid;gap:.35rem}
+.book li{padding-left:1.4rem;position:relative;font-size:.98rem}
+.book li::before{content:"";position:absolute;left:0;top:.5em;border:.4rem solid transparent;border-left:.6rem solid var(--violet);border-right:0}
+.book small{color:var(--muted)}
+.book .note{margin-top:1rem;color:var(--muted);font-size:.95rem}
+
+/* join */
+.join{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1.5rem}
+.join ol{padding-left:1.2rem;display:grid;gap:.5rem}
+.join h3{font-size:1.4rem;margin-bottom:.7rem}
+.join kbd{font:500 .95rem var(--px);background:var(--void);border:2px solid var(--line);padding:.05rem .4rem}
+.btn{display:inline-block;margin-top:1.5rem;font:700 1.1rem var(--px);background:var(--violet);color:#fff;text-decoration:none;
+  padding:.7rem 1.4rem;box-shadow:5px 5px 0 var(--magenta)}
+.btn:hover{background:#a52dff}
+
+footer{border-top:2px solid var(--line);padding:2rem 0;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem}
+
+@media(max-width:44rem){
+  .hero{grid-template-columns:1fr;text-align:left}
+  .hero img{order:-1;width:7rem}
+  nav ul{gap:1rem;font-size:.95rem}
+}
+@media(prefers-reduced-motion:reduce){.hero img{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="#top"><img src="logo.png" alt="">VunilowSmp</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#rules">Rules</a></li>
+      <li><a href="#join">How to join</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <h1>VunilowSmp</h1>
+      <p class="lede">A shop survival SMP for Java and Bedrock. Grind, trade, and talk to nearby players with proximity voice chat.</p>
+
+      <div class="connect" aria-label="Server address">
+        <div class="tabs" role="tablist">
+          <button role="tab" aria-selected="true" data-edition="java">Java</button>
+          <button role="tab" aria-selected="false" data-edition="bedrock">Bedrock</button>
+        </div>
+        <div class="addr">
+          <code id="addr">Vunilowsmp.net</code>
+          <button id="copy" type="button">Copy</button>
+        </div>
+        <div class="status"><span class="dot" id="dot"></span><span id="statusText">Checking server status...</span></div>
+      </div>
+    </div>
+    <img src="logo.png" alt="VunilowSmp logo, a purple V">
+  </header>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About the server</h2>
+    <p class="lead">VunilowSmp is a Donut SMP style survival server. Play on Minecraft 26.2 or any earlier version.</p>
+    <div class="feat">
+      <div><h3>Shop survival</h3><p>Earn money, buy and sell in the shop, and build your way up in a survival world.</p></div>
+      <div><h3>Java + Bedrock</h3><p>Play on either edition. Friends can join together, whatever they play on.</p></div>
+      <div><h3>Voice chat</h3><p>Simple Voice Chat is supported, so you can talk to players close to you in the world.</p></div>
+      <div><h3>Version 26.2 and below</h3><p>Use 26.2 or any older version. No need to update to join.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="wrap">
+    <h2>Rules</h2>
+    <p class="lead">These match the in-game rule books. Breaking them can get you muted or banned.</p>
+    <div class="rules">
+      <article class="book">
+        <h3>Server rules</h3>
+        <ul>
+          <li>No hack clients</li>
+          <li>No movement mods</li>
+          <li>No inventory mods</li>
+          <li>No minimap</li>
+          <li>No freecam <small>(Fair Play allowed)</small></li>
+          <li>No auto place</li>
+          <li>No easy place</li>
+          <li>No macros or scripts</li>
+          <li>No bug abusing</li>
+          <li>No duping</li>
+          <li>No real money trading</li>
+          <li>No cross-server trading</li>
+          <li>No use of seed</li>
+          <li>No crafting modifications</li>
+          <li>No external gambling</li>
+          <li>Max. 20 AFK accounts per player</li>
+          <li>No ban evasion</li>
+          <li>VPNs are used at your own risk</li>
+          <li>No refunds for hacked accounts. You are responsible for it.</li>
+          <li>Items dropped at spawn are your own risk. No refunds.</li>
+        </ul>
+        <p class="note">Thanks for reading.</p>
+      </article>
+
+      <article class="book">
+        <h3>Chat rules</h3>
+        <ul>
+          <li>No spamming</li>
+          <li>No harassment</li>
+          <li>No advertising <small>(unless about the server)</small></li>
+          <li>No discrimination or hate speech</li>
+          <li>No death threats</li>
+          <li>No doxing <small>(private info)</small></li>
+          <li>No impersonation</li>
+          <li>No ban evasion</li>
+          <li>Do not lie to staff members</li>
+          <li>No mute evading</li>
+          <li>Report all bugs and cheaters on Discord (<code>/discord</code>)</li>
+        </ul>
+        <p class="note">Thanks for reading.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap">
+    <h2>How to join</h2>
+    <div class="join">
+      <div>
+        <h3>Java Edition</h3>
+        <ol>
+          <li>Open Minecraft Java, version 26.2 or below.</li>
+          <li>Go to <kbd>Multiplayer</kbd>, then <kbd>Add Server</kbd>.</li>
+          <li>Enter <kbd>Vunilowsmp.net</kbd> as the address and join.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Bedrock Edition</h3>
+        <ol>
+          <li>Open Minecraft Bedrock and go to <kbd>Play</kbd>, then <kbd>Servers</kbd>.</li>
+          <li>Choose <kbd>Add Server</kbd>.</li>
+          <li>Enter <kbd>Vunilowsmp.net</kbd> as the address and <kbd>25565</kbd> as the port, then join.</li>
+        </ol>
+      </div>
+    </div>
+    <!-- Replace the # below with your Discord invite link -->
+    <a class="btn" href="#" id="discord">Join our Discord</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>VunilowSmp. Not affiliated with Mojang or Microsoft.</span>
+    <span>Vunilowsmp.net</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var JAVA='Vunilowsmp.net', BEDROCK='Vunilowsmp.net:25565';
+  var addr=document.getElementById('addr'), copy=document.getElementById('copy');
+  var tabs=document.querySelectorAll('.tabs button');
+
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(b){b.setAttribute('aria-selected',b===t)});
+      addr.textContent = t.dataset.edition==='java' ? JAVA : BEDROCK;
+      copy.textContent='Copy';
+    });
+  });
+
+  copy.addEventListener('click',function(){
+    var text=addr.textContent;
+    function done(){copy.textContent='Copied';setTimeout(function(){copy.textContent='Copy'},1800)}
+    if(navigator.clipboard){navigator.clipboard.writeText(text).then(done,done)}else{done()}
+  });
+
+  // Live status (optional, fails quietly)
+  var dot=document.getElementById('dot'), st=document.getElementById('statusText');
+  fetch('https://api.mcsrvstat.us/3/Vunilowsmp.net').then(function(r){return r.json()}).then(function(d){
+    if(d.online){
+      dot.className='dot on';
+      var n=d.players&&typeof d.players.online==='number'?d.players.online:0;
+      st.textContent='Online, '+n+(n===1?' player':' players')+' playing';
+    }else{dot.className='dot off';st.textContent='Server is offline right now'}
+  }).catch(function(){st.textContent='Status unavailable'});
+})();
+</script>
+</body>
+</html>
