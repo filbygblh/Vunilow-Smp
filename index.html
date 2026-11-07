@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vunilow Smp | Java &amp; Bedrock Shop Survival</title>
 <meta name="description" content="Vunilow Smp is a Java and Bedrock shop survival SMP with proximity voice chat. Join at Vunilowsmp.net">
+<meta name="theme-color" content="#0a0416">
+<link rel="canonical" href="https://www.vunilowsmp.net/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vunilow Smp">
+<meta property="og:title" content="Vunilow Smp | Java &amp; Bedrock Shop Survival">
+<meta property="og:description" content="A shop survival SMP for Java and Bedrock with proximity voice chat. Join at vunilowsmp.net">
+<meta property="og:url" content="https://www.vunilowsmp.net/">
+<meta property="og:image" content="https://www.vunilowsmp.net/logo.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,6 +66,15 @@ a.tw:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 #8a1f5a}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
 .chips span{font:500 .95rem var(--px);background:var(--panel);border:2px solid var(--line);padding:.2rem .75rem;transition:border-color .25s,transform .25s var(--ease)}
 .chips span:hover{border-color:var(--magenta);transform:translateY(-3px)}
+
+/* live status */
+.live{display:inline-flex;align-items:center;gap:.65rem;flex-wrap:wrap;background:var(--deep);border:2px solid var(--line);padding:.45rem .9rem;margin-bottom:1.6rem;font:500 .95rem var(--px);color:var(--lilac)}
+.live .dot{width:.62rem;height:.62rem;flex:0 0 auto;background:var(--muted);box-shadow:0 0 0 3px #ffffff14;transition:background .3s,box-shadow .3s}
+.live .dot.on{background:#3dff8a;box-shadow:0 0 0 3px #3dff8a2e;animation:beat 2.4s ease-in-out infinite}
+.live .dot.off{background:#ff5a6a;box-shadow:0 0 0 3px #ff5a6a2e}
+.live b{color:#fff;font-weight:700}
+.live .sep{width:1px;height:1rem;background:var(--line)}
+@keyframes beat{50%{opacity:.4}}
 
 .stage{position:relative;display:grid;place-items:center;min-height:23rem;perspective:900px}
 .stage::before{content:"";position:absolute;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#9400ffb0,#9400ff00 65%);animation:pulse 4.5s ease-in-out infinite}
@@ -179,7 +197,13 @@ footer .legal p{font-size:.88rem;line-height:1.55}
     <div>
       <h1 id="title" aria-label="Vunilow Smp">Vunilow Smp</h1>
       <p class="lede">A shop survival SMP for Java and Bedrock. Grind, trade, and talk to nearby players with proximity voice chat.</p>
-      <div class="chips"><span>Java + Bedrock</span><span>Shop survival</span><span>Voice chat</span><span>26.2 and below</span></div>
+      <div class="chips"><span>Java + Bedrock</span><span>Shop survival</span><span>Voice chat</span><span data-live-ver>26.2 and below</span></div>
+      <div class="live" aria-live="polite">
+        <span class="dot" data-live-dot></span>
+        <span data-live-text>Checking server status&hellip;</span>
+        <span class="sep" data-live-sep hidden></span>
+        <span data-live-meta></span>
+      </div>
       <div class="connect" aria-label="Server addresses">
         <div class="row"><span class="ed">Java</span><code>Vunilowsmp.net</code><button type="button" data-copy="Vunilowsmp.net">Copy</button></div>
         <div class="row"><span class="ed">Bedrock</span><code>VunilowSmp.net:25565</code><button type="button" data-copy="VunilowSmp.net:25565">Copy</button></div>
@@ -210,7 +234,7 @@ footer .legal p{font-size:.88rem;line-height:1.55}
       <div class="card s2 rv" style="--d:60ms"><div class="ico" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect width="12" height="12" fill="#3b2410"/><rect x="1" y="1" width="10" height="10" fill="#8a5a3b"/><rect x="1" y="1" width="10" height="3" fill="#5fb04b"/><g fill="#3f8a34"><rect x="2" y="3" width="1" height="2"/><rect x="5" y="3" width="1" height="1"/><rect x="8" y="3" width="1" height="2"/><rect x="10" y="3" width="1" height="1"/></g><g fill="#6b4329"><rect x="2" y="6" width="2" height="1"/><rect x="7" y="7" width="2" height="1"/><rect x="4" y="9" width="2" height="1"/><rect x="9" y="9" width="1" height="1"/></g><rect x="1" y="1" width="10" height="1" fill="#8ad46f"/></svg></div><h3>Java + Bedrock</h3><p>Play on either edition. Friends can join together, whatever they play on.</p></div>
       <div class="card s4 side rv" style="--d:140ms">
         <div><h3>Voice chat</h3><p>Simple Voice Chat is supported, so you can talk to players close to you in the world.</p></div>
-        <div class="ico lg vc" aria-hidden="true"><img src="vc.png" alt="" onerror="this.parentNode.classList.add('nologo');this.remove()"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#d6b6ff"><rect x="0" y="4" width="2" height="4"/><rect x="2" y="3" width="1" height="6"/><rect x="3" y="2" width="1" height="8"/><rect x="4" y="1" width="1" height="10"/></g><g fill="#e100ff"><rect x="6" y="4" width="1" height="4"/><rect x="8" y="2" width="1" height="8"/></g><g fill="#9400ff"><rect x="10" y="0" width="1" height="12"/></g></svg></div>
+        <div class="ico lg vc nologo" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#d6b6ff"><rect x="0" y="4" width="2" height="4"/><rect x="2" y="3" width="1" height="6"/><rect x="3" y="2" width="1" height="8"/><rect x="4" y="1" width="1" height="10"/></g><g fill="#e100ff"><rect x="6" y="4" width="1" height="4"/><rect x="8" y="2" width="1" height="8"/></g><g fill="#9400ff"><rect x="10" y="0" width="1" height="12"/></g></svg></div>
       </div>
     </div>
   </div>
@@ -323,6 +347,36 @@ footer .legal p{font-size:.88rem;line-height:1.55}
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
     els.forEach(function(e){io.observe(e)});
   }else{els.forEach(function(e){e.classList.add('in')})}
+
+  // Live server status (mcsrvstat.us, refreshed once a minute)
+  var ldot=document.querySelector('[data-live-dot]'),ltxt=document.querySelector('[data-live-text]'),
+      lmeta=document.querySelector('[data-live-meta]'),lsep=document.querySelector('[data-live-sep]'),
+      lver=document.querySelector('[data-live-ver]'),lverBase=lver?lver.textContent:'';
+  function n2(v){return '<span class="n">'+v+'</span>'}
+  function paint(state,html,meta,ver){
+    if(!ltxt)return;
+    ldot.className='dot'+(state?' '+state:'');
+    ltxt.innerHTML=html;
+    lmeta.innerHTML=meta||'';
+    lsep.hidden=!meta;
+    if(ver&&lver)lver.innerHTML=ver;
+  }
+  function poll(){
+    fetch('https://api.mcsrvstat.us/3/Vunilowsmp.net',{cache:'no-store'})
+      .then(function(r){return r.json()})
+      .then(function(d){
+        if(d&&d.online){
+          var p=(d.players&&d.players.online)||0,m=(d.players&&d.players.max)||0,
+              v=d.version||'',soft=(d.software||'').replace(/\s+\d.*$/,'');
+          paint('on',n2(p)+' / '+n2(m)+' playing right now',(soft?soft+' \u00b7 ':'')+'Java '+(v||'?'),v?v+' and below':'');
+        }else{
+          paint('off','Server is offline right now','Live status \u00b7 retrying','');
+        }
+      })
+      .catch(function(){paint('','Live status unavailable','','')})
+      .then(function(){setTimeout(poll,60000)});
+  }
+  if(ltxt)poll();
 
   // Copy buttons
   document.querySelectorAll('[data-copy]').forEach(function(b){
