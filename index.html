@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
 <title>Vunilow Smp | Java &amp; Bedrock Shop Survival</title>
 <meta name="description" content="Vunilow Smp is a Java and Bedrock shop survival SMP with proximity voice chat. Join at Vunilowsmp.net">
-<meta name="theme-color" content="#0a0416">
+<meta name="theme-color" content="#08030f">
 <link rel="canonical" href="https://www.vunilowsmp.net/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Vunilow Smp">
@@ -20,295 +21,447 @@
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --void:#0a0416; --deep:#160932; --panel:#210f45; --violet:#9400ff; --magenta:#e100ff;
-  --lilac:#d6b6ff; --text:#f5edff; --muted:#a995cc; --line:#3a1d76;
+  --void:#08030f; --deep:#120726; --panel:#1a0b34; --ink:#0d0518;
+  --violet:#9400ff; --magenta:#e100ff; --grass:#3ddc84;
+  --lilac:#e3ceff; --text:#f8f2ff; --muted:#9f8bc2; --line:#331a5e;
   --px:'Pixelify Sans',ui-monospace,monospace; --body:'DM Sans',system-ui,sans-serif;
   --ease:cubic-bezier(.22,1,.36,1);
 }
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;scroll-padding-top:5rem}
+*,*::before,*::after{box-sizing:border-box}
+*{margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:6rem;-webkit-text-size-adjust:100%}
 body{background:var(--void);color:var(--text);font:400 1.05rem/1.65 var(--body);overflow-x:hidden}
-a{color:var(--lilac)}
+img{max-width:100%;display:block}
+a{color:var(--lilac);text-decoration:none}
 :focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
-.wrap{max-width:71rem;margin:0 auto;padding:0 1.25rem;position:relative}
-h1,h2,h3{font-family:var(--px);font-weight:700;line-height:1.05}
-h2{font-size:clamp(2.1rem,5vw,3.1rem);margin-bottom:.7rem}
-.n{font-family:var(--body);font-weight:inherit;font-variant-numeric:lining-nums tabular-nums;letter-spacing:.02em}
+::selection{background:var(--violet);color:#fff}
+.wrap{width:100%;max-width:73rem;margin:0 auto;padding:0 1.5rem;position:relative}
+.skip{position:absolute;left:-99rem;top:0;z-index:99;background:var(--magenta);color:#1a0033;padding:.7rem 1.2rem;font-weight:700}
+.skip:focus{left:1rem;top:1rem}
+
 #fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-header,section,footer,.bar{position:relative;z-index:1}
-.glow{position:absolute;inset:0 0 auto;height:46rem;z-index:0;pointer-events:none;
-  background:radial-gradient(46rem 26rem at 72% 32%,#5a12b8bb,transparent 70%),radial-gradient(30rem 20rem at 12% 8%,#e100ff30,transparent 70%)}
+.aurora{position:fixed;inset:0 0 auto;height:48rem;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(42rem 24rem at 78% 18%,#7b1fd6a8,transparent 68%),
+    radial-gradient(26rem 18rem at 8% 0%,#e100ff2e,transparent 70%),
+    radial-gradient(30rem 20rem at 50% 42%,#4b0f9480,transparent 72%);
+  filter:blur(6px)}
+main,.bar,footer{position:relative;z-index:1}
 
-/* nav */
-.bar{position:sticky;top:0;z-index:10;background:#0a0416d9;backdrop-filter:blur(12px);border-bottom:2px solid #ffffff10}
-nav{display:flex;align-items:center;justify-content:space-between;height:4rem}
-.brand{display:flex;align-items:center;gap:.6rem;font:700 1.3rem var(--px);color:var(--text);text-decoration:none}
-.brand img{width:26px;image-rendering:pixelated;transition:transform .4s var(--ease)}
-.brand:hover img{transform:rotate(-8deg) scale(1.15)}
-nav ul{display:flex;gap:.3rem;list-style:none;padding:0;align-items:center}
-nav ul a{color:var(--muted);text-decoration:none;font-weight:500;padding:.45rem .8rem;transition:color .2s,background .2s}
-nav ul a:hover{color:#fff;background:#ffffff12}
-nav ul li:nth-child(3){margin-right:.6rem}
-a.yt,a.tw{color:#fff!important;font-family:var(--px);font-weight:700;border:2px solid transparent;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s!important}
-a.yt{background:#e5162b!important;border-color:#e5162b}
-a.tw{background:#ff4fa8!important;border-color:#ff4fa8}
+/* ---------- type ---------- */
+h1,h2,h3,.px{font-family:var(--px);font-weight:700;line-height:1.04;letter-spacing:-.01em}
+.eyebrow{display:inline-flex;align-items:center;gap:.55rem;font:700 .8rem/1 var(--px);letter-spacing:.22em;text-transform:uppercase;color:var(--magenta)}
+.eyebrow::before{content:"";width:.5rem;height:.5rem;background:var(--magenta);box-shadow:0 0 12px var(--magenta)}
+.lede{color:var(--lilac);font-size:1.15rem;max-width:35ch}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:700 1rem/1 var(--px);
+  padding:.95rem 1.35rem;border:2px solid transparent;cursor:pointer;
+  transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s,border-color .18s,color .18s}
+.btn.primary{background:var(--magenta);color:#1d0033;box-shadow:5px 5px 0 #6d0090}
+.btn.primary:hover{background:#f65dff;transform:translate(-2px,-2px);box-shadow:8px 8px 0 #6d0090}
+.btn.primary:active{transform:translate(1px,1px);box-shadow:3px 3px 0 #6d0090}
+.btn.ghost{border-color:var(--line);color:var(--text);background:#ffffff05}
+.btn.ghost:hover{border-color:var(--violet);background:#9400ff1f;transform:translate(-2px,-2px)}
+.btn.ok{background:var(--grass);color:#042011;box-shadow:5px 5px 0 #12703d}
+
+/* ---------- nav ---------- */
+.bar{position:sticky;top:0;z-index:20;background:#08030fd9;backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid #ffffff14}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.25rem}
+.brand{display:flex;align-items:center;gap:.6rem;font:700 1.3rem/1 var(--px);color:var(--text)}
+.brand img{width:30px;height:30px;image-rendering:pixelated;transition:transform .4s var(--ease)}
+.brand:hover img{transform:rotate(-10deg) scale(1.12)}
+.brand span{color:var(--lilac);font-weight:500}
+.menu{display:flex;align-items:center;gap:1.6rem}
+.links{display:flex;align-items:center;gap:.2rem;list-style:none;padding:0}
+.links a{display:block;padding:.5rem .85rem;color:var(--muted);font-weight:500;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.links a:hover,.links a.active{color:#fff;border-color:var(--magenta)}
+.socials{display:flex;gap:.5rem}
+.socials a{font:700 .9rem/1 var(--px);color:#fff;padding:.55rem .95rem;border:2px solid transparent;transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
+a.yt{background:#e5162b}
 a.yt:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 #7a0a15}
+a.tw{background:#ff4fa8}
 a.tw:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 #8a1f5a}
+.burger{display:none;width:2.75rem;height:2.5rem;background:#ffffff08;border:2px solid var(--line);cursor:pointer;
+  place-items:center;padding:0;gap:4px}
+.burger span{display:block;width:1.15rem;height:2px;background:var(--text);transition:transform .25s var(--ease),opacity .2s}
+.bar.open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.bar.open .burger span:nth-child(2){opacity:0}
+.bar.open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--violet),var(--magenta))}
 
-/* hero */
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:4.5rem 0 6rem;min-height:40rem}
-.hero h1{font-size:clamp(3.4rem,9.5vw,6.8rem);letter-spacing:-.01em;display:flex;flex-wrap:wrap;gap:0 1.3rem}
-.hero h1 .w{display:inline-flex}
-.hero h1 .c{display:inline-block;opacity:0;transform:translateY(40%) scale(.8);animation:drop .7s var(--ease) forwards;animation-delay:calc(var(--i)*55ms + 150ms);
-  background:linear-gradient(180deg,#fff 30%,var(--lilac));-webkit-background-clip:text;background-clip:text;color:transparent}
-@keyframes drop{to{opacity:1;transform:none}}
-.lede{max-width:33rem;margin:1.3rem 0 1.5rem;color:var(--lilac);font-size:1.2rem}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
-.chips span{font:500 .95rem var(--px);background:var(--panel);border:2px solid var(--line);padding:.2rem .75rem;transition:border-color .25s,transform .25s var(--ease)}
-.chips span:hover{border-color:var(--magenta);transform:translateY(-3px)}
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:1.02fr .98fr;gap:3.5rem;align-items:center;padding:5rem 0 6rem}
+.hero h1{font-size:clamp(3.1rem,8.6vw,5.6rem);margin:1.1rem 0 1.2rem;line-height:.94}
+.hero h1 em{font-style:normal;display:inline-block;
+  background:linear-gradient(180deg,#fff 18%,var(--magenta) 92%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 6px 24px #e100ff40)}
+.hero .lede{margin-bottom:1.9rem}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.9rem}
+.tags span{font:500 .85rem/1 var(--px);color:var(--lilac);background:#ffffff08;border:1px solid var(--line);
+  padding:.45rem .7rem;transition:border-color .2s,color .2s,transform .2s var(--ease)}
+.tags span:hover{border-color:var(--magenta);color:#fff;transform:translateY(-2px)}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem}
 
-/* live status */
-.live{display:inline-flex;align-items:center;gap:.65rem;flex-wrap:wrap;background:var(--deep);border:2px solid var(--line);padding:.45rem .9rem;margin-bottom:1.6rem;font:500 .95rem var(--px);color:var(--lilac)}
-.live .dot{width:.62rem;height:.62rem;flex:0 0 auto;background:var(--muted);box-shadow:0 0 0 3px #ffffff14;transition:background .3s,box-shadow .3s}
-.live .dot.on{background:#3dff8a;box-shadow:0 0 0 3px #3dff8a2e;animation:beat 2.4s ease-in-out infinite}
-.live .dot.off{background:#ff5a6a;box-shadow:0 0 0 3px #ff5a6a2e}
-.live b{color:#fff;font-weight:700}
-.live .sep{width:1px;height:1rem;background:var(--line)}
-@keyframes beat{50%{opacity:.4}}
-
-.stage{position:relative;display:grid;place-items:center;min-height:23rem;perspective:900px}
-.stage::before{content:"";position:absolute;width:90%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#9400ffb0,#9400ff00 65%);animation:pulse 4.5s ease-in-out infinite}
-.ring{position:absolute;border:3px dashed #9400ff66;border-radius:50%;width:94%;aspect-ratio:1;animation:spin 40s linear infinite}
-.ring.b{width:72%;border-color:#e100ff55;animation-duration:26s;animation-direction:reverse}
-.tilt{transition:transform .25s ease-out;transform-style:preserve-3d}
-.logo{display:block;width:min(15rem,52vw);height:auto;image-rendering:pixelated;will-change:transform;animation:bob 5s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:translate3d(0,0,0) rotate(-1.5deg)}50%{transform:translate3d(0,-16px,0) rotate(1.5deg)}}
-@keyframes pulse{0%,100%{opacity:.65;transform:scale(.95)}50%{opacity:1;transform:scale(1.05)}}
+.aside{display:grid;gap:1.4rem;justify-items:center}
+.art{position:relative;display:grid;place-items:center;width:100%;min-height:12rem;perspective:900px}
+.art::before{content:"";position:absolute;width:15rem;height:15rem;border-radius:50%;
+  background:radial-gradient(circle,#9400ffb8,#9400ff00 68%);filter:blur(8px);animation:pulse 6s ease-in-out infinite}
+.ring{position:absolute;border:2px dashed #b06bff4d;border-radius:50%;width:15.5rem;height:15.5rem;animation:spin 46s linear infinite}
+.ring.b{width:20rem;height:20rem;border-color:#e100ff33;animation-duration:32s;animation-direction:reverse}
+.tilt{position:relative;transition:transform .3s ease-out;transform-style:preserve-3d}
+.logo{width:min(9.5rem,42vw);height:auto;image-rendering:pixelated;animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
+@keyframes pulse{0%,100%{opacity:.55;transform:scale(.94)}50%{opacity:.95;transform:scale(1.05)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* connect */
-.connect{max-width:35rem;background:var(--panel);border:3px solid var(--violet);box-shadow:7px 7px 0 var(--magenta);padding:1rem;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.connect:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 var(--magenta)}
-.row{display:grid;grid-template-columns:5.6rem 1fr auto;gap:.6rem;align-items:stretch}
-.row+.row{margin-top:.7rem}
-.ed{display:grid;place-items:center;font:700 1.05rem var(--px);background:var(--violet);color:#fff;border:2px solid var(--violet)}
-.row code{font:500 1.2rem var(--px);background:var(--void);border:2px solid var(--line);padding:.6rem .8rem;overflow-wrap:anywhere;display:flex;align-items:center}
-.row button{font:700 1.05rem var(--px);min-width:5.6rem;background:var(--magenta);color:#1a0033;border:0;padding:0 1.1rem;cursor:pointer;box-shadow:inset -3px -3px 0 #9d00b3;transition:transform .12s,background .2s}
-.row button:hover{background:#f04dff}
-.row button:active{transform:translate(2px,2px)}
-.row button.ok{background:#3dff8a;box-shadow:inset -3px -3px 0 #16b85a}
-.port{margin-top:.8rem;color:var(--lilac);font-size:.98rem}
-.port b{font-family:var(--px);color:#fff}
+/* ---------- status panel ---------- */
+.panel{width:100%;max-width:27rem;background:linear-gradient(180deg,#1e0e3d,#140828);
+  border:2px solid var(--line);box-shadow:10px 10px 0 #00000055;padding:1.15rem}
+.panel-head{display:flex;align-items:center;gap:.6rem;padding-bottom:.9rem;margin-bottom:1rem;border-bottom:1px solid #ffffff12}
+.dot{width:.65rem;height:.65rem;flex:0 0 auto;background:var(--muted);transition:background .3s,box-shadow .3s}
+.dot.on{background:var(--grass);box-shadow:0 0 0 4px #3ddc8426;animation:beat 2.6s ease-in-out infinite}
+.dot.off{background:#ff5d6c;box-shadow:0 0 0 4px #ff5d6c26}
+@keyframes beat{50%{opacity:.45}}
+.state{font:700 1rem/1 var(--px);letter-spacing:.02em}
+.state.off{color:#ff8f99}
+.panel-ver{margin-left:auto;font:500 .85rem/1 var(--px);color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;margin-bottom:1rem}
+.stat{background:#0b0417;border:1px solid #ffffff10;padding:.65rem .4rem;text-align:center}
+.stat b{display:block;font:700 1.45rem/1.1 var(--px);color:#fff}
+.stat span{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+.addr{display:grid;gap:.5rem}
+.addr-row{display:grid;grid-template-columns:auto 1fr auto;align-items:stretch;border:1px solid var(--line);background:#0b0417}
+.tag{display:grid;place-items:center;font:700 .8rem/1 var(--px);padding:0 .65rem;background:var(--violet);color:#fff}
+.addr-row.bed .tag{background:#1f8f56}
+.addr-row code{font:500 .98rem/1.4 var(--px);color:#fff;padding:.65rem .7rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:flex;align-items:center}
+.addr-row button{font:700 .9rem/1 var(--px);background:var(--magenta);color:#1d0033;border:0;padding:0 1rem;cursor:pointer;transition:background .2s}
+.addr-row button:hover{background:#f65dff}
+.addr-row button.ok{background:var(--grass)}
+.panel-note{margin-top:.85rem;font-size:.84rem;color:var(--muted)}
+.panel-note b{color:var(--lilac)}
 
-section{padding:5rem 0;border-top:2px solid #ffffff10;background:#0a0416cc}
-.lead{color:var(--muted);max-width:40rem;margin-bottom:2.4rem}
+/* ---------- sections ---------- */
+section{padding:5.5rem 0;border-top:1px solid #ffffff10}
+.head{max-width:44rem;margin-bottom:2.6rem}
+.head h2{font-size:clamp(2rem,4.6vw,2.9rem);margin:.9rem 0 .8rem}
+.head p{color:var(--muted);font-size:1.05rem}
 
-/* bento */
-.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:1.1rem}
-.card{background:var(--deep);border:2px solid var(--line);padding:1.5rem;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .3s;position:relative;overflow:hidden}
-.card:hover{transform:translate(-4px,-4px);box-shadow:6px 6px 0 var(--violet);border-color:var(--violet)}
-.card h3{font-size:1.55rem;margin-bottom:.4rem}
-.card p{color:var(--muted);font-size:1rem;max-width:26rem}
-.s4{grid-column:span 4}.s2{grid-column:span 2}
-.side{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center}
-.ico{width:3.4rem;height:3.4rem;margin-bottom:1rem;transition:transform .5s var(--ease)}
-.ico.lg{width:6.5rem;height:6.5rem;margin:0 .5rem 0 0}
-.ico svg,.ico img{display:block;width:100%;height:100%;shape-rendering:crispEdges}
-.ico img{object-fit:contain;image-rendering:pixelated}
-.card:hover .ico{transform:rotate(-6deg) scale(1.1)}
-.card:hover .coin{transform:none}
-.vc svg{display:none}.vc.nologo svg{display:block}
-.ver{display:flex;flex-direction:column;justify-content:space-between}
-.big{font:700 clamp(3.6rem,8vw,5.4rem)/1 var(--px);background:linear-gradient(180deg,#fff,var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent}
-.big .n{font-family:var(--px)}
-.blk{width:2.4rem;height:2.4rem;margin-bottom:1rem;background:var(--c);box-shadow:inset 5px 5px 0 #ffffff55,inset -5px -5px 0 #00000055;transition:transform .5s var(--ease)}
-.card:hover .blk{transform:rotate(12deg) scale(1.12)}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem}
+.card{background:linear-gradient(180deg,#170a2f,#120726);border:1px solid var(--line);padding:1.6rem;
+  transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-5px);border-color:#8a3cff;box-shadow:0 12px 0 -6px #9400ff55}
+.card h3{font-size:1.3rem;margin-bottom:.5rem}
+.card p{color:var(--muted);font-size:.98rem}
+.ico{width:2.75rem;height:2.75rem;margin-bottom:1.1rem;transition:transform .45s var(--ease)}
+.ico svg{display:block;width:100%;height:100%;shape-rendering:crispEdges}
+.card:hover .ico{transform:rotate(-8deg) scale(1.08)}
 
 /* rules */
-.rt{display:flex;gap:.6rem;margin-bottom:1.2rem}
-.rt button{font:700 1.15rem var(--px);padding:.65rem 1.4rem;background:var(--deep);color:var(--muted);border:2px solid var(--line);cursor:pointer;transition:all .25s var(--ease)}
-.rt button:hover{color:#fff}
-.rt button[aria-selected=true]{background:var(--violet);color:#fff;border-color:var(--violet);box-shadow:4px 4px 0 var(--magenta)}
-.book{background:#12071f;border:3px solid #000;outline:3px solid var(--line);padding:1.5rem 1.6rem;animation:swap .45s var(--ease)}
-@keyframes swap{from{opacity:0;transform:translateY(12px)}}
+.tabs{display:inline-flex;border:1px solid var(--line);background:#0b0417;margin-bottom:1.3rem;flex-wrap:wrap}
+.tabs button{font:700 .95rem/1 var(--px);padding:.75rem 1.2rem;background:transparent;color:var(--muted);
+  border:0;border-right:1px solid var(--line);cursor:pointer;transition:background .2s,color .2s}
+.tabs button:last-child{border-right:0}
+.tabs button:hover{color:#fff}
+.tabs button[aria-selected="true"]{background:var(--violet);color:#fff}
+.book{background:var(--ink);border:1px solid var(--line);padding:1.6rem 1.7rem;animation:swap .4s var(--ease)}
 .book[hidden]{display:none}
-.book ul{list-style:none;padding:0;columns:2 19rem;column-gap:2rem}
-.book li{padding:.3rem .5rem .3rem 1.6rem;position:relative;break-inside:avoid;transition:background .2s,padding-left .25s var(--ease)}
-.book li:hover{background:#9400ff22;padding-left:1.9rem}
-.book li::before{content:"";position:absolute;left:.3rem;top:.95em;border:.35rem solid transparent;border-left:.55rem solid var(--violet);border-right:0}
-.book small{color:var(--muted)}.book code{color:var(--lilac)}
-.book .note{margin-top:1rem;color:var(--muted);font-size:.95rem}
+@keyframes swap{from{opacity:0;transform:translateY(10px)}}
+.book ul{list-style:none;padding:0;columns:2 18rem;column-gap:2rem}
+.book li{position:relative;padding:.32rem 0 .32rem 1.5rem;break-inside:avoid;transition:color .2s}
+.book li::before{content:"";position:absolute;left:0;top:.78em;width:.45rem;height:.45rem;background:var(--violet);box-shadow:0 0 10px #9400ff88}
+.book li:hover{color:#fff}
+.book small{color:var(--muted)}
+.book code{font-family:var(--px);color:var(--lilac)}
+.book .note{margin-top:1.1rem;padding-top:1rem;border-top:1px solid #ffffff10;color:var(--muted);font-size:.9rem}
 
 /* join */
-.join{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));gap:1.2rem}
-.join ol{padding-left:1.2rem;display:grid;gap:.7rem}
-.join ol li::marker{color:var(--magenta);font-family:var(--px)}
-kbd{font:500 .95rem var(--px);background:var(--void);border:2px solid var(--line);padding:.05rem .45rem;overflow-wrap:anywhere}
+.join-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));gap:1rem}
+.ed-card{background:linear-gradient(180deg,#170a2f,#120726);border:1px solid var(--line);padding:1.6rem;transition:border-color .3s,transform .3s var(--ease)}
+.ed-card:hover{transform:translateY(-5px);border-color:#8a3cff}
+.ed-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px solid #ffffff12}
+.ed-head h3{font-size:1.3rem}
+.pill{font:700 .72rem/1 var(--px);letter-spacing:.12em;text-transform:uppercase;padding:.4rem .55rem;background:#9400ff26;color:var(--lilac);border:1px solid #9400ff55}
+.pill.green{background:#3ddc8420;color:#9df3c6;border-color:#3ddc8455}
+.steps{list-style:none;padding:0;display:grid;gap:1rem;counter-reset:s}
+.steps li{position:relative;padding-left:2.4rem;color:var(--muted);counter-increment:s}
+.steps li::before{content:counter(s);position:absolute;left:0;top:-.05rem;width:1.65rem;height:1.65rem;
+  display:grid;place-items:center;font:700 .9rem/1 var(--px);color:#fff;background:var(--violet)}
+.steps b{color:var(--text);font-weight:500}
+kbd{font:500 .92rem/1 var(--px);background:#0b0417;border:1px solid var(--line);color:#fff;padding:.25rem .45rem;display:inline-block;margin:.2rem 0}
+.inline-copy{display:inline-flex;align-items:center;gap:.45rem;margin-top:.7rem;font:700 .8rem/1 var(--px);
+  background:transparent;border:1px dashed #9400ff77;color:var(--lilac);padding:.5rem .7rem;cursor:pointer;transition:border-color .2s,color .2s}
+.inline-copy:hover{border-color:var(--magenta);color:#fff}
+
+/* cta */
+.cta-section{border-top:1px solid #ffffff10;padding:5rem 0}
+.cta-band{display:flex;align-items:center;justify-content:space-between;gap:1.8rem;flex-wrap:wrap;
+  padding:2.4rem 2.2rem;border:2px solid #7a2cd8;
+  background:radial-gradient(30rem 14rem at 12% 10%,#7b1fd67a,transparent 70%),linear-gradient(120deg,#1b0a36,#10061f);
+  box-shadow:10px 10px 0 #00000055}
+.cta-band h2{font-size:clamp(1.7rem,3.6vw,2.4rem);max-width:20ch}
+.cta-band p{color:var(--muted);margin-top:.5rem}
 
 /* footer */
-footer{border-top:2px solid #ffffff10;padding:2.5rem 0 2rem;color:var(--muted);font-size:.92rem;background:#0a0416}
-footer .top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem}
-footer .top .brand{font-size:1.2rem}
-.social{display:flex;gap:.7rem;flex-wrap:wrap}
-.social a{font:700 1rem;text-decoration:none;padding:.45rem 1rem}
-footer .legal{border-top:2px solid #ffffff10;padding-top:1.3rem;display:grid;gap:.4rem;max-width:52rem}
-footer .legal p{font-size:.88rem;line-height:1.55}
+footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);font-size:.92rem;background:#08030f}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;margin-bottom:2.2rem}
+.foot-top h4{font:700 .78rem/1 var(--px);letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);margin-bottom:.9rem}
+.foot-top ul{list-style:none;padding:0;display:grid;gap:.45rem}
+.foot-top a:hover{color:#fff}
+.foot-brand p{margin-top:.8rem;max-width:26ch;line-height:1.6}
+.legal{border-top:1px solid #ffffff10;padding-top:1.4rem;display:grid;gap:.4rem;font-size:.84rem;line-height:1.6;max-width:56rem}
 
 /* reveal */
-.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms)}
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms)}
 .js .rv.in{opacity:1;transform:none}
-.js .card.rv.in{transition:opacity .7s var(--ease) var(--d,0ms),transform .35s var(--ease),box-shadow .35s var(--ease),border-color .3s}
 
-@media(max-width:30rem){.row{grid-template-columns:1fr auto}.ed{grid-column:1/-1;padding:.2rem}}
-@media(max-width:52rem){
-  .hero{grid-template-columns:1fr;padding:2rem 0 4rem;min-height:0}
-  .stage{order:-1;min-height:14rem}.logo{width:9rem}
-  .s4,.s2{grid-column:span 6}
-  .side{grid-template-columns:1fr}.side .ico{order:-1;margin:0 0 1rem}
-  nav ul a{padding:.4rem .7rem;font-size:.95rem}
+@media(max-width:60rem){
+  .hero{grid-template-columns:1fr;gap:2.6rem;padding:3rem 0 4rem}
+  .aside{order:2}
+  .art{min-height:11rem}
+  .panel{max-width:34rem}
+  .foot-top{grid-template-columns:1fr 1fr}
 }
-@media(max-width:40rem){nav ul .sec{display:none}nav ul{gap:.5rem}nav ul li:nth-child(3){margin:0}}
+@media(max-width:52rem){
+  .burger{display:grid}
+  .menu{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:.6rem;
+    background:#0a0417;border-bottom:2px solid var(--line);padding:1rem 1.5rem 1.4rem;box-shadow:0 24px 40px #00000080}
+  .bar.open .menu{display:flex}
+  .links{flex-direction:column;align-items:stretch;gap:.1rem}
+  .links a{padding:.8rem .3rem;font-size:1.05rem;border-bottom:1px solid #ffffff0c}
+  .socials{margin-top:.4rem}
+  .socials a{flex:1;text-align:center}
+  .book ul{columns:1}
+}
+@media(max-width:34rem){
+  .stats{grid-template-columns:1fr 1fr}
+  .addr-row{grid-template-columns:1fr auto}
+  .tag{grid-column:1/-1;padding:.3rem .7rem;justify-items:start}
+  .foot-top{grid-template-columns:1fr}
+  .cta-band{padding:1.8rem 1.4rem}
+}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .hero h1 .c,.js .rv{opacity:1;transform:none}
+  .js .rv{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <canvas id="fx" aria-hidden="true"></canvas>
-<div class="glow" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"></div>
 
-<div class="bar"><div class="wrap">
-  <nav>
-    <a class="brand" href="#top"><img src="logo.png" alt="">Vunilow Smp</a>
-    <ul>
-      <li class="sec"><a href="#about">About</a></li>
-      <li class="sec"><a href="#rules">Rules</a></li>
-      <li class="sec"><a href="#join">Join</a></li>
-      <li><a class="yt" href="https://www.youtube.com/@vunilow" target="_blank" rel="noopener">YouTube</a></li>
-      <li><a class="tw" href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener">Twitch</a></li>
-    </ul>
-  </nav>
-</div></div>
-
-<div class="wrap">
-  <header class="hero" id="top">
-    <div>
-      <h1 id="title" aria-label="Vunilow Smp">Vunilow Smp</h1>
-      <p class="lede">A shop survival SMP for Java and Bedrock. Grind, trade, and talk to nearby players with proximity voice chat.</p>
-      <div class="chips"><span>Java + Bedrock</span><span>Shop survival</span><span>Voice chat</span><span data-live-ver>26.2 and below</span></div>
-      <div class="live" aria-live="polite">
-        <span class="dot" data-live-dot></span>
-        <span data-live-text>Checking server status&hellip;</span>
-        <span class="sep" data-live-sep hidden></span>
-        <span data-live-meta></span>
-      </div>
-      <div class="connect" aria-label="Server addresses">
-        <div class="row"><span class="ed">Java</span><code>Vunilowsmp.net</code><button type="button" data-copy="Vunilowsmp.net">Copy</button></div>
-        <div class="row"><span class="ed">Bedrock</span><code>VunilowSmp.net:25565</code><button type="button" data-copy="VunilowSmp.net:25565">Copy</button></div>
-        <p class="port">Bedrock port: <b>25565</b></p>
-      </div>
-    </div>
-    <div class="stage" id="stage">
-      <div class="ring"></div><div class="ring b"></div>
-      <div class="tilt" id="tilt"><img class="logo" src="logo.png" alt="Vunilow Smp logo, a purple V"></div>
-    </div>
-  </header>
-</div>
-
-<section id="about">
-  <div class="wrap">
-    <h2 class="rv">About the server</h2>
-    <p class="lead rv" style="--d:80ms">Vunilow Smp is a Donut SMP style survival server built around the shop.</p>
-    <div class="bento">
-      <div class="card s4 side rv">
-        <div><h3>Shop survival</h3><p>Earn money, buy and sell in the shop, and build your way up in a survival world.</p></div>
-        <div class="ico lg coin" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#6b3f00"><rect x="3" y="0" width="6" height="12"/><rect x="0" y="3" width="12" height="6"/><rect x="1" y="1" width="10" height="10"/></g><g fill="#ffc857"><rect x="4" y="1" width="4" height="10"/><rect x="1" y="4" width="10" height="4"/><rect x="2" y="2" width="8" height="8"/></g><g fill="#fff0a8"><rect x="2" y="3" width="1" height="3"/><rect x="3" y="2" width="2" height="1"/></g><g fill="#b8780f"><rect x="9" y="6" width="1" height="3"/><rect x="7" y="9" width="2" height="1"/></g><g fill="#6b3f00"><rect x="5" y="2" width="2" height="1"/><rect x="4" y="3" width="4" height="1"/><rect x="4" y="4" width="2" height="1"/><rect x="4" y="5" width="4" height="1"/><rect x="6" y="6" width="2" height="1"/><rect x="4" y="7" width="4" height="1"/><rect x="5" y="8" width="2" height="1"/></g></svg></div>
-      </div>
-      <div class="card s2 ver rv" style="--d:90ms">
-        <div><h3>Versions</h3><p>Join on any version up to the latest.</p></div>
-        <div class="big" style="margin-top:1rem">26.2</div>
-        <p>and below</p>
-      </div>
-      <div class="card s2 rv" style="--d:60ms"><div class="ico" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect width="12" height="12" fill="#3b2410"/><rect x="1" y="1" width="10" height="10" fill="#8a5a3b"/><rect x="1" y="1" width="10" height="3" fill="#5fb04b"/><g fill="#3f8a34"><rect x="2" y="3" width="1" height="2"/><rect x="5" y="3" width="1" height="1"/><rect x="8" y="3" width="1" height="2"/><rect x="10" y="3" width="1" height="1"/></g><g fill="#6b4329"><rect x="2" y="6" width="2" height="1"/><rect x="7" y="7" width="2" height="1"/><rect x="4" y="9" width="2" height="1"/><rect x="9" y="9" width="1" height="1"/></g><rect x="1" y="1" width="10" height="1" fill="#8ad46f"/></svg></div><h3>Java + Bedrock</h3><p>Play on either edition. Friends can join together, whatever they play on.</p></div>
-      <div class="card s4 side rv" style="--d:140ms">
-        <div><h3>Voice chat</h3><p>Simple Voice Chat is supported, so you can talk to players close to you in the world.</p></div>
-        <div class="ico lg vc nologo" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#d6b6ff"><rect x="0" y="4" width="2" height="4"/><rect x="2" y="3" width="1" height="6"/><rect x="3" y="2" width="1" height="8"/><rect x="4" y="1" width="1" height="10"/></g><g fill="#e100ff"><rect x="6" y="4" width="1" height="4"/><rect x="8" y="2" width="1" height="8"/></g><g fill="#9400ff"><rect x="10" y="0" width="1" height="12"/></g></svg></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="rules">
-  <div class="wrap">
-    <h2 class="rv">Rules</h2>
-    <p class="lead rv" style="--d:80ms">These match the in-game rule books. Breaking them can get you muted or banned.</p>
-    <div class="rt rv" role="tablist" style="--d:120ms">
-      <button role="tab" aria-selected="true" data-p="p1">Server rules</button>
-      <button role="tab" aria-selected="false" data-p="p2">Chat rules</button>
-    </div>
-    <article class="book" id="p1">
-      <ul>
-        <li>No hack clients</li><li>No movement mods</li><li>No inventory mods</li><li>No minimap</li>
-        <li>No freecam <small>(Fair Play allowed)</small></li><li>No auto place</li><li>No easy place</li>
-        <li>No macros or scripts</li><li>No bug abusing</li><li>No duping</li><li>No real money trading</li>
-        <li>No cross-server trading</li><li>No use of seed</li><li>No crafting modifications</li>
-        <li>No external gambling</li><li>Max. 20 AFK accounts per player</li><li>No ban evasion</li>
-        <li>VPNs are used at your own risk</li>
-        <li>No refunds for hacked accounts. You are responsible for it.</li>
-        <li>Items dropped at spawn are your own risk. No refunds.</li>
+<div class="bar" id="bar">
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="logo.png" alt="" width="30" height="30">Vunilow<span>Smp</span></a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu" id="menu">
+      <ul class="links">
+        <li><a href="#about" data-nav>About</a></li>
+        <li><a href="#rules" data-nav>Rules</a></li>
+        <li><a href="#join" data-nav>Join</a></li>
       </ul>
-      <p class="note">Thanks for reading.</p>
-    </article>
-    <article class="book" id="p2" hidden>
-      <ul>
-        <li>No spamming</li><li>No harassment</li><li>No advertising <small>(unless about the server)</small></li>
-        <li>No discrimination or hate speech</li><li>No death threats</li><li>No doxing <small>(private info)</small></li>
-        <li>No impersonation</li><li>No ban evasion</li><li>Do not lie to staff members</li><li>No mute evading</li>
-        <li>Report all bugs and cheaters on Discord (<code>/discord</code>)</li>
-      </ul>
-      <p class="note">Thanks for reading.</p>
-    </article>
-  </div>
-</section>
-
-<section id="join">
-  <div class="wrap">
-    <h2 class="rv">How to join</h2>
-    <p class="lead rv" style="--d:80ms">Two editions, two addresses. Pick yours.</p>
-    <div class="join">
-      <div class="card rv">
-        <h3>Java Edition</h3>
-        <ol>
-          <li>Open Minecraft Java, version 26.2 or below.</li>
-          <li>Go to <kbd>Multiplayer</kbd>, then <kbd>Add Server</kbd>.</li>
-          <li>Enter <kbd>Vunilowsmp.net</kbd> as the address and join.</li>
-        </ol>
-      </div>
-      <div class="card rv" style="--d:100ms">
-        <h3>Bedrock Edition</h3>
-        <ol>
-          <li>Open Minecraft Bedrock and go to <kbd>Play</kbd>, then <kbd>Servers</kbd>.</li>
-          <li>Choose <kbd>Add Server</kbd>.</li>
-          <li>Enter <kbd>VunilowSmp.net:25565</kbd> as the address and <kbd>25565</kbd> as the port, then join.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="top">
-      <a class="brand" href="#top"><img src="logo.png" alt="">Vunilow Smp</a>
-      <div class="social">
+      <div class="socials">
         <a class="yt" href="https://www.youtube.com/@vunilow" target="_blank" rel="noopener">YouTube</a>
         <a class="tw" href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener">Twitch</a>
       </div>
     </div>
+  </div>
+  <div class="progress" id="progress"></div>
+</div>
+
+<main id="main">
+  <div class="wrap">
+    <header class="hero" id="top">
+      <div class="copy">
+        <span class="eyebrow">Season 1 &middot; live now</span>
+        <h1>Vunilow <em>SMP</em></h1>
+        <p class="lede">A shop survival SMP for Java and Bedrock. Grind, trade, and talk to nearby players with proximity voice chat.</p>
+        <div class="tags">
+          <span>Shop survival</span><span>Java + Bedrock</span><span>Voice chat</span>
+        </div>
+        <div class="actions">
+          <button class="btn primary" type="button" data-copy="Vunilowsmp.net" data-label="Copy server IP">Copy server IP</button>
+          <a class="btn ghost" href="#join">How to join</a>
+        </div>
+      </div>
+
+      <div class="aside">
+        <div class="art" id="stage">
+          <div class="ring" aria-hidden="true"></div>
+          <div class="ring b" aria-hidden="true"></div>
+          <div class="tilt" id="tilt"><img class="logo" src="logo.png" alt="Vunilow Smp logo" width="1024" height="1024"></div>
+        </div>
+
+        <aside class="panel" aria-label="Server status and addresses">
+          <div class="panel-head">
+            <span class="dot" data-live-dot></span>
+            <span class="state" data-live-state>Checking status&hellip;</span>
+            <span class="panel-ver" data-live-version>v26.2</span>
+          </div>
+          <div class="stats">
+            <div class="stat"><b data-live-players>&mdash;</b><span>Online</span></div>
+            <div class="stat"><b data-live-max>&mdash;</b><span>Slots</span></div>
+            <div class="stat"><b data-live-soft>&mdash;</b><span>Software</span></div>
+          </div>
+          <div class="addr">
+            <div class="addr-row">
+              <span class="tag">Java</span>
+              <code>Vunilowsmp.net</code>
+              <button type="button" data-copy="Vunilowsmp.net" data-label="Copy">Copy</button>
+            </div>
+            <div class="addr-row bed">
+              <span class="tag">Bedrock</span>
+              <code>VunilowSmp.net:25565</code>
+              <button type="button" data-copy="VunilowSmp.net:25565" data-label="Copy">Copy</button>
+            </div>
+          </div>
+          <p class="panel-note">Bedrock port <b>25565</b> &middot; version <b data-live-version>26.2</b> and below</p>
+        </aside>
+      </div>
+    </header>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">About</span>
+        <h2>Built around the shop</h2>
+        <p>Vunilow Smp is a Donut SMP style survival server. Earn money, trade with players, and build your way up in a world that isn't going anywhere.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card rv">
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#6b3f00"><rect x="3" y="0" width="6" height="12"/><rect x="0" y="3" width="12" height="6"/><rect x="1" y="1" width="10" height="10"/></g><g fill="#ffc857"><rect x="4" y="1" width="4" height="10"/><rect x="1" y="4" width="10" height="4"/><rect x="2" y="2" width="8" height="8"/></g><g fill="#fff0a8"><rect x="2" y="3" width="1" height="3"/><rect x="3" y="2" width="2" height="1"/></g><g fill="#b8780f"><rect x="9" y="6" width="1" height="3"/><rect x="7" y="9" width="2" height="1"/></g><g fill="#6b3f00"><rect x="5" y="2" width="2" height="1"/><rect x="4" y="3" width="4" height="1"/><rect x="4" y="4" width="2" height="1"/><rect x="4" y="5" width="4" height="1"/><rect x="6" y="6" width="2" height="1"/><rect x="4" y="7" width="4" height="1"/><rect x="5" y="8" width="2" height="1"/></g></svg></div>
+          <h3>Shop survival</h3>
+          <p>Earn money, buy and sell in the shop, and build your way up in a survival world.</p>
+        </article>
+        <article class="card rv" style="--d:80ms">
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect width="12" height="12" fill="#3b2410"/><rect x="1" y="1" width="10" height="10" fill="#8a5a3b"/><rect x="1" y="1" width="10" height="3" fill="#5fb04b"/><g fill="#3f8a34"><rect x="2" y="3" width="1" height="2"/><rect x="5" y="3" width="1" height="1"/><rect x="8" y="3" width="1" height="2"/><rect x="10" y="3" width="1" height="1"/></g><g fill="#6b4329"><rect x="2" y="6" width="2" height="1"/><rect x="7" y="7" width="2" height="1"/><rect x="4" y="9" width="2" height="1"/><rect x="9" y="9" width="1" height="1"/></g><rect x="1" y="1" width="10" height="1" fill="#8ad46f"/></svg></div>
+          <h3>Java + Bedrock</h3>
+          <p>Play on either edition. Friends can join together, whatever they play on.</p>
+        </article>
+        <article class="card rv" style="--d:160ms">
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#d6b6ff"><rect x="0" y="4" width="2" height="4"/><rect x="2" y="3" width="1" height="6"/><rect x="3" y="2" width="1" height="8"/><rect x="4" y="1" width="1" height="10"/></g><g fill="#e100ff"><rect x="6" y="4" width="1" height="4"/><rect x="8" y="2" width="1" height="8"/></g><g fill="#9400ff"><rect x="10" y="0" width="1" height="12"/></g></svg></div>
+          <h3>Voice chat</h3>
+          <p>Simple Voice Chat is supported, so you can talk to players close to you in the world.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Rules</span>
+        <h2>Know the rules</h2>
+        <p>These match the in-game rule books. Breaking them can get you muted or banned.</p>
+      </div>
+      <div class="rv" style="--d:60ms">
+        <div class="tabs" role="tablist" aria-label="Rule books">
+          <button role="tab" id="tab-server" aria-controls="p1" aria-selected="true" data-p="p1">Server rules</button>
+          <button role="tab" id="tab-chat" aria-controls="p2" aria-selected="false" data-p="p2">Chat rules</button>
+        </div>
+        <article class="book" id="p1" role="tabpanel" aria-labelledby="tab-server">
+          <ul>
+            <li>No hack clients</li><li>No movement mods</li><li>No inventory mods</li><li>No minimap</li>
+            <li>No freecam <small>(Fair Play allowed)</small></li><li>No auto place</li><li>No easy place</li>
+            <li>No macros or scripts</li><li>No bug abusing</li><li>No duping</li><li>No real money trading</li>
+            <li>No cross-server trading</li><li>No use of seed</li><li>No crafting modifications</li>
+            <li>No external gambling</li><li>Max. 20 AFK accounts per player</li><li>No ban evasion</li>
+            <li>VPNs are used at your own risk</li>
+            <li>No refunds for hacked accounts. You are responsible for it.</li>
+            <li>Items dropped at spawn are your own risk. No refunds.</li>
+          </ul>
+          <p class="note">Thanks for reading.</p>
+        </article>
+        <article class="book" id="p2" role="tabpanel" aria-labelledby="tab-chat" hidden>
+          <ul>
+            <li>No spamming</li><li>No harassment</li><li>No advertising <small>(unless about the server)</small></li>
+            <li>No discrimination or hate speech</li><li>No death threats</li><li>No doxing <small>(private info)</small></li>
+            <li>No impersonation</li><li>No ban evasion</li><li>Do not lie to staff members</li><li>No mute evading</li>
+            <li>Report all bugs and cheaters on Discord (<code>/discord</code>)</li>
+          </ul>
+          <p class="note">Thanks for reading.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Join</span>
+        <h2>Two editions, two addresses</h2>
+        <p>Pick the one you play on. The version updates itself, so you always know what the server is running.</p>
+      </div>
+      <div class="join-grid">
+        <article class="ed-card rv">
+          <div class="ed-head"><h3>Java Edition</h3><span class="pill">PC / Mac</span></div>
+          <ol class="steps">
+            <li>Open Minecraft Java, version <b data-live-version>26.2</b> or below.</li>
+            <li>Go to <kbd>Multiplayer</kbd> then <kbd>Add Server</kbd>.</li>
+            <li>Enter <kbd>Vunilowsmp.net</kbd> as the address and join.</li>
+          </ol>
+          <button class="inline-copy" type="button" data-copy="Vunilowsmp.net" data-label="Copy Java address">Copy Java address</button>
+        </article>
+        <article class="ed-card rv" style="--d:90ms">
+          <div class="ed-head"><h3>Bedrock Edition</h3><span class="pill green">Console / Mobile</span></div>
+          <ol class="steps">
+            <li>Open Minecraft Bedrock and go to <kbd>Play</kbd> then <kbd>Servers</kbd>.</li>
+            <li>Choose <kbd>Add Server</kbd>.</li>
+            <li>Address <kbd>VunilowSmp.net</kbd>, port <kbd>25565</kbd>, then join.</li>
+          </ol>
+          <button class="inline-copy" type="button" data-copy="VunilowSmp.net:25565" data-label="Copy Bedrock address">Copy Bedrock address</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <div class="cta-band rv">
+        <div>
+          <h2>Grab the IP and hop in</h2>
+          <p>Season 1 is live. Read the rules, then start your first build.</p>
+        </div>
+        <div class="actions">
+          <button class="btn primary" type="button" data-copy="Vunilowsmp.net" data-label="Copy server IP">Copy server IP</button>
+          <a class="btn ghost" href="#rules">Read the rules</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top"><img src="logo.png" alt="" width="26" height="26">Vunilow<span>Smp</span></a>
+        <p>A shop survival SMP for Java and Bedrock, with proximity voice chat.</p>
+      </div>
+      <div>
+        <h4>Server</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#rules">Rules</a></li>
+          <li><a href="#join">How to join</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/@vunilow" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener">Twitch</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="legal">
-      <p>&copy; 2026 Vunilow Smp. All rights reserved.</p>
+      <p>&copy; <span id="year">2026</span> Vunilow Smp. All rights reserved.</p>
       <p>Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft. Minecraft is a trademark of Mojang Synergies AB.</p>
     </div>
   </div>
@@ -317,113 +470,186 @@ footer .legal p{font-size:.88rem;line-height:1.55}
 <script>
 (function(){
   document.documentElement.classList.add('js');
-  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $=function(id){return document.getElementById(id)};
 
-  // Title letter drop
-  var t=$('title'),i=0;
-  t.innerHTML=t.textContent.split(' ').map(function(w){
-    return '<span class="w" aria-hidden="true">'+w.split('').map(function(ch){return '<span class="c" style="--i:'+(i++)+'">'+ch+'</span>'}).join('')+'</span>';
-  }).join('');
-
-  // Digits use the body font
-  var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
-    var pn=n.parentNode;
-    if(/^(SCRIPT|STYLE)$/.test(pn.nodeName)||pn.closest('.c')||!/[0-9]/.test(n.nodeValue))return NodeFilter.FILTER_REJECT;
-    return NodeFilter.FILTER_ACCEPT}}),nodes=[],nd;
-  while(nd=walker.nextNode())nodes.push(nd);
-  nodes.forEach(function(n){
-    var f=document.createDocumentFragment();
-    n.nodeValue.split(/([0-9][0-9.]*[0-9]|[0-9])/).forEach(function(p,k){
-      if(k%2){var s=document.createElement('span');s.className='n';s.textContent=p;f.appendChild(s)}
-      else if(p)f.appendChild(document.createTextNode(p));
+  /* copy buttons */
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    var label=b.getAttribute('data-label')||'Copy';
+    b.addEventListener('click',function(){
+      var done=function(){
+        b.textContent='Copied';
+        b.classList.add('ok');
+        setTimeout(function(){b.textContent=label;b.classList.remove('ok')},1600);
+      };
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(b.getAttribute('data-copy')).then(done,done);
+      }else{
+        var t=document.createElement('textarea');
+        t.value=b.getAttribute('data-copy');t.style.position='fixed';t.style.opacity='0';
+        document.body.appendChild(t);t.select();
+        try{document.execCommand('copy')}catch(e){}
+        document.body.removeChild(t);done();
+      }
     });
-    n.parentNode.replaceChild(f,n);
   });
 
-  // Scroll reveal
-  var els=document.querySelectorAll('.rv');
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
-    els.forEach(function(e){io.observe(e)});
-  }else{els.forEach(function(e){e.classList.add('in')})}
-
-  // Live server status (mcsrvstat.us, refreshed once a minute)
-  var ldot=document.querySelector('[data-live-dot]'),ltxt=document.querySelector('[data-live-text]'),
-      lmeta=document.querySelector('[data-live-meta]'),lsep=document.querySelector('[data-live-sep]'),
-      lver=document.querySelector('[data-live-ver]'),lverBase=lver?lver.textContent:'';
-  function n2(v){return '<span class="n">'+v+'</span>'}
-  function paint(state,html,meta,ver){
-    if(!ltxt)return;
-    ldot.className='dot'+(state?' '+state:'');
-    ltxt.innerHTML=html;
-    lmeta.innerHTML=meta||'';
-    lsep.hidden=!meta;
-    if(ver&&lver)lver.innerHTML=ver;
+  /* live status */
+  var dot=document.querySelector('[data-live-dot]'),
+      state=document.querySelector('[data-live-state]'),
+      players=document.querySelector('[data-live-players]'),
+      max=document.querySelector('[data-live-max]'),
+      soft=document.querySelector('[data-live-soft]'),
+      vers=document.querySelectorAll('[data-live-version]'),
+      running=false;
+  function setVersions(v){vers.forEach(function(el){if(v)el.textContent=v})}
+  function paint(s,label,p,m,sw,v){
+    dot.className='dot'+(s?' '+s:'');
+    state.className='state'+(s==='off'?' off':'');
+    state.textContent=label;
+    if(p!==undefined)players.textContent=p;
+    if(m!==undefined)max.textContent=m;
+    if(sw!==undefined)soft.textContent=sw;
+    if(v)setVersions(v);
   }
   function poll(){
     fetch('https://api.mcsrvstat.us/3/Vunilowsmp.net',{cache:'no-store'})
       .then(function(r){return r.json()})
       .then(function(d){
         if(d&&d.online){
-          var p=(d.players&&d.players.online)||0,m=(d.players&&d.players.max)||0,
-              v=d.version||'',soft=(d.software||'').replace(/\s+\d.*$/,'');
-          paint('on',n2(p)+' / '+n2(m)+' playing right now',(soft?soft+' \u00b7 ':'')+'Java '+(v||'?'),v?v+' and below':'');
+          var p=(d.players&&d.players.online)||0,
+              m=(d.players&&d.players.max)||0,
+              v=d.version||'',
+              sw=(d.software||'').replace(/\s+\d[\w.]*$/,'')||'Java';
+          paint('on','Online',p,m,sw,v?'v'+v:'');
         }else{
-          paint('off','Server is offline right now','Live status \u00b7 retrying','');
+          paint('off','Offline','—','—','—','');
         }
       })
-      .catch(function(){paint('','Live status unavailable','','')})
-      .then(function(){setTimeout(poll,60000)});
+      .catch(function(){paint('','Status unknown','—','—','—','')})
+      .then(function(){
+        running=true;
+        setTimeout(poll,60000);
+      });
   }
-  if(ltxt)poll();
+  if(state)poll();
 
-  // Copy buttons
-  document.querySelectorAll('[data-copy]').forEach(function(b){
-    b.addEventListener('click',function(){
-      function done(){b.textContent='Copied';b.classList.add('ok');setTimeout(function(){b.textContent='Copy';b.classList.remove('ok')},1600)}
-      if(navigator.clipboard){navigator.clipboard.writeText(b.dataset.copy).then(done,done)}else{done()}
+  /* rules tabs */
+  var tabs=Array.prototype.slice.call(document.querySelectorAll('.tabs [role=tab]'));
+  function selectTab(btn){
+    tabs.forEach(function(x){
+      var on=x===btn;
+      x.setAttribute('aria-selected',on?'true':'false');
+      document.getElementById(x.getAttribute('data-p')).hidden=!on;
+    });
+  }
+  tabs.forEach(function(b){
+    b.addEventListener('click',function(){selectTab(b)});
+    b.addEventListener('keydown',function(e){
+      var i=tabs.indexOf(b);
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+        e.preventDefault();
+        var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];
+        n.focus();selectTab(n);
+      }
     });
   });
 
-  // Rules tabs
-  var rt=document.querySelectorAll('.rt button');
-  rt.forEach(function(b){
-    b.addEventListener('click',function(){
-      rt.forEach(function(x){x.setAttribute('aria-selected',x===b);$(x.dataset.p).hidden=x!==b});
-    });
+  /* mobile menu */
+  var bar=$('bar'),burger=$('burger');
+  function closeMenu(){
+    bar.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    burger.setAttribute('aria-label','Open menu');
+  }
+  burger.addEventListener('click',function(){
+    var open=bar.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    burger.setAttribute('aria-label',open?'Close menu':'Open menu');
   });
+  document.querySelectorAll('#menu a').forEach(function(a){a.addEventListener('click',closeMenu)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+
+  /* scroll progress + active link */
+  var prog=$('progress'),links=Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-innerHeight;
+    prog.style.width=(h>0?(scrollY/h)*100:0)+'%';
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var secs=[].slice.call(document.querySelectorAll('section[id]'));
+  if('IntersectionObserver' in window){
+    var spy=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting)return;
+        links.forEach(function(a){
+          a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id);
+        });
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){spy.observe(s)});
+
+    var els=document.querySelectorAll('.rv');
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  }else{
+    document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});
+  }
+  /* safety net: never leave content hidden if an observer callback is skipped */
+  setTimeout(function(){
+    document.querySelectorAll('.rv:not(.in)').forEach(function(e){e.classList.add('in')});
+  },2500);
+
+  $('year').textContent=new Date().getFullYear();
 
   if(reduce)return;
 
-  // Logo follows the cursor a little
-  var st=$('stage'),tl=$('tilt');
-  st.addEventListener('mousemove',function(e){
-    var r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-    tl.style.transform='rotateY('+(x*22)+'deg) rotateX('+(-y*22)+'deg)';
-  });
-  st.addEventListener('mouseleave',function(){tl.style.transform=''});
-
-  // Floating pixel particles
-  var c=$('fx'),x=c.getContext('2d'),W,H,P=[],N=46,raf;
-  function size(){var d=Math.min(devicePixelRatio||1,2);W=c.width=innerWidth*d;H=c.height=innerHeight*d}
-  function mk(init){
-    var d=Math.min(devicePixelRatio||1,2),s=(3+Math.random()*7|0)*d;
-    return {x:Math.random()*W,y:init?Math.random()*H:H+s,s:s,v:(.15+Math.random()*.45)*d,a:.12+Math.random()*.4,h:Math.random()<.35?'#e100ff':'#9400ff',w:Math.random()*6.28}
+  /* logo tilt */
+  var stage=$('stage'),tilt=$('tilt');
+  if(stage&&tilt){
+    stage.addEventListener('mousemove',function(e){
+      var r=stage.getBoundingClientRect(),
+          x=(e.clientX-r.left)/r.width-.5,
+          y=(e.clientY-r.top)/r.height-.5;
+      tilt.style.transform='rotateY('+(x*20)+'deg) rotateX('+(-y*20)+'deg)';
+    });
+    stage.addEventListener('mouseleave',function(){tilt.style.transform=''});
   }
-  function init(){size();P=[];for(var k=0;k<N;k++)P.push(mk(true))}
+
+  /* drifting pixels */
+  var c=$('fx');
+  if(!c)return;
+  var ctx=c.getContext('2d'),W=0,H=0,P=[],N=40,raf=null,
+      dpr=Math.min(devicePixelRatio||1,2);
+  function mk(init){
+    var s=(3+Math.random()*6|0)*dpr;
+    return{x:Math.random()*W,y:init?Math.random()*H:H+s,s:s,
+      v:(.15+Math.random()*.4)*dpr,a:.1+Math.random()*.35,
+      h:Math.random()<.35?'#e100ff':'#9400ff',w:Math.random()*6.28};
+  }
+  function init(){
+    W=c.width=innerWidth*dpr;H=c.height=innerHeight*dpr;P=[];
+    for(var k=0;k<N;k++)P.push(mk(true));
+  }
   function tick(){
-    x.clearRect(0,0,W,H);
+    ctx.clearRect(0,0,W,H);
     for(var k=0;k<P.length;k++){
       var p=P[k];p.y-=p.v;p.w+=.01;p.x+=Math.sin(p.w)*.3;
       if(p.y<-p.s){P[k]=mk(false);continue}
-      x.globalAlpha=p.a;x.fillStyle=p.h;x.fillRect(p.x|0,p.y|0,p.s,p.s);
+      ctx.globalAlpha=p.a;ctx.fillStyle=p.h;
+      ctx.fillRect(p.x|0,p.y|0,p.s,p.s);
     }
     raf=requestAnimationFrame(tick);
   }
   init();tick();
   addEventListener('resize',init);
-  document.addEventListener('visibilitychange',function(){cancelAnimationFrame(raf);if(!document.hidden)tick()});
+  document.addEventListener('visibilitychange',function(){
+    if(document.hidden){cancelAnimationFrame(raf);raf=null}
+    else if(!raf){tick()}
+  });
 })();
 </script>
 </body>

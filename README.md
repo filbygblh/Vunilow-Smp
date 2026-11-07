@@ -18,15 +18,9 @@ The hero pill calls `https://api.mcsrvstat.us/3/Vunilowsmp.net` in the browser (
 
 ## The bare domain (vunilowsmp.net) and Minecraft
 
-`vunilowsmp.net` currently has an `A` record → `143.20.135.5` (the Minecraft server) plus an `_minecraft._tcp` SRV record. That is why the site only answers on `www.`
+`vunilowsmp.net` stays the Minecraft address: `A` → `143.20.135.5` plus an `_minecraft._tcp` SRV record. The website is served from `www.` only, because Cloudflare's proxy cannot carry Minecraft's game traffic and both editions (Java and Bedrock, port 25565) answer on the apex.
 
-Do **not** point the apex at the website without moving Minecraft off it first: the apex is the address players type, and Cloudflare's proxy (orange cloud) cannot carry Minecraft's TCP traffic. The safe cutover, when you want the site on the bare domain:
-
-1. Add `play` → `A` → `143.20.135.5`, **DNS only** (grey cloud).
-2. Change the SRV target `_minecraft._tcp.vunilowsmp.net` to `play.vunilowsmp.net` (port 25565).
-3. Point the apex `A` records at GitHub Pages (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`) and add `vunilowsmp.net` as a custom domain for the Pages site.
-
-Java players are carried across by the SRV record, so `vunilowsmp.net` keeps working in-game. **Bedrock ignores SRV**, so Bedrock players would need `play.vunilowsmp.net:25565`.
+`play.vunilowsmp.net` also resolves to the same server as an alias. It is not advertised on the site; Java players should keep using `vunilowsmp.net`.
 
 ## Editing
 
