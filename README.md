@@ -37,3 +37,11 @@ npx -y playwright@latest screenshot --channel=msedge --viewport-size=2048,1152 -
 ```
 
 The page scales itself to whatever viewport captures it, so the output stays exactly 2048×1152.
+
+## YouTube avatar
+
+`avatar.png` (1024×1024) is rendered from `avatar.html`. YouTube crops avatars to a circle and flattens transparency to white, so the background is baked in and the artwork stays inside the inscribed circle.
+
+```
+npx -y playwright@latest screenshot --channel=msedge --viewport-size=1024,1024 --wait-for-timeout=3000 http://127.0.0.1:8000/avatar.html avatar.png
+```

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vunilow SMP avatar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1024px;height:1024px;overflow:hidden;background:#0a0416}
+  .avatar{position:relative;width:1024px;height:1024px;display:grid;place-items:center;overflow:hidden;
+    background:
+      radial-gradient(370px 370px at 50% 47%,#c04bff4a 0%,rgba(192,75,255,0) 70%),
+      radial-gradient(700px 700px at 50% 50%,#2b0f4e 0%,#1a0b32 46%,#0c0518 74%,#08030f 100%)}
+  .grid{position:absolute;inset:0;
+    background-image:linear-gradient(#ffffff0d 3px,transparent 3px),linear-gradient(90deg,#ffffff0d 3px,transparent 3px);
+    background-size:96px 96px;
+    -webkit-mask-image:radial-gradient(circle at 50% 50%,#000 26%,transparent 74%);
+    mask-image:radial-gradient(circle at 50% 50%,#000 26%,transparent 74%)}
+  .ring{position:absolute;border-radius:50%;border:5px dashed #ffffff1f;width:872px;height:872px}
+  .ring.b{width:790px;height:790px;border:6px solid #e100ff2e}
+  .halo{position:absolute;width:560px;height:560px;border-radius:50%;
+    background:radial-gradient(circle,#e100ff4d 0%,#e100ff00 64%);filter:blur(38px)}
+  .logo{position:relative;width:580px;height:580px;object-fit:contain;image-rendering:pixelated;
+    filter:drop-shadow(0 18px 38px #000000b3) drop-shadow(0 0 54px #b53cff99)}
+  .bx{position:absolute;display:block}
+  .vig{position:absolute;inset:0;pointer-events:none;
+    box-shadow:inset 0 0 200px 60px #06020fc4}
+</style>
+</head>
+<body>
+<div class="avatar">
+  <div class="grid"></div>
+  <div class="ring"></div>
+  <div class="ring b"></div>
+  <div class="halo"></div>
+
+  <span class="bx" style="left:214px;top:300px;width:30px;height:30px;background:#e100ff;opacity:.22"></span>
+  <span class="bx" style="left:260px;top:236px;width:16px;height:16px;background:#ffffff;opacity:.18"></span>
+  <span class="bx" style="right:206px;top:328px;width:24px;height:24px;background:#c084fc;opacity:.26"></span>
+  <span class="bx" style="right:252px;top:700px;width:30px;height:30px;background:#e100ff;opacity:.2"></span>
+  <span class="bx" style="left:232px;top:686px;width:20px;height:20px;background:#ffffff;opacity:.14"></span>
+  <span class="bx" style="left:498px;top:178px;width:14px;height:14px;background:#c084fc;opacity:.3"></span>
+  <span class="bx" style="left:512px;top:838px;width:18px;height:18px;background:#e100ff;opacity:.24"></span>
+
+  <img class="logo" src="http://127.0.0.1:5055/logo.png" alt="">
+  <div class="vig"></div>
+</div>
+<script>
+(function(){
+  var a=document.querySelector('.avatar');
+  function fit(){
+    var s=Math.min(innerWidth/1024,innerHeight/1024);
+    a.style.transformOrigin='top left';
+    a.style.transform='scale('+s+')';
+  }
+  fit();addEventListener('resize',fit);
+})();
+</script>
+</body>
+</html>
