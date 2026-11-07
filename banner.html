@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vunilow SMP banner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:2048px;height:1152px;overflow:hidden;background:#08030f}
+  .banner{position:relative;width:2048px;height:1152px;display:grid;place-items:center;overflow:hidden;
+    background:
+      radial-gradient(780px 560px at 50% 46%,#7b1fdcc2,transparent 72%),
+      radial-gradient(640px 460px at 8% 2%,#e100ff2e,transparent 72%),
+      radial-gradient(700px 500px at 94% 98%,#9400ff4d,transparent 72%),
+      linear-gradient(180deg,#0a0416 0%,#150a2b 55%,#0b0418 100%)}
+  .grid{position:absolute;inset:0;
+    background-image:linear-gradient(#ffffff0a 2px,transparent 2px),linear-gradient(90deg,#ffffff0a 2px,transparent 2px);
+    background-size:128px 128px;
+    -webkit-mask-image:radial-gradient(circle at 50% 46%,#000 24%,transparent 76%);
+    mask-image:radial-gradient(circle at 50% 46%,#000 24%,transparent 76%)}
+  .ring{position:absolute;border:3px dashed #b06bff3d;border-radius:50%}
+  .r1{width:820px;height:820px}
+  .r2{width:1080px;height:1080px;border-color:#e100ff2b}
+  .bx{position:absolute;display:block}
+  .safe{position:relative;width:1235px;height:338px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .logo{width:92px;height:92px;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 10px 26px #9400ff99)}
+  h1{font-family:'Pixelify Sans',ui-monospace,monospace;font-weight:700;font-size:100px;line-height:1;
+    letter-spacing:.005em;color:#fff;margin-top:8px;text-shadow:0 10px 44px #e100ff59}
+  h1 b{font-weight:700;background:linear-gradient(180deg,#fff 16%,#e100ff 94%);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .tag{font-family:'Pixelify Sans',ui-monospace,monospace;font-weight:500;font-size:21px;letter-spacing:.44em;
+    text-transform:uppercase;color:#d9bcff;margin-top:14px;padding-left:.44em}
+  .ip{display:inline-flex;align-items:center;gap:12px;margin-top:16px;padding:9px 24px;
+    border:2px solid #7b2fd0;background:#180a30;font-family:'Pixelify Sans',monospace;font-weight:700;
+    font-size:22px;color:#fff;letter-spacing:.04em}
+  .ip i{display:block;width:10px;height:10px;background:#3ddc84;box-shadow:0 0 0 4px #3ddc8433}
+  .vig{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 280px 70px #08030fd9}
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="grid"></div>
+  <div class="ring r1"></div>
+  <div class="ring r2"></div>
+
+  <span class="bx" style="left:150px;top:210px;width:58px;height:58px;background:#9400ff;opacity:.22"></span>
+  <span class="bx" style="left:214px;top:296px;width:34px;height:34px;background:#e100ff;opacity:.16"></span>
+  <span class="bx" style="left:96px;top:398px;width:22px;height:22px;background:#c084fc;opacity:.24"></span>
+  <span class="bx" style="left:288px;top:170px;width:18px;height:18px;background:#e100ff;opacity:.3"></span>
+  <span class="bx" style="left:176px;top:880px;width:64px;height:64px;background:#7b1fdc;opacity:.2"></span>
+  <span class="bx" style="left:280px;top:966px;width:26px;height:26px;background:#e100ff;opacity:.18"></span>
+  <span class="bx" style="left:64px;top:760px;width:14px;height:14px;background:#c084fc;opacity:.3"></span>
+
+  <span class="bx" style="right:150px;top:230px;width:58px;height:58px;background:#9400ff;opacity:.22"></span>
+  <span class="bx" style="right:226px;top:318px;width:34px;height:34px;background:#e100ff;opacity:.16"></span>
+  <span class="bx" style="right:96px;top:430px;width:22px;height:22px;background:#c084fc;opacity:.24"></span>
+  <span class="bx" style="right:300px;top:166px;width:18px;height:18px;background:#e100ff;opacity:.3"></span>
+  <span class="bx" style="right:176px;top:900px;width:64px;height:64px;background:#7b1fdc;opacity:.2"></span>
+  <span class="bx" style="right:286px;top:986px;width:26px;height:26px;background:#e100ff;opacity:.18"></span>
+  <span class="bx" style="right:70px;top:790px;width:14px;height:14px;background:#c084fc;opacity:.3"></span>
+
+  <div class="safe">
+    <img class="logo" src="http://127.0.0.1:5055/logo.png" alt="">
+    <h1>VUNILOW <b>SMP</b></h1>
+    <div class="tag">Shop survival &middot; Java + Bedrock</div>
+    <div class="ip"><i></i>VUNILOWSMP.NET</div>
+  </div>
+
+  <div class="vig"></div>
+</div>
+<script>
+(function(){
+  var b=document.querySelector('.banner');
+  function fit(){
+    var s=Math.min(innerWidth/2048,innerHeight/1152);
+    b.style.transformOrigin='top left';
+    b.style.transform='scale('+s+')';
+  }
+  fit();addEventListener('resize',fit);
+})();
+</script>
+</body>
+</html>

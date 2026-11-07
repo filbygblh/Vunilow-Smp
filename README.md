@@ -26,4 +26,14 @@ The hero pill calls `https://api.mcsrvstat.us/3/Vunilowsmp.net` in the browser (
 
 - Copy, rules and links live in `index.html`.
 - Server/voice-chat logos: `logo.png`. The voice-chat card draws its icon as inline SVG, so it needs no image file.
-- Social links: YouTube (`@vunilow`) and Twitch (`vunilowttv`) — edit the `.yt` / `.tw` anchors in `index.html`.
+- Social links: YouTube (`@VunilowSMP`) and Twitch (`vunilowttv`) — edit the `.yt` / `.tw` anchors and the `#watch` cards in `index.html`.
+
+## YouTube banner
+
+`banner.png` (2048×1152) is rendered from `banner.html`. After editing the banner, serve the folder and re-render it:
+
+```
+npx -y playwright@latest screenshot --channel=msedge --viewport-size=2048,1152 --wait-for-timeout=3500 http://127.0.0.1:8000/banner.html banner.png
+```
+
+The page scales itself to whatever viewport captures it, so the output stays exactly 2048×1152.

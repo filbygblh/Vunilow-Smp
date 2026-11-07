@@ -13,8 +13,11 @@
 <meta property="og:title" content="Vunilow Smp | Java &amp; Bedrock Shop Survival">
 <meta property="og:description" content="A shop survival SMP for Java and Bedrock with proximity voice chat. Join at vunilowsmp.net">
 <meta property="og:url" content="https://www.vunilowsmp.net/">
-<meta property="og:image" content="https://www.vunilowsmp.net/logo.png">
+<meta property="og:image" content="https://www.vunilowsmp.net/banner.png">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1152">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.vunilowsmp.net/banner.png">
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,7 +94,12 @@ a.tw:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 #8a1f5a}
 .progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--violet),var(--magenta))}
 
 /* ---------- hero ---------- */
-.hero{display:grid;grid-template-columns:1.02fr .98fr;gap:3.5rem;align-items:center;padding:5rem 0 6rem}
+.hero{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:3.5rem;align-items:center;padding:5rem 0 6rem}
+.hero::before{content:"";position:absolute;inset:-1.5rem -3rem;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(circle at 42% 38%,#000 20%,transparent 70%);
+  mask-image:radial-gradient(circle at 42% 38%,#000 20%,transparent 70%)}
 .hero h1{font-size:clamp(3.1rem,8.6vw,5.6rem);margin:1.1rem 0 1.2rem;line-height:.94}
 .hero h1 em{font-style:normal;display:inline-block;
   background:linear-gradient(180deg,#fff 18%,var(--magenta) 92%);
@@ -225,6 +233,15 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
 .foot-top a:hover{color:#fff}
 .foot-brand p{margin-top:.8rem;max-width:26ch;line-height:1.6}
 .legal{border-top:1px solid #ffffff10;padding-top:1.4rem;display:grid;gap:.4rem;font-size:.84rem;line-height:1.6;max-width:56rem}
+
+/* back to top */
+.to-top{position:fixed;right:1.25rem;bottom:1.25rem;z-index:30;width:2.9rem;height:2.9rem;display:grid;place-items:center;
+  font:700 1.15rem/1 var(--px);color:#1d0033;background:var(--magenta);border:0;cursor:pointer;box-shadow:4px 4px 0 #6d0090;
+  opacity:0;transform:translateY(14px);pointer-events:none;
+  transition:opacity .25s,transform .25s var(--ease),background .2s}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{background:#f65dff}
+.to-top:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #6d0090}
 
 /* reveal */
 .js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms)}
@@ -541,6 +558,8 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
   </div>
 </footer>
 
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">&uarr;</button>
+
 <script>
 (function(){
   document.documentElement.classList.add('js');
@@ -645,12 +664,16 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
 
   /* scroll progress + active link */
-  var prog=$('progress'),links=Array.prototype.slice.call(document.querySelectorAll('[data-nav]'));
+  var prog=$('progress'),links=Array.prototype.slice.call(document.querySelectorAll('[data-nav]')),toTop=$('toTop');
   function onScroll(){
     var h=document.documentElement.scrollHeight-innerHeight;
     prog.style.width=(h>0?(scrollY/h)*100:0)+'%';
+    if(toTop)toTop.classList.toggle('show',scrollY>600);
   }
   addEventListener('scroll',onScroll,{passive:true});onScroll();
+  if(toTop)toTop.addEventListener('click',function(){
+    scrollTo({top:0,behavior:reduce?'auto':'smooth'});
+  });
 
   var secs=[].slice.call(document.querySelectorAll('section[id]'));
   if('IntersectionObserver' in window){
