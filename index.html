@@ -4,273 +4,284 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>Vunilow Smp | Java &amp; Bedrock Shop Survival</title>
-<meta name="description" content="Vunilow Smp is a Java and Bedrock shop survival SMP with proximity voice chat. Join at Vunilowsmp.net">
-<meta name="theme-color" content="#08030f">
+<title>Vunilow SMP | Java &amp; Bedrock Shop Survival</title>
+<meta name="description" content="Vunilow SMP is a Java and Bedrock shop survival Minecraft server with proximity voice chat. Join at Vunilowsmp.net">
+<meta name="theme-color" content="#07060b">
 <link rel="canonical" href="https://www.vunilowsmp.net/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Vunilow Smp">
-<meta property="og:title" content="Vunilow Smp | Java &amp; Bedrock Shop Survival">
-<meta property="og:description" content="A shop survival SMP for Java and Bedrock with proximity voice chat. Join at vunilowsmp.net">
+<meta property="og:site_name" content="Vunilow SMP">
+<meta property="og:title" content="Vunilow SMP | Java &amp; Bedrock Shop Survival">
+<meta property="og:description" content="A shop survival Minecraft server for Java and Bedrock with proximity voice chat. Join at vunilowsmp.net">
 <meta property="og:url" content="https://www.vunilowsmp.net/">
 <meta property="og:image" content="https://www.vunilowsmp.net/banner.png">
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1152">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.vunilowsmp.net/banner.png">
-<link rel="icon" href="logo.png">
+<link rel="icon" href="avatar.png">
+<link rel="apple-touch-icon" href="avatar.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --void:#08030f; --deep:#120726; --panel:#1a0b34; --ink:#0d0518;
-  --violet:#9400ff; --magenta:#e100ff; --grass:#3ddc84;
-  --lilac:#e3ceff; --text:#f8f2ff; --muted:#9f8bc2; --line:#331a5e;
-  --px:'Pixelify Sans',ui-monospace,monospace; --body:'DM Sans',system-ui,sans-serif;
-  --ease:cubic-bezier(.22,1,.36,1);
+  --bg:#07060b; --bg-soft:#0b0912; --card:#100d19; --card-2:#151120;
+  --border:rgba(255,255,255,.075); --border-strong:rgba(255,255,255,.14);
+  --text:#f5f3f9; --muted:#a49db6; --dim:#7b7490;
+  --accent:#a855f7; --accent-2:#e879f9; --green:#34d399;
+  --radius:16px; --radius-sm:10px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --shadow:0 24px 60px -28px rgba(0,0,0,.9);
+  --maxw:1140px;
 }
 *,*::before,*::after{box-sizing:border-box}
 *{margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:6rem;-webkit-text-size-adjust:100%}
-body{background:var(--void);color:var(--text);font:400 1.05rem/1.65 var(--body);overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font:400 16px/1.65 'Inter',system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
-a{color:var(--lilac);text-decoration:none}
-:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
-::selection{background:var(--violet);color:#fff}
-.wrap{width:100%;max-width:73rem;margin:0 auto;padding:0 1.5rem;position:relative}
-.skip{position:absolute;left:-99rem;top:0;z-index:99;background:var(--magenta);color:#1a0033;padding:.7rem 1.2rem;font-weight:700}
-.skip:focus{left:1rem;top:1rem}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;border-radius:4px}
+::selection{background:rgba(168,85,247,.4)}
+.container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px;top:12px;z-index:100;background:var(--accent);color:#fff;padding:10px 16px;border-radius:8px;font-weight:600}
+.skip:focus{left:16px}
+.i{width:18px;height:18px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bi{width:18px;height:18px;flex:0 0 auto;fill:currentColor;stroke:none}
 
-#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.aurora{position:fixed;inset:0 0 auto;height:48rem;z-index:0;pointer-events:none;
+/* backdrop */
+.backdrop{position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(42rem 24rem at 78% 18%,#7b1fd6a8,transparent 68%),
-    radial-gradient(26rem 18rem at 8% 0%,#e100ff2e,transparent 70%),
-    radial-gradient(30rem 20rem at 50% 42%,#4b0f9480,transparent 72%);
-  filter:blur(6px)}
-main,.bar,footer{position:relative;z-index:1}
+    radial-gradient(900px 480px at 78% -8%,rgba(147,51,234,.34),transparent 70%),
+    radial-gradient(700px 420px at 8% 4%,rgba(232,121,249,.14),transparent 72%),
+    radial-gradient(800px 500px at 50% 108%,rgba(88,28,135,.28),transparent 70%)}
+.backdrop::after{content:"";position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(circle at 50% 22%,#000 12%,transparent 62%);
+  mask-image:radial-gradient(circle at 50% 22%,#000 12%,transparent 62%)}
+main,footer,header{position:relative;z-index:1}
 
-/* ---------- type ---------- */
-h1,h2,h3,.px{font-family:var(--px);font-weight:700;line-height:1.04;letter-spacing:-.01em}
-.eyebrow{display:inline-flex;align-items:center;gap:.55rem;font:700 .8rem/1 var(--px);letter-spacing:.22em;text-transform:uppercase;color:var(--magenta)}
-.eyebrow::before{content:"";width:.5rem;height:.5rem;background:var(--magenta);box-shadow:0 0 12px var(--magenta)}
-.lede{color:var(--lilac);font-size:1.15rem;max-width:35ch}
+/* header */
+.site-header{position:sticky;top:0;z-index:40;
+  background:rgba(7,6,11,.72);backdrop-filter:blur(18px) saturate(150%);
+  border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.02rem;letter-spacing:-.01em}
+.brand img{width:32px;height:32px;border-radius:9px;image-rendering:pixelated;box-shadow:0 0 0 1px var(--border-strong)}
+.brand b{font-weight:700;background:linear-gradient(92deg,#c084fc,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;align-items:center;gap:4px}
+.nav-links a{padding:8px 12px;border-radius:8px;font-size:.93rem;font-weight:500;color:var(--muted);transition:color .18s,background .18s}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.05)}
+.nav-links a.active{color:var(--text);background:rgba(168,85,247,.14)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.icon-btn{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;color:var(--muted);
+  border:1px solid var(--border);transition:color .18s,border-color .18s,background .18s}
+.icon-btn:hover{color:#fff;border-color:var(--border-strong);background:rgba(255,255,255,.05)}
+.burger{display:none;place-items:center;width:38px;height:38px;border-radius:9px;border:1px solid var(--border);background:transparent}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
 
-/* ---------- buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:700 1rem/1 var(--px);
-  padding:.95rem 1.35rem;border:2px solid transparent;cursor:pointer;
-  transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .18s,border-color .18s,color .18s}
-.btn.primary{background:var(--magenta);color:#1d0033;box-shadow:5px 5px 0 #6d0090}
-.btn.primary:hover{background:#f65dff;transform:translate(-2px,-2px);box-shadow:8px 8px 0 #6d0090}
-.btn.primary:active{transform:translate(1px,1px);box-shadow:3px 3px 0 #6d0090}
-.btn.ghost{border-color:var(--line);color:var(--text);background:#ffffff05}
-.btn.ghost:hover{border-color:var(--violet);background:#9400ff1f;transform:translate(-2px,-2px)}
-.btn.ok{background:var(--grass);color:#042011;box-shadow:5px 5px 0 #12703d}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:.94rem;font-weight:600;
+  padding:12px 18px;border-radius:11px;border:1px solid transparent;white-space:nowrap;
+  transition:transform .18s var(--ease),background .18s,border-color .18s,box-shadow .18s}
+.btn-primary{background:linear-gradient(180deg,#b06bff,#8b3ff0);color:#fff;
+  box-shadow:0 8px 24px -10px rgba(168,85,247,.9),inset 0 1px 0 rgba(255,255,255,.24)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 14px 30px -12px rgba(168,85,247,1),inset 0 1px 0 rgba(255,255,255,.3)}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{background:rgba(255,255,255,.04);border-color:var(--border-strong);color:var(--text)}
+.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.24)}
+.btn-sm{padding:9px 14px;font-size:.88rem;border-radius:9px}
+.btn.ok{background:linear-gradient(180deg,#4ade80,#22c55e);box-shadow:0 8px 22px -12px rgba(52,211,153,.9)}
 
-/* ---------- nav ---------- */
-.bar{position:sticky;top:0;z-index:20;background:#08030fd9;backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid #ffffff14}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.25rem}
-.brand{display:flex;align-items:center;gap:.6rem;font:700 1.3rem/1 var(--px);color:var(--text)}
-.brand img{width:30px;height:30px;image-rendering:pixelated;transition:transform .4s var(--ease)}
-.brand:hover img{transform:rotate(-10deg) scale(1.12)}
-.brand span{color:var(--lilac);font-weight:500}
-.menu{display:flex;align-items:center;gap:1.6rem}
-.links{display:flex;align-items:center;gap:.2rem;list-style:none;padding:0}
-.links a{display:block;padding:.5rem .85rem;color:var(--muted);font-weight:500;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
-.links a:hover,.links a.active{color:#fff;border-color:var(--magenta)}
-.socials{display:flex;gap:.5rem}
-.socials a{font:700 .9rem/1 var(--px);color:#fff;padding:.55rem .95rem;border:2px solid transparent;transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
-a.yt{background:#e5162b}
-a.yt:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 #7a0a15}
-a.tw{background:#ff4fa8}
-a.tw:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 #8a1f5a}
-.burger{display:none;width:2.75rem;height:2.5rem;background:#ffffff08;border:2px solid var(--line);cursor:pointer;
-  place-items:center;padding:0;gap:4px}
-.burger span{display:block;width:1.15rem;height:2px;background:var(--text);transition:transform .25s var(--ease),opacity .2s}
-.bar.open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.bar.open .burger span:nth-child(2){opacity:0}
-.bar.open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-.progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:linear-gradient(90deg,var(--violet),var(--magenta))}
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:76px 0 92px}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:6px 12px 6px 10px;border-radius:999px;
+  border:1px solid rgba(168,85,247,.34);background:rgba(168,85,247,.12);
+  font-size:.8rem;font-weight:600;color:#ddc7ff;letter-spacing:.01em}
+.pill .i{width:14px;height:14px}
+h1{font-size:clamp(2.4rem,5vw,3.7rem);line-height:1.06;letter-spacing:-.028em;font-weight:800;margin:18px 0 0}
+.grad{background:linear-gradient(96deg,#c084fc 0%,#f0abfc 55%,#a855f7 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);font-size:1.06rem;max-width:44ch;margin-top:18px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.facts{display:flex;flex-wrap:wrap;gap:18px;list-style:none;padding:0;margin-top:26px;color:var(--dim);font-size:.88rem}
+.facts li{display:inline-flex;align-items:center;gap:7px}
+.facts .i{width:15px;height:15px;color:var(--green)}
 
-/* ---------- hero ---------- */
-.hero{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:3.5rem;align-items:center;padding:5rem 0 6rem}
-.hero::before{content:"";position:absolute;inset:-1.5rem -3rem;z-index:-1;pointer-events:none;
-  background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);
-  background-size:56px 56px;
-  -webkit-mask-image:radial-gradient(circle at 42% 38%,#000 20%,transparent 70%);
-  mask-image:radial-gradient(circle at 42% 38%,#000 20%,transparent 70%)}
-.hero h1{font-size:clamp(3.1rem,8.6vw,5.6rem);margin:1.1rem 0 1.2rem;line-height:.94}
-.hero h1 em{font-style:normal;display:inline-block;
-  background:linear-gradient(180deg,#fff 18%,var(--magenta) 92%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 6px 24px #e100ff40)}
-.hero .lede{margin-bottom:1.9rem}
-.tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.9rem}
-.tags span{font:500 .85rem/1 var(--px);color:var(--lilac);background:#ffffff08;border:1px solid var(--line);
-  padding:.45rem .7rem;transition:border-color .2s,color .2s,transform .2s var(--ease)}
-.tags span:hover{border-color:var(--magenta);color:#fff;transform:translateY(-2px)}
-.actions{display:flex;flex-wrap:wrap;gap:.8rem}
+/* status card */
+.status-card{background:linear-gradient(180deg,rgba(24,20,36,.96),rgba(14,11,22,.96));
+  border:1px solid var(--border-strong);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);
+  position:relative;overflow:hidden}
+.status-card::before{content:"";position:absolute;inset:0 0 auto;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(232,121,249,.7),transparent)}
+.status-head{display:flex;align-items:center;gap:9px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--dim);flex:0 0 auto}
+.dot.on{background:var(--green);box-shadow:0 0 0 4px rgba(52,211,153,.16);animation:pulse 2.4s ease-in-out infinite}
+.dot.off{background:#f87171;box-shadow:0 0 0 4px rgba(248,113,113,.16)}
+@keyframes pulse{50%{opacity:.45}}
+.status-state{font-size:.9rem;font-weight:600}
+.status-state.off{color:#fca5a5}
+.status-ver{margin-left:auto;font-size:.78rem;color:var(--dim);font-weight:500;
+  padding:3px 8px;border-radius:6px;background:rgba(255,255,255,.05);border:1px solid var(--border)}
+.status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}
+.status-grid>div{background:rgba(255,255,255,.028);border:1px solid var(--border);border-radius:10px;padding:11px 12px}
+.status-grid dt{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);font-weight:600}
+.status-grid dd{font-size:1.32rem;font-weight:700;letter-spacing:-.02em;margin-top:2px;font-variant-numeric:tabular-nums}
+.addr{display:grid;gap:8px}
+.addr-row{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.32);
+  border:1px solid var(--border);border-radius:10px;padding:8px 8px 8px 12px}
+.addr-label{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
+  min-width:52px}
+.addr-row code{flex:1;font:600 .9rem/1.4 'Inter',ui-monospace,monospace;color:#efe9fb;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.copy-btn{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;
+  background:rgba(168,85,247,.16);border:1px solid rgba(168,85,247,.3);color:#e9d5ff;transition:background .18s,color .18s,border-color .18s}
+.copy-btn:hover{background:rgba(168,85,247,.3);color:#fff}
+.copy-btn.ok{background:rgba(52,211,153,.18);border-color:rgba(52,211,153,.4);color:#a7f3d0}
+.status-note{margin-top:14px;font-size:.78rem;color:var(--dim);text-align:center}
 
-.aside{display:grid;gap:1.4rem;justify-items:center}
-.art{position:relative;display:grid;place-items:center;width:100%;min-height:12rem;perspective:900px}
-.art::before{content:"";position:absolute;width:15rem;height:15rem;border-radius:50%;
-  background:radial-gradient(circle,#9400ffb8,#9400ff00 68%);filter:blur(8px);animation:pulse 6s ease-in-out infinite}
-.ring{position:absolute;border:2px dashed #b06bff4d;border-radius:50%;width:15.5rem;height:15.5rem;animation:spin 46s linear infinite}
-.ring.b{width:20rem;height:20rem;border-color:#e100ff33;animation-duration:32s;animation-direction:reverse}
-.tilt{position:relative;transition:transform .3s ease-out;transform-style:preserve-3d}
-.logo{width:min(9.5rem,42vw);height:auto;image-rendering:pixelated;animation:float 6s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
-@keyframes pulse{0%,100%{opacity:.55;transform:scale(.94)}50%{opacity:.95;transform:scale(1.05)}}
-@keyframes spin{to{transform:rotate(360deg)}}
+/* sections */
+.section{padding:84px 0;border-top:1px solid var(--border)}
+.section-head{max-width:620px;margin-bottom:44px}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.76rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:#c4a1ff}
+.eyebrow .i{width:14px;height:14px}
+h2{font-size:clamp(1.7rem,3.4vw,2.3rem);line-height:1.14;letter-spacing:-.025em;font-weight:700;margin:12px 0 12px}
+.section-head p{color:var(--muted);font-size:1.02rem}
 
-/* ---------- status panel ---------- */
-.panel{width:100%;max-width:27rem;background:linear-gradient(180deg,#1e0e3d,#140828);
-  border:2px solid var(--line);box-shadow:10px 10px 0 #00000055;padding:1.15rem}
-.panel-head{display:flex;align-items:center;gap:.6rem;padding-bottom:.9rem;margin-bottom:1rem;border-bottom:1px solid #ffffff12}
-.dot{width:.65rem;height:.65rem;flex:0 0 auto;background:var(--muted);transition:background .3s,box-shadow .3s}
-.dot.on{background:var(--grass);box-shadow:0 0 0 4px #3ddc8426;animation:beat 2.6s ease-in-out infinite}
-.dot.off{background:#ff5d6c;box-shadow:0 0 0 4px #ff5d6c26}
-@keyframes beat{50%{opacity:.45}}
-.state{font:700 1rem/1 var(--px);letter-spacing:.02em}
-.state.off{color:#ff8f99}
-.panel-ver{margin-left:auto;font:500 .85rem/1 var(--px);color:var(--muted)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;margin-bottom:1rem}
-.stat{background:#0b0417;border:1px solid #ffffff10;padding:.65rem .4rem;text-align:center}
-.stat b{display:block;font:700 1.45rem/1.1 var(--px);color:#fff}
-.stat span{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
-.addr{display:grid;gap:.5rem}
-.addr-row{display:grid;grid-template-columns:auto 1fr auto;align-items:stretch;border:1px solid var(--line);background:#0b0417}
-.tag{display:grid;place-items:center;font:700 .8rem/1 var(--px);padding:0 .65rem;background:var(--violet);color:#fff}
-.addr-row.bed .tag{background:#1f8f56}
-.addr-row code{font:500 .98rem/1.4 var(--px);color:#fff;padding:.65rem .7rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:flex;align-items:center}
-.addr-row button{font:700 .9rem/1 var(--px);background:var(--magenta);color:#1d0033;border:0;padding:0 1rem;cursor:pointer;transition:background .2s}
-.addr-row button:hover{background:#f65dff}
-.addr-row button.ok{background:var(--grass)}
-.panel-note{margin-top:.85rem;font-size:.84rem;color:var(--muted)}
-.panel-note b{color:var(--lilac)}
-
-/* ---------- sections ---------- */
-section{padding:5.5rem 0;border-top:1px solid #ffffff10}
-.head{max-width:44rem;margin-bottom:2.6rem}
-.head h2{font-size:clamp(2rem,4.6vw,2.9rem);margin:.9rem 0 .8rem}
-.head p{color:var(--muted);font-size:1.05rem}
-
-.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem}
-.card{background:linear-gradient(180deg,#170a2f,#120726);border:1px solid var(--line);padding:1.6rem;
-  transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
-.card:hover{transform:translateY(-5px);border-color:#8a3cff;box-shadow:0 12px 0 -6px #9400ff55}
-.card h3{font-size:1.3rem;margin-bottom:.5rem}
-.card p{color:var(--muted);font-size:.98rem}
-.ico{width:2.75rem;height:2.75rem;margin-bottom:1.1rem;transition:transform .45s var(--ease)}
-.ico svg{display:block;width:100%;height:100%;shape-rendering:crispEdges}
-.card:hover .ico{transform:rotate(-8deg) scale(1.08)}
+/* feature cards */
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.card{background:linear-gradient(180deg,rgba(20,16,30,.9),rgba(13,10,20,.9));
+  border:1px solid var(--border);border-radius:var(--radius);padding:26px;
+  transition:border-color .25s,transform .25s var(--ease),box-shadow .25s}
+.card:hover{border-color:rgba(168,85,247,.4);transform:translateY(-3px);box-shadow:0 22px 44px -30px rgba(168,85,247,.8)}
+.icon-tile{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;margin-bottom:18px;
+  background:linear-gradient(180deg,rgba(168,85,247,.22),rgba(168,85,247,.08));
+  border:1px solid rgba(168,85,247,.28);color:#dfc4ff}
+.icon-tile .i{width:21px;height:21px}
+.card h3{font-size:1.06rem;font-weight:650;letter-spacing:-.01em;margin-bottom:7px}
+.card p{color:var(--muted);font-size:.94rem}
 
 /* rules */
-.tabs{display:inline-flex;border:1px solid var(--line);background:#0b0417;margin-bottom:1.3rem;flex-wrap:wrap}
-.tabs button{font:700 .95rem/1 var(--px);padding:.75rem 1.2rem;background:transparent;color:var(--muted);
-  border:0;border-right:1px solid var(--line);cursor:pointer;transition:background .2s,color .2s}
-.tabs button:last-child{border-right:0}
-.tabs button:hover{color:#fff}
-.tabs button[aria-selected="true"]{background:var(--violet);color:#fff}
-.book{background:var(--ink);border:1px solid var(--line);padding:1.6rem 1.7rem;animation:swap .4s var(--ease)}
-.book[hidden]{display:none}
-@keyframes swap{from{opacity:0;transform:translateY(10px)}}
-.book ul{list-style:none;padding:0;columns:2 18rem;column-gap:2rem}
-.book li{position:relative;padding:.32rem 0 .32rem 1.5rem;break-inside:avoid;transition:color .2s}
-.book li::before{content:"";position:absolute;left:0;top:.78em;width:.45rem;height:.45rem;background:var(--violet);box-shadow:0 0 10px #9400ff88}
-.book li:hover{color:#fff}
-.book small{color:var(--muted)}
-.book code{font-family:var(--px);color:var(--lilac)}
-.book .note{margin-top:1.1rem;padding-top:1rem;border-top:1px solid #ffffff10;color:var(--muted);font-size:.9rem}
+.tabs{display:inline-flex;padding:4px;gap:4px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--border);margin-bottom:22px}
+.tabs button{padding:9px 16px;border:0;border-radius:9px;background:transparent;color:var(--muted);
+  font-size:.9rem;font-weight:600;transition:color .18s,background .18s}
+.tabs button:hover{color:var(--text)}
+.tabs button[aria-selected="true"]{background:rgba(168,85,247,.22);color:#fff;box-shadow:inset 0 0 0 1px rgba(168,85,247,.4)}
+.rules{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:var(--radius);padding:26px}
+.rules[hidden]{display:none}
+.rules ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 28px}
+.rules li{display:flex;gap:10px;align-items:flex-start;font-size:.93rem;color:var(--muted);padding:4px 0}
+.rules .i{width:16px;height:16px;margin-top:3px;color:var(--accent);opacity:.85}
+.rules small{color:var(--dim)}
+.rules code{font-family:ui-monospace,monospace;font-size:.86rem;background:rgba(168,85,247,.14);
+  padding:1px 5px;border-radius:5px;color:#e9d5ff}
+.rules .note{margin-top:20px;padding-top:18px;border-top:1px solid var(--border);color:var(--dim);font-size:.86rem}
 
 /* join */
-.join-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));gap:1rem}
-.ed-card{background:linear-gradient(180deg,#170a2f,#120726);border:1px solid var(--line);padding:1.6rem;transition:border-color .3s,transform .3s var(--ease)}
-.ed-card:hover{transform:translateY(-5px);border-color:#8a3cff}
-.ed-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px solid #ffffff12}
-.ed-head h3{font-size:1.3rem}
-.pill{font:700 .72rem/1 var(--px);letter-spacing:.12em;text-transform:uppercase;padding:.4rem .55rem;background:#9400ff26;color:var(--lilac);border:1px solid #9400ff55}
-.pill.green{background:#3ddc8420;color:#9df3c6;border-color:#3ddc8455}
-.steps{list-style:none;padding:0;display:grid;gap:1rem;counter-reset:s}
-.steps li{position:relative;padding-left:2.4rem;color:var(--muted);counter-increment:s}
-.steps li::before{content:counter(s);position:absolute;left:0;top:-.05rem;width:1.65rem;height:1.65rem;
-  display:grid;place-items:center;font:700 .9rem/1 var(--px);color:#fff;background:var(--violet)}
-.steps b{color:var(--text);font-weight:500}
-kbd{font:500 .92rem/1 var(--px);background:#0b0417;border:1px solid var(--line);color:#fff;padding:.25rem .45rem;display:inline-block;margin:.2rem 0}
-.inline-copy{display:inline-flex;align-items:center;gap:.45rem;margin-top:.7rem;font:700 .8rem/1 var(--px);
-  background:transparent;border:1px dashed #9400ff77;color:var(--lilac);padding:.5rem .7rem;cursor:pointer;transition:border-color .2s,color .2s}
-.inline-copy:hover{border-color:var(--magenta);color:#fff}
+.join-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.ed-card{background:linear-gradient(180deg,rgba(20,16,30,.9),rgba(13,10,20,.9));
+  border:1px solid var(--border);border-radius:var(--radius);padding:26px;transition:border-color .25s}
+.ed-card:hover{border-color:rgba(168,85,247,.4)}
+.ed-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.ed-head h3{font-size:1.04rem;font-weight:650;flex:1}
+.badge{font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  padding:4px 9px;border-radius:6px;background:rgba(168,85,247,.16);color:#d8b4fe;border:1px solid rgba(168,85,247,.28)}
+.badge.green{background:rgba(52,211,153,.13);color:#a7f3d0;border-color:rgba(52,211,153,.3)}
+.steps{list-style:none;padding:0;display:grid;gap:14px;counter-reset:s}
+.steps li{display:flex;gap:12px;counter-increment:s;color:var(--muted);font-size:.93rem}
+.steps li::before{content:counter(s);flex:0 0 auto;display:grid;place-items:center;width:24px;height:24px;border-radius:7px;
+  background:rgba(255,255,255,.06);border:1px solid var(--border);color:#d8c9f0;font-size:.78rem;font-weight:700}
+.steps b{color:var(--text);font-weight:600}
+kbd{font-family:'Inter',ui-monospace,monospace;font-size:.86rem;font-weight:600;background:rgba(255,255,255,.07);
+  border:1px solid var(--border-strong);border-radius:6px;padding:2px 7px;color:#efe9fb;display:inline-block}
+.inline-copy{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:9px 14px;border-radius:9px;
+  background:rgba(255,255,255,.04);border:1px solid var(--border-strong);color:var(--text);
+  font-size:.86rem;font-weight:600;transition:background .18s,border-color .18s}
+.inline-copy:hover{background:rgba(168,85,247,.16);border-color:rgba(168,85,247,.4)}
+.inline-copy .i{width:15px;height:15px}
+.inline-copy.ok{background:rgba(52,211,153,.14);border-color:rgba(52,211,153,.4);color:#a7f3d0}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:100%}
+.faq details{background:rgba(255,255,255,.022);border:1px solid var(--border);border-radius:12px;
+  transition:border-color .2s,background .2s}
+.faq details[open]{border-color:rgba(168,85,247,.34);background:rgba(168,85,247,.05)}
+.faq summary{display:flex;align-items:center;gap:14px;padding:17px 20px;cursor:pointer;list-style:none;
+  font-size:.95rem;font-weight:600;color:var(--text)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .i{width:17px;height:17px;color:var(--dim);transition:transform .22s var(--ease)}
+.faq details[open] summary .i.chev{transform:rotate(180deg);color:var(--accent-2)}
+.faq .chev{margin-left:auto}
+.faq p{padding:0 20px 18px 51px;color:var(--muted);font-size:.92rem}
+
+/* watch */
+.watch-card{display:flex;align-items:center;gap:16px;padding:20px;border-radius:14px;
+  border:1px solid var(--border);background:rgba(255,255,255,.022);transition:border-color .2s,background .2s}
+.watch-card:hover{border-color:var(--border-strong);background:rgba(255,255,255,.045)}
+.watch-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:11px;flex:0 0 auto;color:#fff}
+.watch-icon.yt{background:#ff0033}
+.watch-icon.tw{background:#9146ff}
+.watch-body{flex:1;min-width:0}
+.watch-body strong{display:block;font-size:.95rem;font-weight:650}
+.watch-body span{display:block;font-size:.84rem;color:var(--dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.watch-card>.i{color:var(--dim)}
 
 /* cta */
-.cta-section{border-top:1px solid #ffffff10;padding:5rem 0}
-.cta-band{display:flex;align-items:center;justify-content:space-between;gap:1.8rem;flex-wrap:wrap;
-  padding:2.4rem 2.2rem;border:2px solid #7a2cd8;
-  background:radial-gradient(30rem 14rem at 12% 10%,#7b1fd67a,transparent 70%),linear-gradient(120deg,#1b0a36,#10061f);
-  box-shadow:10px 10px 0 #00000055}
-.cta-band h2{font-size:clamp(1.7rem,3.6vw,2.4rem);max-width:20ch}
-.cta-band p{color:var(--muted);margin-top:.5rem}
-
-/* faq + watch */
-.faq{display:grid;gap:.6rem;max-width:54rem}
-.faq details{background:#0d0518;border:1px solid var(--line);transition:border-color .2s}
-.faq details[open]{border-color:#8a3cff}
-.faq summary{display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer;
-  padding:1.05rem 1.25rem;font:700 1rem/1.35 var(--px);list-style:none}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--magenta);font-size:1.3rem;line-height:1}
-.faq details[open] summary::after{content:"\2013"}
-.faq p{padding:0 1.25rem 1.2rem;margin:0;color:var(--muted);font-size:.98rem;max-width:62ch}
-.card.watch{display:block;color:inherit}
-.card.watch:hover{color:#fff}
-.link-arrow{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.2rem;font:700 .85rem/1 var(--px);color:var(--magenta)}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;
+  padding:38px;border-radius:20px;border:1px solid rgba(168,85,247,.3);
+  background:radial-gradient(600px 200px at 12% 0%,rgba(168,85,247,.3),transparent 70%),
+             linear-gradient(140deg,rgba(24,17,40,.96),rgba(12,9,19,.96))}
+.cta h2{margin:0 0 8px}
+.cta p{color:var(--muted);font-size:.95rem}
 
 /* footer */
-footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);font-size:.92rem;background:#08030f}
-.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;margin-bottom:2.2rem}
-.foot-top h4{font:700 .78rem/1 var(--px);letter-spacing:.16em;text-transform:uppercase;color:var(--lilac);margin-bottom:.9rem}
-.foot-top ul{list-style:none;padding:0;display:grid;gap:.45rem}
-.foot-top a:hover{color:#fff}
-.foot-brand p{margin-top:.8rem;max-width:26ch;line-height:1.6}
-.legal{border-top:1px solid #ffffff10;padding-top:1.4rem;display:grid;gap:.4rem;font-size:.84rem;line-height:1.6;max-width:56rem}
+footer{border-top:1px solid var(--border);padding:52px 0 34px;background:rgba(0,0,0,.24)}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:36px;margin-bottom:34px}
+.foot h4{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
+.foot ul{list-style:none;padding:0;display:grid;gap:9px}
+.foot a{color:var(--muted);font-size:.9rem;transition:color .18s}
+.foot a:hover{color:#fff}
+.foot-brand p{color:var(--dim);font-size:.88rem;margin-top:12px;max-width:30ch}
+.legal{border-top:1px solid var(--border);padding-top:22px;display:grid;gap:6px;color:var(--dim);font-size:.8rem;max-width:70ch}
 
-/* back to top */
-.to-top{position:fixed;right:1.25rem;bottom:1.25rem;z-index:30;width:2.9rem;height:2.9rem;display:grid;place-items:center;
-  font:700 1.15rem/1 var(--px);color:#1d0033;background:var(--magenta);border:0;cursor:pointer;box-shadow:4px 4px 0 #6d0090;
-  opacity:0;transform:translateY(14px);pointer-events:none;
-  transition:opacity .25s,transform .25s var(--ease),background .2s}
+/* to top */
+.to-top{position:fixed;right:22px;bottom:22px;z-index:45;display:grid;place-items:center;width:40px;height:40px;
+  border-radius:11px;background:rgba(20,16,30,.9);border:1px solid var(--border-strong);color:var(--text);
+  backdrop-filter:blur(10px);opacity:0;transform:translateY(10px);pointer-events:none;
+  transition:opacity .22s,transform .22s var(--ease),border-color .18s}
 .to-top.show{opacity:1;transform:none;pointer-events:auto}
-.to-top:hover{background:#f65dff}
-.to-top:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #6d0090}
+.to-top:hover{border-color:rgba(168,85,247,.6)}
 
 /* reveal */
-.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms)}
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
 
-@media(max-width:60rem){
-  .hero{grid-template-columns:1fr;gap:2.6rem;padding:3rem 0 4rem}
-  .aside{order:2}
-  .art{min-height:11rem}
-  .panel{max-width:34rem}
-  .foot-top{grid-template-columns:1fr 1fr}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:36px;padding:52px 0 64px}
+  .status-card{max-width:520px}
+  .foot{grid-template-columns:1fr 1fr}
 }
-@media(max-width:52rem){
+@media(max-width:760px){
+  .nav-links{position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;
+    background:rgba(9,7,14,.98);border-bottom:1px solid var(--border-strong);padding:10px 24px 16px;display:none}
+  .site-header.open .nav-links{display:flex}
+  .nav-links a{padding:12px 10px;font-size:.98rem}
   .burger{display:grid}
-  .menu{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:.6rem;
-    background:#0a0417;border-bottom:2px solid var(--line);padding:1rem 1.5rem 1.4rem;box-shadow:0 24px 40px #00000080}
-  .bar.open .menu{display:flex}
-  .links{flex-direction:column;align-items:stretch;gap:.1rem}
-  .links a{padding:.8rem .3rem;font-size:1.05rem;border-bottom:1px solid #ffffff0c}
-  .socials{margin-top:.4rem}
-  .socials a{flex:1;text-align:center}
-  .book ul{columns:1}
+  .nav-actions .icon-btn{display:none}
+  .section{padding:60px 0}
+  .rules ul{grid-template-columns:1fr}
+  .cta{padding:26px}
+  .foot{grid-template-columns:1fr;gap:26px}
 }
-@media(max-width:34rem){
-  .stats{grid-template-columns:1fr 1fr}
-  .addr-row{grid-template-columns:1fr auto}
-  .tag{grid-column:1/-1;padding:.3rem .7rem;justify-items:start}
-  .foot-top{grid-template-columns:1fr}
-  .cta-band{padding:1.8rem 1.4rem}
+@media(max-width:420px){
+  .status-grid{gap:6px}
+  .status-grid>div{padding:9px 8px}
+  .status-grid dd{font-size:1.05rem}
+  .status-grid dt{font-size:.64rem;letter-spacing:.04em}
+  .hero-cta .btn{flex:1}
+  .faq p{padding-left:20px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -281,104 +292,117 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<canvas id="fx" aria-hidden="true"></canvas>
-<div class="aurora" aria-hidden="true"></div>
 
-<div class="bar" id="bar">
-  <div class="wrap nav">
-    <a class="brand" href="#top"><img src="logo.png" alt="" width="30" height="30">Vunilow<span>Smp</span></a>
-    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="menu" id="menu">
-      <ul class="links">
-        <li><a href="#about" data-nav>About</a></li>
-        <li><a href="#rules" data-nav>Rules</a></li>
-        <li><a href="#join" data-nav>Join</a></li>
-        <li><a href="#faq" data-nav>FAQ</a></li>
-        <li><a href="#watch" data-nav>Watch</a></li>
-      </ul>
-      <div class="socials">
-        <a class="yt" href="https://www.youtube.com/@VunilowSMP" target="_blank" rel="noopener">YouTube</a>
-        <a class="tw" href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener">Twitch</a>
-      </div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></symbol>
+  <symbol id="i-shop" viewBox="0 0 24 24"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+  <symbol id="i-twitch" viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"/></symbol>
+</svg>
+
+<div class="backdrop" aria-hidden="true"></div>
+
+<header class="site-header" id="header">
+  <div class="container nav">
+    <a class="brand" href="#top"><img src="logo.png" alt="" width="32" height="32">Vunilow <b>SMP</b></a>
+    <nav class="nav-links" id="nav" aria-label="Main">
+      <a href="#about" data-nav>About</a>
+      <a href="#rules" data-nav>Rules</a>
+      <a href="#join" data-nav>Join</a>
+      <a href="#faq" data-nav>FAQ</a>
+      <a href="#watch" data-nav>Watch</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="icon-btn" href="https://www.youtube.com/@VunilowSMP" target="_blank" rel="noopener" aria-label="YouTube"><svg class="bi"><use href="#i-youtube"/></svg></a>
+      <a class="icon-btn" href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener" aria-label="Twitch"><svg class="bi"><use href="#i-twitch"/></svg></a>
+      <button class="btn btn-primary btn-sm" type="button" data-copy="Vunilowsmp.net" data-label="Copy IP">Copy IP</button>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg class="i"><use href="#i-menu"/></svg></button>
     </div>
   </div>
   <div class="progress" id="progress"></div>
-</div>
+</header>
 
 <main id="main">
-  <div class="wrap">
-    <header class="hero" id="top">
-      <div class="copy">
-        <span class="eyebrow">Season 1 &middot; live now</span>
-        <h1>Vunilow <em>SMP</em></h1>
-        <p class="lede">A shop survival SMP for Java and Bedrock. Grind, trade, and talk to nearby players with proximity voice chat.</p>
-        <div class="tags">
-          <span>Shop survival</span><span>Java + Bedrock</span><span>Voice chat</span>
+  <section class="hero container" id="top">
+    <div>
+      <span class="pill"><svg class="i"><use href="#i-spark"/></svg> Season 1 is live</span>
+      <h1>Survive, trade and build on <span class="grad">Vunilow SMP</span></h1>
+      <p class="sub">A shop survival Minecraft server for Java and Bedrock, with proximity voice chat and a world that keeps growing.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" type="button" data-copy="Vunilowsmp.net" data-label="Copy server IP">
+          <svg class="i"><use href="#i-copy"/></svg> Copy server IP
+        </button>
+        <a class="btn btn-ghost" href="#join">How to join <svg class="i"><use href="#i-arrow-right"/></svg></a>
+      </div>
+      <ul class="facts">
+        <li><svg class="i"><use href="#i-check"/></svg> No mods required</li>
+        <li><svg class="i"><use href="#i-check"/></svg> Java + Bedrock</li>
+        <li><svg class="i"><use href="#i-check"/></svg> Proximity voice chat</li>
+      </ul>
+    </div>
+
+    <aside class="status-card" aria-label="Server status and addresses">
+      <div class="status-head">
+        <span class="dot" data-live-dot></span>
+        <span class="status-state" data-live-state>Checking status…</span>
+        <span class="status-ver" data-live-version>—</span>
+      </div>
+      <dl class="status-grid">
+        <div><dt>Players</dt><dd data-live-players>—</dd></div>
+        <div><dt>Slots</dt><dd data-live-max>—</dd></div>
+        <div><dt>Software</dt><dd data-live-soft>—</dd></div>
+      </dl>
+      <div class="addr">
+        <div class="addr-row">
+          <span class="addr-label">Java</span>
+          <code>Vunilowsmp.net</code>
+          <button class="copy-btn" type="button" data-copy="Vunilowsmp.net" data-label="Copy" aria-label="Copy Java address"><svg class="i"><use href="#i-copy"/></svg></button>
         </div>
-        <div class="actions">
-          <button class="btn primary" type="button" data-copy="Vunilowsmp.net" data-label="Copy server IP">Copy server IP</button>
-          <a class="btn ghost" href="#join">How to join</a>
+        <div class="addr-row">
+          <span class="addr-label">Bedrock</span>
+          <code>VunilowSmp.net:25565</code>
+          <button class="copy-btn" type="button" data-copy="VunilowSmp.net:25565" data-label="Copy" aria-label="Copy Bedrock address"><svg class="i"><use href="#i-copy"/></svg></button>
         </div>
       </div>
+      <p class="status-note">Status refreshes automatically · Bedrock port 25565</p>
+    </aside>
+  </section>
 
-      <div class="aside">
-        <div class="art" id="stage">
-          <div class="ring" aria-hidden="true"></div>
-          <div class="ring b" aria-hidden="true"></div>
-          <div class="tilt" id="tilt"><img class="logo" src="logo.png" alt="Vunilow Smp logo" width="1024" height="1024"></div>
-        </div>
-
-        <aside class="panel" aria-label="Server status and addresses">
-          <div class="panel-head">
-            <span class="dot" data-live-dot></span>
-            <span class="state" data-live-state>Checking status&hellip;</span>
-            <span class="panel-ver" data-live-version>v26.2</span>
-          </div>
-          <div class="stats">
-            <div class="stat"><b data-live-players>&mdash;</b><span>Online</span></div>
-            <div class="stat"><b data-live-max>&mdash;</b><span>Slots</span></div>
-            <div class="stat"><b data-live-soft>&mdash;</b><span>Software</span></div>
-          </div>
-          <div class="addr">
-            <div class="addr-row">
-              <span class="tag">Java</span>
-              <code>Vunilowsmp.net</code>
-              <button type="button" data-copy="Vunilowsmp.net" data-label="Copy">Copy</button>
-            </div>
-            <div class="addr-row bed">
-              <span class="tag">Bedrock</span>
-              <code>VunilowSmp.net:25565</code>
-              <button type="button" data-copy="VunilowSmp.net:25565" data-label="Copy">Copy</button>
-            </div>
-          </div>
-          <p class="panel-note">Bedrock port <b>25565</b> &middot; version <b data-live-version>26.2</b> and below</p>
-        </aside>
-      </div>
-    </header>
-  </div>
-
-  <section id="about">
-    <div class="wrap">
-      <div class="head rv">
-        <span class="eyebrow">About</span>
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head rv">
+        <span class="eyebrow"><svg class="i"><use href="#i-server"/></svg> About</span>
         <h2>Built around the shop</h2>
-        <p>Vunilow Smp is a Donut SMP style survival server. Earn money, trade with players, and build your way up in a world that isn't going anywhere.</p>
+        <p>Vunilow SMP is a Donut SMP style survival server. Earn money, trade with players, and build your way up in a world that isn't going anywhere.</p>
       </div>
       <div class="grid-3">
         <article class="card rv">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#6b3f00"><rect x="3" y="0" width="6" height="12"/><rect x="0" y="3" width="12" height="6"/><rect x="1" y="1" width="10" height="10"/></g><g fill="#ffc857"><rect x="4" y="1" width="4" height="10"/><rect x="1" y="4" width="10" height="4"/><rect x="2" y="2" width="8" height="8"/></g><g fill="#fff0a8"><rect x="2" y="3" width="1" height="3"/><rect x="3" y="2" width="2" height="1"/></g><g fill="#b8780f"><rect x="9" y="6" width="1" height="3"/><rect x="7" y="9" width="2" height="1"/></g><g fill="#6b3f00"><rect x="5" y="2" width="2" height="1"/><rect x="4" y="3" width="4" height="1"/><rect x="4" y="4" width="2" height="1"/><rect x="4" y="5" width="4" height="1"/><rect x="6" y="6" width="2" height="1"/><rect x="4" y="7" width="4" height="1"/><rect x="5" y="8" width="2" height="1"/></g></svg></div>
+          <div class="icon-tile"><svg class="i"><use href="#i-shop"/></svg></div>
           <h3>Shop survival</h3>
           <p>Earn money, buy and sell in the shop, and build your way up in a survival world.</p>
         </article>
-        <article class="card rv" style="--d:80ms">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><rect width="12" height="12" fill="#3b2410"/><rect x="1" y="1" width="10" height="10" fill="#8a5a3b"/><rect x="1" y="1" width="10" height="3" fill="#5fb04b"/><g fill="#3f8a34"><rect x="2" y="3" width="1" height="2"/><rect x="5" y="3" width="1" height="1"/><rect x="8" y="3" width="1" height="2"/><rect x="10" y="3" width="1" height="1"/></g><g fill="#6b4329"><rect x="2" y="6" width="2" height="1"/><rect x="7" y="7" width="2" height="1"/><rect x="4" y="9" width="2" height="1"/><rect x="9" y="9" width="1" height="1"/></g><rect x="1" y="1" width="10" height="1" fill="#8ad46f"/></svg></div>
+        <article class="card rv" style="transition-delay:.06s">
+          <div class="icon-tile"><svg class="i"><use href="#i-globe"/></svg></div>
           <h3>Java + Bedrock</h3>
           <p>Play on either edition. Friends can join together, whatever they play on.</p>
         </article>
-        <article class="card rv" style="--d:160ms">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#d6b6ff"><rect x="0" y="4" width="2" height="4"/><rect x="2" y="3" width="1" height="6"/><rect x="3" y="2" width="1" height="8"/><rect x="4" y="1" width="1" height="10"/></g><g fill="#e100ff"><rect x="6" y="4" width="1" height="4"/><rect x="8" y="2" width="1" height="8"/></g><g fill="#9400ff"><rect x="10" y="0" width="1" height="12"/></g></svg></div>
+        <article class="card rv" style="transition-delay:.12s">
+          <div class="icon-tile"><svg class="i"><use href="#i-mic"/></svg></div>
           <h3>Voice chat</h3>
           <p>Simple Voice Chat is supported, so you can talk to players close to you in the world.</p>
         </article>
@@ -386,37 +410,56 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
     </div>
   </section>
 
-  <section id="rules">
-    <div class="wrap">
-      <div class="head rv">
-        <span class="eyebrow">Rules</span>
+  <section class="section" id="rules">
+    <div class="container">
+      <div class="section-head rv">
+        <span class="eyebrow"><svg class="i"><use href="#i-book"/></svg> Rules</span>
         <h2>Know the rules</h2>
         <p>These match the in-game rule books. Breaking them can get you muted or banned.</p>
       </div>
-      <div class="rv" style="--d:60ms">
+      <div class="rv">
         <div class="tabs" role="tablist" aria-label="Rule books">
           <button role="tab" id="tab-server" aria-controls="p1" aria-selected="true" data-p="p1">Server rules</button>
           <button role="tab" id="tab-chat" aria-controls="p2" aria-selected="false" data-p="p2">Chat rules</button>
         </div>
-        <article class="book" id="p1" role="tabpanel" aria-labelledby="tab-server">
+        <article class="rules" id="p1" role="tabpanel" aria-labelledby="tab-server">
           <ul>
-            <li>No hack clients</li><li>No movement mods</li><li>No inventory mods</li><li>No minimap</li>
-            <li>No freecam <small>(Fair Play allowed)</small></li><li>No auto place</li><li>No easy place</li>
-            <li>No macros or scripts</li><li>No bug abusing</li><li>No duping</li><li>No real money trading</li>
-            <li>No cross-server trading</li><li>No use of seed</li><li>No crafting modifications</li>
-            <li>No external gambling</li><li>Max. 20 AFK accounts per player</li><li>No ban evasion</li>
-            <li>VPNs are used at your own risk</li>
-            <li>No refunds for hacked accounts. You are responsible for it.</li>
-            <li>Items dropped at spawn are your own risk. No refunds.</li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No hack clients</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No movement mods</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No inventory mods</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No minimap</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No freecam <small>(Fair Play allowed)</small></span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No auto place</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No easy place</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No macros or scripts</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No bug abusing</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No duping</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No real money trading</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No cross-server trading</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No use of seed</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No crafting modifications</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No external gambling</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>Max. 20 AFK accounts per player</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No ban evasion</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>VPNs are used at your own risk</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No refunds for hacked accounts. You are responsible for it.</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>Items dropped at spawn are your own risk. No refunds.</span></li>
           </ul>
           <p class="note">Thanks for reading.</p>
         </article>
-        <article class="book" id="p2" role="tabpanel" aria-labelledby="tab-chat" hidden>
+        <article class="rules" id="p2" role="tabpanel" aria-labelledby="tab-chat" hidden>
           <ul>
-            <li>No spamming</li><li>No harassment</li><li>No advertising <small>(unless about the server)</small></li>
-            <li>No discrimination or hate speech</li><li>No death threats</li><li>No doxing <small>(private info)</small></li>
-            <li>No impersonation</li><li>No ban evasion</li><li>Do not lie to staff members</li><li>No mute evading</li>
-            <li>Report all bugs and cheaters on Discord (<code>/discord</code>)</li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No spamming</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No harassment</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No advertising <small>(unless about the server)</small></span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No discrimination or hate speech</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No death threats</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No doxing <small>(private info)</small></span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No impersonation</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No ban evasion</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>Do not lie to staff members</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>No mute evading</span></li>
+            <li><svg class="i"><use href="#i-check"/></svg><span>Report bugs and cheaters on Discord (<code>/discord</code>)</span></li>
           </ul>
           <p class="note">Thanks for reading.</p>
         </article>
@@ -424,114 +467,124 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
     </div>
   </section>
 
-  <section id="join">
-    <div class="wrap">
-      <div class="head rv">
-        <span class="eyebrow">Join</span>
+  <section class="section" id="join">
+    <div class="container">
+      <div class="section-head rv">
+        <span class="eyebrow"><svg class="i"><use href="#i-globe"/></svg> Join</span>
         <h2>Two editions, two addresses</h2>
         <p>Pick the one you play on. The version updates itself, so you always know what the server is running.</p>
       </div>
       <div class="join-grid">
         <article class="ed-card rv">
-          <div class="ed-head"><h3>Java Edition</h3><span class="pill">PC / Mac</span></div>
+          <div class="ed-head">
+            <div class="icon-tile" style="margin:0"><svg class="i"><use href="#i-server"/></svg></div>
+            <h3>Java Edition</h3>
+            <span class="badge">PC / Mac</span>
+          </div>
           <ol class="steps">
-            <li>Open Minecraft Java, version <b data-live-version>26.2</b> or below.</li>
-            <li>Go to <kbd>Multiplayer</kbd> then <kbd>Add Server</kbd>.</li>
-            <li>Enter <kbd>Vunilowsmp.net</kbd> as the address and join.</li>
+            <li><span>Open Minecraft Java, version <b data-live-version>26.2</b> or below.</span></li>
+            <li><span>Go to <kbd>Multiplayer</kbd> then <kbd>Add Server</kbd>.</span></li>
+            <li><span>Enter <kbd>Vunilowsmp.net</kbd> as the address and join.</span></li>
           </ol>
-          <button class="inline-copy" type="button" data-copy="Vunilowsmp.net" data-label="Copy Java address">Copy Java address</button>
+          <button class="inline-copy" type="button" data-copy="Vunilowsmp.net" data-label="Copy Java address">
+            <svg class="i"><use href="#i-copy"/></svg> Copy Java address
+          </button>
         </article>
-        <article class="ed-card rv" style="--d:90ms">
-          <div class="ed-head"><h3>Bedrock Edition</h3><span class="pill green">Console / Mobile</span></div>
+        <article class="ed-card rv" style="transition-delay:.06s">
+          <div class="ed-head">
+            <div class="icon-tile" style="margin:0"><svg class="i"><use href="#i-globe"/></svg></div>
+            <h3>Bedrock Edition</h3>
+            <span class="badge green">Console / Mobile</span>
+          </div>
           <ol class="steps">
-            <li>Open Minecraft Bedrock and go to <kbd>Play</kbd> then <kbd>Servers</kbd>.</li>
-            <li>Choose <kbd>Add Server</kbd>.</li>
-            <li>Address <kbd>VunilowSmp.net</kbd>, port <kbd>25565</kbd>, then join.</li>
+            <li><span>Open Minecraft Bedrock and go to <kbd>Play</kbd> then <kbd>Servers</kbd>.</span></li>
+            <li><span>Choose <kbd>Add Server</kbd>.</span></li>
+            <li><span>Address <kbd>VunilowSmp.net</kbd>, port <kbd>25565</kbd>, then join.</span></li>
           </ol>
-          <button class="inline-copy" type="button" data-copy="VunilowSmp.net:25565" data-label="Copy Bedrock address">Copy Bedrock address</button>
+          <button class="inline-copy" type="button" data-copy="VunilowSmp.net:25565" data-label="Copy Bedrock address">
+            <svg class="i"><use href="#i-copy"/></svg> Copy Bedrock address
+          </button>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="faq">
-    <div class="wrap">
-      <div class="head rv">
-        <span class="eyebrow">FAQ</span>
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head rv">
+        <span class="eyebrow"><svg class="i"><use href="#i-chat"/></svg> FAQ</span>
         <h2>Before you jump in</h2>
         <p>The questions that come up most often on the server.</p>
       </div>
       <div class="faq rv">
         <details>
-          <summary>What version do I need?</summary>
-          <p>Java players can join on any version up to the one shown in the server panel at the top of this page. Bedrock players connect through the same address on port <b>25565</b>.</p>
+          <summary>What version do I need?<svg class="i chev"><use href="#i-chev"/></svg></summary>
+          <p>Java players can join on any version up to the one shown in the server panel at the top of this page. Bedrock players connect through the same address on port 25565.</p>
         </details>
         <details>
-          <summary>Can I play from Bedrock?</summary>
-          <p>Yes. Add a server in Minecraft Bedrock with the address <b>Vunilowsmp.net</b> and port <b>25565</b>, then join. Console players may need to allow external servers in their console's network settings.</p>
+          <summary>Can I play from Bedrock?<svg class="i chev"><use href="#i-chev"/></svg></summary>
+          <p>Yes. Add a server in Minecraft Bedrock with the address Vunilowsmp.net and port 25565, then join. Console players may need to allow external servers in their console's network settings.</p>
         </details>
         <details>
-          <summary>Do I need mods?</summary>
-          <p>No &mdash; vanilla clients can join. If you want proximity voice chat, install the Simple Voice Chat mod for your Minecraft version.</p>
+          <summary>Do I need mods?<svg class="i chev"><use href="#i-chev"/></svg></summary>
+          <p>No — vanilla clients can join. If you want proximity voice chat, install the Simple Voice Chat mod for your Minecraft version.</p>
         </details>
         <details>
-          <summary>How do I report a cheater or a bug?</summary>
+          <summary>How do I report a cheater or a bug?<svg class="i chev"><use href="#i-chev"/></svg></summary>
           <p>Run <code>/discord</code> in-game to get the Discord invite, then report it to staff with as much detail as you can.</p>
         </details>
         <details>
-          <summary>Can I bring friends?</summary>
-          <p>Yes. Send them the address, or use the copy button in the <a href="#top">server panel</a> at the top of the page. New players should read the rules first.</p>
+          <summary>Can I bring friends?<svg class="i chev"><use href="#i-chev"/></svg></summary>
+          <p>Yes. Send them the address, or use the copy button in the server panel at the top of the page. New players should read the rules first.</p>
         </details>
       </div>
     </div>
   </section>
 
-  <section id="watch">
-    <div class="wrap">
-      <div class="head rv">
-        <span class="eyebrow">Watch</span>
+  <section class="section" id="watch">
+    <div class="container">
+      <div class="section-head rv">
+        <span class="eyebrow"><svg class="i"><use href="#i-spark"/></svg> Watch</span>
         <h2>Follow the season</h2>
         <p>Builds, fights and everything else that happens on the server gets posted on the channel.</p>
       </div>
       <div class="grid-3">
-        <a class="card watch rv" href="https://www.youtube.com/@VunilowSMP" target="_blank" rel="noopener">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 16 12" xmlns="http://www.w3.org/2000/svg"><rect width="16" height="12" fill="#e5162b"/><path d="M6 3.2 11 6 6 8.8Z" fill="#fff"/></svg></div>
-          <h3>YouTube</h3>
-          <p>Server videos, season recaps and event highlights on the Vunilow SMP channel.</p>
-          <span class="link-arrow">@VunilowSMP &rarr;</span>
+        <a class="watch-card rv" href="https://www.youtube.com/@VunilowSMP" target="_blank" rel="noopener">
+          <span class="watch-icon yt"><svg class="bi"><use href="#i-youtube"/></svg></span>
+          <span class="watch-body"><strong>YouTube</strong><span>@VunilowSMP</span></span>
+          <svg class="i"><use href="#i-external"/></svg>
         </a>
-        <a class="card watch rv" style="--d:80ms" href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener">
-          <div class="ico" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#9146ff"><rect x="0" y="0" width="11" height="8"/><rect x="2" y="8" width="3" height="3"/></g><g fill="#12071f"><rect x="3" y="2" width="1" height="4"/><rect x="6" y="2" width="1" height="4"/></g><rect x="8" y="2" width="1" height="2" fill="#fff"/></svg></div>
-          <h3>Twitch</h3>
-          <p>Live streams straight from the world, whenever a session is on.</p>
-          <span class="link-arrow">vunilowttv &rarr;</span>
+        <a class="watch-card rv" href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener" style="transition-delay:.06s">
+          <span class="watch-icon tw"><svg class="bi"><use href="#i-twitch"/></svg></span>
+          <span class="watch-body"><strong>Twitch</strong><span>vunilowttv</span></span>
+          <svg class="i"><use href="#i-external"/></svg>
         </a>
       </div>
     </div>
   </section>
 
-  <section class="cta-section">
-    <div class="wrap">
-      <div class="cta-band rv">
-        <div>
-          <h2>Grab the IP and hop in</h2>
-          <p>Season 1 is live. Read the rules, then start your first build.</p>
-        </div>
-        <div class="actions">
-          <button class="btn primary" type="button" data-copy="Vunilowsmp.net" data-label="Copy server IP">Copy server IP</button>
-          <a class="btn ghost" href="#rules">Read the rules</a>
-        </div>
+  <section class="container" style="padding-bottom:84px">
+    <div class="cta rv">
+      <div>
+        <h2>Grab the IP and hop in</h2>
+        <p>Season 1 is live. Read the rules, then start your first build.</p>
+      </div>
+      <div class="hero-cta" style="margin:0">
+        <button class="btn btn-primary" type="button" data-copy="Vunilowsmp.net" data-label="Copy server IP">
+          <svg class="i"><use href="#i-copy"/></svg> Copy server IP
+        </button>
+        <a class="btn btn-ghost" href="#rules">Read the rules <svg class="i"><use href="#i-arrow-right"/></svg></a>
       </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <div class="foot-top">
+  <div class="container">
+    <div class="foot">
       <div class="foot-brand">
-        <a class="brand" href="#top"><img src="logo.png" alt="" width="26" height="26">Vunilow<span>Smp</span></a>
-        <p>A shop survival SMP for Java and Bedrock, with proximity voice chat.</p>
+        <a class="brand" href="#top"><img src="logo.png" alt="" width="30" height="30">Vunilow <b>SMP</b></a>
+        <p>A shop survival Minecraft server for Java and Bedrock, with proximity voice chat.</p>
       </div>
       <div>
         <h4>Server</h4>
@@ -540,7 +593,6 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
           <li><a href="#rules">Rules</a></li>
           <li><a href="#join">How to join</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#watch">Watch</a></li>
         </ul>
       </div>
       <div>
@@ -552,35 +604,39 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
       </div>
     </div>
     <div class="legal">
-      <p>&copy; <span id="year">2026</span> Vunilow Smp. All rights reserved.</p>
+      <p>&copy; <span id="year">2026</span> Vunilow SMP. All rights reserved.</p>
       <p>Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft. Minecraft is a trademark of Mojang Synergies AB.</p>
     </div>
   </div>
 </footer>
 
-<button class="to-top" id="toTop" type="button" aria-label="Back to top">&uarr;</button>
+<button class="to-top" id="toTop" type="button" aria-label="Back to top"><svg class="i"><use href="#i-arrow-up"/></svg></button>
 
 <script>
 (function(){
   document.documentElement.classList.add('js');
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $=function(id){return document.getElementById(id)};
+  var icon='<svg class="i"><use href="#i-copy"/></svg>';
+  var tick='<svg class="i"><use href="#i-check"/></svg>';
 
   /* copy buttons */
   document.querySelectorAll('[data-copy]').forEach(function(b){
     var label=b.getAttribute('data-label')||'Copy';
     b.addEventListener('click',function(){
       var done=function(){
-        b.textContent='Copied';
         b.classList.add('ok');
-        setTimeout(function(){b.textContent=label;b.classList.remove('ok')},1600);
+        b.innerHTML=tick+(b.classList.contains('btn')||b.classList.contains('inline-copy')?' Copied':'');
+        setTimeout(function(){
+          b.classList.remove('ok');
+          b.innerHTML=(b.classList.contains('btn')||b.classList.contains('inline-copy')?'<svg class="i"><use href="#i-copy"/></svg> ':'')+label;
+        },1500);
       };
       if(navigator.clipboard&&navigator.clipboard.writeText){
         navigator.clipboard.writeText(b.getAttribute('data-copy')).then(done,done);
       }else{
-        var t=document.createElement('textarea');
-        t.value=b.getAttribute('data-copy');t.style.position='fixed';t.style.opacity='0';
-        document.body.appendChild(t);t.select();
+        var t=document.createElement('textarea');t.value=b.getAttribute('data-copy');
+        t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();
         try{document.execCommand('copy')}catch(e){}
         document.body.removeChild(t);done();
       }
@@ -593,42 +649,30 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
       players=document.querySelector('[data-live-players]'),
       max=document.querySelector('[data-live-max]'),
       soft=document.querySelector('[data-live-soft]'),
-      vers=document.querySelectorAll('[data-live-version]'),
-      running=false;
-  function setVersions(v){vers.forEach(function(el){if(v)el.textContent=v})}
+      vers=document.querySelectorAll('[data-live-version]');
   function paint(s,label,p,m,sw,v){
     dot.className='dot'+(s?' '+s:'');
-    state.className='state'+(s==='off'?' off':'');
+    state.className='status-state'+(s==='off'?' off':'');
     state.textContent=label;
-    if(p!==undefined)players.textContent=p;
-    if(m!==undefined)max.textContent=m;
-    if(sw!==undefined)soft.textContent=sw;
-    if(v)setVersions(v);
+    players.textContent=p;max.textContent=m;soft.textContent=sw;
+    if(v)vers.forEach(function(el){el.textContent=v});
   }
   function poll(){
     fetch('https://api.mcsrvstat.us/3/Vunilowsmp.net',{cache:'no-store'})
       .then(function(r){return r.json()})
       .then(function(d){
         if(d&&d.online){
-          var p=(d.players&&d.players.online)||0,
-              m=(d.players&&d.players.max)||0,
-              v=d.version||'',
-              sw=(d.software||'').replace(/\s+\d[\w.]*$/,'')||'Java';
-          paint('on','Online',p,m,sw,v?'v'+v:'');
-        }else{
-          paint('off','Offline','—','—','—','');
-        }
+          paint('on','Online',(d.players&&d.players.online)||0,(d.players&&d.players.max)||0,
+                (d.software||'Java').replace(/\s+\d[\w.]*$/,''),d.version||'');
+        }else{paint('off','Offline','—','—','—','')}
       })
-      .catch(function(){paint('','Status unknown','—','—','—','')})
-      .then(function(){
-        running=true;
-        setTimeout(poll,60000);
-      });
+      .catch(function(){paint('','Status unavailable','—','—','—','')})
+      .then(function(){setTimeout(poll,60000)});
   }
   if(state)poll();
 
   /* rules tabs */
-  var tabs=Array.prototype.slice.call(document.querySelectorAll('.tabs [role=tab]'));
+  var tabs=[].slice.call(document.querySelectorAll('.tabs [role=tab]'));
   function selectTab(btn){
     tabs.forEach(function(x){
       var on=x===btn;
@@ -639,114 +683,60 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
   tabs.forEach(function(b){
     b.addEventListener('click',function(){selectTab(b)});
     b.addEventListener('keydown',function(e){
-      var i=tabs.indexOf(b);
-      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
-        e.preventDefault();
-        var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];
-        n.focus();selectTab(n);
-      }
+      if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
+      e.preventDefault();
+      var i=tabs.indexOf(b),n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];
+      n.focus();selectTab(n);
     });
   });
 
   /* mobile menu */
-  var bar=$('bar'),burger=$('burger');
+  var header=$('header'),burger=$('burger');
   function closeMenu(){
-    bar.classList.remove('open');
+    header.classList.remove('open');
     burger.setAttribute('aria-expanded','false');
-    burger.setAttribute('aria-label','Open menu');
+    burger.innerHTML='<svg class="i"><use href="#i-menu"/></svg>';
   }
   burger.addEventListener('click',function(){
-    var open=bar.classList.toggle('open');
+    var open=header.classList.toggle('open');
     burger.setAttribute('aria-expanded',open?'true':'false');
-    burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+    burger.innerHTML='<svg class="i"><use href="#'+(open?'i-x':'i-menu')+'"/></svg>';
   });
-  document.querySelectorAll('#menu a').forEach(function(a){a.addEventListener('click',closeMenu)});
+  document.querySelectorAll('#nav a').forEach(function(a){a.addEventListener('click',closeMenu)});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
 
-  /* scroll progress + active link */
-  var prog=$('progress'),links=Array.prototype.slice.call(document.querySelectorAll('[data-nav]')),toTop=$('toTop');
+  /* progress + active link + to top */
+  var prog=$('progress'),links=[].slice.call(document.querySelectorAll('[data-nav]')),toTop=$('toTop');
   function onScroll(){
     var h=document.documentElement.scrollHeight-innerHeight;
     prog.style.width=(h>0?(scrollY/h)*100:0)+'%';
     if(toTop)toTop.classList.toggle('show',scrollY>600);
   }
   addEventListener('scroll',onScroll,{passive:true});onScroll();
-  if(toTop)toTop.addEventListener('click',function(){
-    scrollTo({top:0,behavior:reduce?'auto':'smooth'});
-  });
+  if(toTop)toTop.addEventListener('click',function(){scrollTo({top:0,behavior:reduce?'auto':'smooth'})});
 
-  var secs=[].slice.call(document.querySelectorAll('section[id]'));
+  /* reveal + scroll spy */
   if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:.15});
+    document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+
     var spy=new IntersectionObserver(function(es){
       es.forEach(function(e){
         if(!e.isIntersecting)return;
-        links.forEach(function(a){
-          a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id);
-        });
+        links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)});
       });
     },{rootMargin:'-45% 0px -50% 0px'});
-    secs.forEach(function(s){spy.observe(s)});
-
-    var els=document.querySelectorAll('.rv');
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
-    },{threshold:.12});
-    els.forEach(function(e){io.observe(e)});
+    document.querySelectorAll('section[id]').forEach(function(s){spy.observe(s)});
   }else{
     document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});
   }
-  /* safety net: never leave content hidden if an observer callback is skipped */
   setTimeout(function(){
     document.querySelectorAll('.rv:not(.in)').forEach(function(e){e.classList.add('in')});
   },2500);
 
   $('year').textContent=new Date().getFullYear();
-
-  if(reduce)return;
-
-  /* logo tilt */
-  var stage=$('stage'),tilt=$('tilt');
-  if(stage&&tilt){
-    stage.addEventListener('mousemove',function(e){
-      var r=stage.getBoundingClientRect(),
-          x=(e.clientX-r.left)/r.width-.5,
-          y=(e.clientY-r.top)/r.height-.5;
-      tilt.style.transform='rotateY('+(x*20)+'deg) rotateX('+(-y*20)+'deg)';
-    });
-    stage.addEventListener('mouseleave',function(){tilt.style.transform=''});
-  }
-
-  /* drifting pixels */
-  var c=$('fx');
-  if(!c)return;
-  var ctx=c.getContext('2d'),W=0,H=0,P=[],N=40,raf=null,
-      dpr=Math.min(devicePixelRatio||1,2);
-  function mk(init){
-    var s=(3+Math.random()*6|0)*dpr;
-    return{x:Math.random()*W,y:init?Math.random()*H:H+s,s:s,
-      v:(.15+Math.random()*.4)*dpr,a:.1+Math.random()*.35,
-      h:Math.random()<.35?'#e100ff':'#9400ff',w:Math.random()*6.28};
-  }
-  function init(){
-    W=c.width=innerWidth*dpr;H=c.height=innerHeight*dpr;P=[];
-    for(var k=0;k<N;k++)P.push(mk(true));
-  }
-  function tick(){
-    ctx.clearRect(0,0,W,H);
-    for(var k=0;k<P.length;k++){
-      var p=P[k];p.y-=p.v;p.w+=.01;p.x+=Math.sin(p.w)*.3;
-      if(p.y<-p.s){P[k]=mk(false);continue}
-      ctx.globalAlpha=p.a;ctx.fillStyle=p.h;
-      ctx.fillRect(p.x|0,p.y|0,p.s,p.s);
-    }
-    raf=requestAnimationFrame(tick);
-  }
-  init();tick();
-  addEventListener('resize',init);
-  document.addEventListener('visibilitychange',function(){
-    if(document.hidden){cancelAnimationFrame(raf);raf=null}
-    else if(!raf){tick()}
-  });
 })();
 </script>
 </body>
