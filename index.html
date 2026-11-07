@@ -203,6 +203,20 @@ kbd{font:500 .92rem/1 var(--px);background:#0b0417;border:1px solid var(--line);
 .cta-band h2{font-size:clamp(1.7rem,3.6vw,2.4rem);max-width:20ch}
 .cta-band p{color:var(--muted);margin-top:.5rem}
 
+/* faq + watch */
+.faq{display:grid;gap:.6rem;max-width:54rem}
+.faq details{background:#0d0518;border:1px solid var(--line);transition:border-color .2s}
+.faq details[open]{border-color:#8a3cff}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer;
+  padding:1.05rem 1.25rem;font:700 1rem/1.35 var(--px);list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--magenta);font-size:1.3rem;line-height:1}
+.faq details[open] summary::after{content:"\2013"}
+.faq p{padding:0 1.25rem 1.2rem;margin:0;color:var(--muted);font-size:.98rem;max-width:62ch}
+.card.watch{display:block;color:inherit}
+.card.watch:hover{color:#fff}
+.link-arrow{display:inline-flex;align-items:center;gap:.4rem;margin-top:1.2rem;font:700 .85rem/1 var(--px);color:var(--magenta)}
+
 /* footer */
 footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);font-size:.92rem;background:#08030f}
 .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;margin-bottom:2.2rem}
@@ -264,9 +278,11 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
         <li><a href="#about" data-nav>About</a></li>
         <li><a href="#rules" data-nav>Rules</a></li>
         <li><a href="#join" data-nav>Join</a></li>
+        <li><a href="#faq" data-nav>FAQ</a></li>
+        <li><a href="#watch" data-nav>Watch</a></li>
       </ul>
       <div class="socials">
-        <a class="yt" href="https://www.youtube.com/@vunilow" target="_blank" rel="noopener">YouTube</a>
+        <a class="yt" href="https://www.youtube.com/@VunilowSMP" target="_blank" rel="noopener">YouTube</a>
         <a class="tw" href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener">Twitch</a>
       </div>
     </div>
@@ -421,6 +437,62 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
     </div>
   </section>
 
+  <section id="faq">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">FAQ</span>
+        <h2>Before you jump in</h2>
+        <p>The questions that come up most often on the server.</p>
+      </div>
+      <div class="faq rv">
+        <details>
+          <summary>What version do I need?</summary>
+          <p>Java players can join on any version up to the one shown in the server panel at the top of this page. Bedrock players connect through the same address on port <b>25565</b>.</p>
+        </details>
+        <details>
+          <summary>Can I play from Bedrock?</summary>
+          <p>Yes. Add a server in Minecraft Bedrock with the address <b>Vunilowsmp.net</b> and port <b>25565</b>, then join. Console players may need to allow external servers in their console's network settings.</p>
+        </details>
+        <details>
+          <summary>Do I need mods?</summary>
+          <p>No &mdash; vanilla clients can join. If you want proximity voice chat, install the Simple Voice Chat mod for your Minecraft version.</p>
+        </details>
+        <details>
+          <summary>How do I report a cheater or a bug?</summary>
+          <p>Run <code>/discord</code> in-game to get the Discord invite, then report it to staff with as much detail as you can.</p>
+        </details>
+        <details>
+          <summary>Can I bring friends?</summary>
+          <p>Yes. Send them the address, or use the copy button in the <a href="#top">server panel</a> at the top of the page. New players should read the rules first.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="watch">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Watch</span>
+        <h2>Follow the season</h2>
+        <p>Builds, fights and everything else that happens on the server gets posted on the channel.</p>
+      </div>
+      <div class="grid-3">
+        <a class="card watch rv" href="https://www.youtube.com/@VunilowSMP" target="_blank" rel="noopener">
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 16 12" xmlns="http://www.w3.org/2000/svg"><rect width="16" height="12" fill="#e5162b"/><path d="M6 3.2 11 6 6 8.8Z" fill="#fff"/></svg></div>
+          <h3>YouTube</h3>
+          <p>Server videos, season recaps and event highlights on the Vunilow SMP channel.</p>
+          <span class="link-arrow">@VunilowSMP &rarr;</span>
+        </a>
+        <a class="card watch rv" style="--d:80ms" href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener">
+          <div class="ico" aria-hidden="true"><svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><g fill="#9146ff"><rect x="0" y="0" width="11" height="8"/><rect x="2" y="8" width="3" height="3"/></g><g fill="#12071f"><rect x="3" y="2" width="1" height="4"/><rect x="6" y="2" width="1" height="4"/></g><rect x="8" y="2" width="1" height="2" fill="#fff"/></svg></div>
+          <h3>Twitch</h3>
+          <p>Live streams straight from the world, whenever a session is on.</p>
+          <span class="link-arrow">vunilowttv &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="wrap">
       <div class="cta-band rv">
@@ -450,12 +522,14 @@ footer{border-top:1px solid #ffffff10;padding:3rem 0 2rem;color:var(--muted);fon
           <li><a href="#about">About</a></li>
           <li><a href="#rules">Rules</a></li>
           <li><a href="#join">How to join</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#watch">Watch</a></li>
         </ul>
       </div>
       <div>
         <h4>Follow</h4>
         <ul>
-          <li><a href="https://www.youtube.com/@vunilow" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://www.youtube.com/@VunilowSMP" target="_blank" rel="noopener">YouTube</a></li>
           <li><a href="https://www.twitch.tv/vunilowttv" target="_blank" rel="noopener">Twitch</a></li>
         </ul>
       </div>
