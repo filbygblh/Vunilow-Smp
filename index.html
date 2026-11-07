@@ -117,7 +117,7 @@ h1 em{font-style:normal;display:block;background:linear-gradient(96deg,#d8b4fe,#
 /* status / art card */
 .art-card{position:relative;display:flex;flex-direction:column;overflow:hidden;
   background:linear-gradient(180deg,#14121f,#0c0b12 72%);
-  border:1px solid var(--line);border-radius:var(--r);padding:20px;min-height:400px}
+  border:1px solid var(--line);border-radius:var(--r);padding:20px;min-height:0}
 .art-card::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(420px 260px at 72% 8%,rgba(124,58,237,.34),transparent 66%)}
 .art-head{position:relative;display:flex;align-items:center;gap:9px;padding-bottom:14px;border-bottom:1px solid var(--line)}
@@ -136,7 +136,7 @@ h1 em{font-style:normal;display:block;background:linear-gradient(96deg,#d8b4fe,#
 .chips{position:relative;display:flex;gap:8px;margin-bottom:0}
 .chip-stat{background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:.78rem;color:var(--muted)}
 .chip-stat b{color:var(--text);font-weight:600}
-.ips{position:relative;display:grid;gap:8px;margin-top:auto}
+.ips{position:relative;display:grid;gap:8px;margin-top:16px}
 .ip-row{display:flex;align-items:center;gap:10px;background:rgba(6,6,10,.6);border:1px solid var(--line);
   border-radius:12px;padding:9px 9px 9px 13px;transition:border-color .18s}
 .ip-row:hover{border-color:rgba(177,140,255,.34)}
@@ -270,7 +270,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 30px;margin-top:24px;back
 
 @media(max-width:960px){
   .hero{grid-template-columns:1fr;padding-top:40px}
-  .art-card{min-height:420px;max-width:560px}
+  .art-card{max-width:560px}
   .card.s6{grid-column:span 12}
   .card.s3{grid-column:span 6}
   .join,.watch{grid-template-columns:1fr}
@@ -294,7 +294,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 30px;margin-top:24px;back
     .faq p{padding-left:22px}
     }
 @media(max-width:460px){
-  .art-card{min-height:440px}
+  .art-card{min-height:0}
   .hero-actions .btn{flex:1}
   .count b{font-size:2.6rem}
   .foot{padding-bottom:8px}
