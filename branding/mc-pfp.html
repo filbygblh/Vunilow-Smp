@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<style>
+html,body{margin:0;width:1024px;height:1024px;overflow:hidden}
+body{background:#101010}
+.wrap{width:1024px;height:1024px;display:grid;place-items:center}
+.cube{--s:400px;position:relative;width:var(--s);height:var(--s);transform-style:preserve-3d;transform:rotateX(-24deg) rotateY(-38deg)}
+.cube i{position:absolute;inset:0;display:block;background-image:url(../mc/diamond_block.png);background-size:100% 100%;image-rendering:pixelated}
+.cube i.f{transform:translateZ(calc(var(--s) / 2))}
+.cube i.r{transform:rotateY(90deg) translateZ(calc(var(--s) / 2));filter:brightness(.7)}
+.cube i.t{transform:rotateX(90deg) translateZ(calc(var(--s) / 2));filter:brightness(1.12)}
+</style></head><body>
+<div class="wrap">
+  <div class="cube"><i class="t"></i><i class="f"></i><i class="r"></i></div>
+</div></body></html>
