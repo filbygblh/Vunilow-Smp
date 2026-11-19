@@ -115,9 +115,7 @@ function lvAura(loc, left) {
 }
 
 // ------------------------------------------------------------------- command
-addCommand("lordverity", {
-    onCommand: function(sender, args) {
-        if (!lvIsPlayer(sender)) { sender.sendMessage("§cOnly players can summon Lord Verity."); return; }
+function lvSummon(sender) {
         var name = String(sender.getName());
         var now = Date.now();
         if (lvActive) { sender.sendMessage("§cLord Verity is already here."); return; }
@@ -179,5 +177,17 @@ addCommand("lordverity", {
                 });
             });
         });
+}
+
+addCommand("lordverity", {
+    onCommand: function(sender, args) {
+        if (lvIsPlayer(sender)) { lvSummon(sender); return; }
+        var who = (args && args.length) ? String(args[0]) : "";
+        var target = who === "" ? null : LV_Bukkit.getPlayer(who);
+        if (target === null || !target.isOnline()) {
+            sender.sendMessage("§cConsole usage: /lordverity <player>");
+            return;
+        }
+        lvSummon(target);
     }
 });
