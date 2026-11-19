@@ -1,13 +1,12 @@
-// fishrain.js - /fishrain [player] [waves]
-// Makes it rain LIVE fish: real cod, salmon, tropical fish and pufferfish mobs
-// dropped out of the sky above a player. They fall, flop about, and expire.
+// fishrain.js - /fishrain [player] [count]
+// Rains LIVE fish: real cod, salmon, tropical fish and pufferfish mobs spawned
+// in one burst above the player, so they fall and flop around.
 
 var FR_Bukkit = importClass("org.bukkit.Bukkit");
 var FR_EntityType = importClass("org.bukkit.entity.EntityType");
 
-var FR_WAVES = 5;
-var FR_PER_WAVE = 100;
-var FR_INTERVAL_MS = 400;
+var FR_COUNT = 500;
+var FR_MAX = 2000;
 
 function frLog(what) {
     try { FR_Bukkit.getConsoleSender().sendMessage("[fishrain.js] " + what); } catch (e) {}
@@ -29,30 +28,23 @@ function frTypes() {
     return out;
 }
 
-function frDrop(player, types, stats) {
+function frRain(player, count, types) {
     var world = player.getWorld();
     var base = player.getLocation();
-    for (var i = 0; i < FR_PER_WAVE; i++) {
+    var dropped = 0;
+    var firstError = null;
+    for (var i = 0; i < count; i++) {
         var type = types[0];
         try { type = types[Math.floor(Math.random() * types.length)]; } catch (e) {}
         var ang = Math.random() * Math.PI * 2;
         var rad = Math.random() * 10.0;
         var loc = base.clone().add(Math.cos(ang) * rad, 15 + Math.random() * 12, Math.sin(ang) * rad);
-        try { world.spawnEntity(loc, type); stats.dropped++; }
-        catch (e) { if (stats.error === null) stats.error = String(e); }
+        try { world.spawnEntity(loc, type); dropped++; }
+        catch (e) { if (firstError === null) firstError = String(e); }
     }
-}
-
-function frWave(player, left, types, stats) {
-    if (left <= 0 || !player.isOnline()) {
-        frLog("done: " + stats.dropped + " live fish over " + player.getName() +
-            (stats.error === null ? "" : " (first error: " + stats.error + ")"));
-        return;
-    }
-    task.delay(FR_INTERVAL_MS, function() {
-        task.main(function() { frDrop(player, types, stats); });
-        frWave(player, left - 1, types, stats);
-    });
+    frLog(dropped + "/" + count + " live fish over " + player.getName() +
+        (firstError === null ? "" : " (first error: " + firstError + ")"));
+    return dropped;
 }
 
 addCommand("fishrain", {
@@ -66,19 +58,18 @@ addCommand("fishrain", {
                 if (online.length === 1) who = online[0];
             }
         }
-        if (who === null) { sender.sendMessage("Usage: /fishrain <player> [waves]"); return; }
+        if (who === null) { sender.sendMessage("Usage: /fishrain <player> [count]"); return; }
 
-        var waves = FR_WAVES;
+        var count = FR_COUNT;
         if (args && args.length > 1) {
             var n = parseInt(String(args[1]), 10);
-            if (!isNaN(n) && n > 0) waves = Math.min(n, 20);
+            if (!isNaN(n) && n > 0) count = Math.min(n, FR_MAX);
         }
 
         var types = frTypes();
         if (types.length === 0) { sender.sendMessage("No fish entity types available."); return; }
 
-        frLog("starting " + (waves * FR_PER_WAVE) + " LIVE fish over " + who.getName());
-        frWave(who, waves, types, { dropped: 0, error: null });
-        sender.sendMessage("Live fish incoming on " + who.getName() + ".");
+        var dropped = frRain(who, count, types);
+        sender.sendMessage("Rained " + dropped + " live fish on " + who.getName() + ".");
     }
 });
