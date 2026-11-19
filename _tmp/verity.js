@@ -106,10 +106,12 @@ function lvBurst(loc) {
 function lvAura(loc, left) {
     if (left <= 0) return;
     task.delay(20, function() {
-        if (!lvActive || lvWhere === null) return;
-        try {
-            loc.getWorld().spawnParticle(LV_Particle.SOUL, lvWhere.clone().add(0, 1.2, 0), 3, 0.45, 0.9, 0.45, 0.01);
-        } catch (e) {}
+        task.main(function() {
+            if (!lvActive || lvWhere === null) return;
+            try {
+                lvWhere.getWorld().spawnParticle(LV_Particle.SOUL, lvWhere.clone().add(0, 1.2, 0), 3, 0.45, 0.9, 0.45, 0.01);
+            } catch (e) {}
+        });
         lvAura(loc, left - 20);
     });
 }
