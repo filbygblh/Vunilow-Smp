@@ -126,17 +126,29 @@ function lvAura(left) {
     });
 }
 
+// Cut the track for everyone close enough to hear it. Player#stopSound(String)
+// is the overload that resolves cleanly here; failures are ignored on purpose.
+function lvSilence(loc) {
+    var arr = lvOnline();
+    for (var i = 0; i < arr.length; i++) {
+        try {
+            if (loc !== null && arr[i].getWorld().equals(loc.getWorld()) &&
+                arr[i].getLocation().distance(loc) <= 80) {
+                arr[i].stopSound(LV_PACK_SOUND);
+            }
+        } catch (e) {}
+    }
+}
+
 function lvDismiss() {
     if (!lvActive) return;
-    try {
-        if (lvWhere !== null) {
-            lvWhere.getWorld().stopSound(lvWhere, LV_PACK_SOUND, LV_SoundCategory.RECORDS);
-            lvBurst(lvWhere);
-            lvPark(lvWhere);
-        }
-    } catch (e) { lvLog("dismiss", e); }
+    var loc = lvWhere;
     lvWhere = null;
     lvActive = false;
+    if (loc === null) return;
+    try { lvSilence(loc); } catch (e) { lvLog("silence", e); }
+    try { lvBurst(loc); } catch (e) {}
+    try { lvPark(loc); } catch (e) { lvLog("park", e); }
 }
 
 // ------------------------------------------------------------------- command
